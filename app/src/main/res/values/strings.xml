@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">JetpackComposePlayground</string>
+    <string name="portfolio_title">Android Compose Portfolio</string>
+
+    <!-- Dice Roller -->
+    <string name="dice_roller_title">Dice Roller</string>
+    <string name="roll_dice">Zar At</string>
+
+    <!-- Lemonade -->
+    <string name="lemonade_title">Lemonade</string>
+    <string name="lemon_select_text">Limon ağacından limon seçmek için tıkla!</string>
+    <string name="lemon_squeeze_text">Suyu sıkmak için limona bas (%1$d/%2$d)!</string>
+    <string name="lemon_drink_text">Limonatayı içmek için bardağa tıkla!</string>
+    <string name="lemon_restart_text">Boş bardağı yenilemek için tıkla!</string>
+
+    <!-- Tip Calculator -->
+    <string name="tip_calculator_title">Tip Calculator</string>
+    <string name="bill_amount_label">Fatura Tutarı (₺)</string>
+    <string name="tip_percentage_label">Bahşiş Oranı (%)</string>
+    <string name="calculated_tip_label">Hesaplanan Bahşiş:</string>
+
+    <!-- App Descriptions & Categories -->
+    <string name="dice_roller_desc">Zar atma uygulaması. Rastgele 1-6 arası zar değerleri üretir, görsel ve durum yönetimini gösterir.</string>
+    <string name="category_basit_ui">Basit UI &amp; Durum</string>
+
+    <string name="lemonade_desc">Limonata yapım aşamaları. Tıklama sayaçları ve durum makineleri (State Machine) kullanımını öğretir.</string>
+    <string name="category_state_machine">State Machine</string>
+
+    <string name="tip_calc_desc">Bahşiş hesaplayıcı. TextField girdileri, sayısal hesaplamalar ve kullanıcı etkileşimi.</string>
+    <string name="category_forms">Formlar &amp; Hesaplama</string>
+
+    <!-- General -->
+    <string name="back_button">Geri</string>
+</resources>
