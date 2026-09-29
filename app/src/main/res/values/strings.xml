@@ -4,7 +4,7 @@
 
     <!-- Dice Roller -->
     <string name="dice_roller_title">Dice Roller</string>
-    <string name="roll_dice">Zar At</string>
+    <string name="roll_dice">Roll</string>
 
     <!-- Lemonade -->
     <string name="lemonade_title">Lemonade</string>
@@ -19,15 +19,15 @@
     <string name="tip_percentage_label">Bahşiş Oranı (%)</string>
     <string name="calculated_tip_label">Hesaplanan Bahşiş:</string>
 
-    <!-- App Descriptions & Categories -->
-    <string name="dice_roller_desc">Zar atma uygulaması. Rastgele 1-6 arası zar değerleri üretir, görsel ve durum yönetimini gösterir.</string>
-    <string name="category_basit_ui">Basit UI &amp; Durum</string>
+    <!-- Educational App Descriptions & Categories -->
+    <string name="dice_roller_desc">Bu uygulamada; remember ve mutableStateOf ile Compose\'da durum yönetimini (State), Random ile rastgele veri üretimini ve dinamik görsel (Drawable) güncellemelerini öğrendik.</string>
+    <string name="category_basit_ui">State &amp; UI</string>
 
-    <string name="lemonade_desc">Limonata yapım aşamaları. Tıklama sayaçları ve durum makineleri (State Machine) kullanımını öğretir.</string>
+    <string name="lemonade_desc">Bu uygulamada; çok aşamalı kullanıcı akışlarını yönetmek için State Machine mantığını, koşullu UI render etmeyi ve tıklama sayaçları ile state güncellemelerini öğrendik.</string>
     <string name="category_state_machine">State Machine</string>
 
-    <string name="tip_calc_desc">Bahşiş hesaplayıcı. TextField girdileri, sayısal hesaplamalar ve kullanıcı etkileşimi.</string>
-    <string name="category_forms">Formlar &amp; Hesaplama</string>
+    <string name="tip_calc_desc">Bu uygulamada; OutlinedTextField ile kullanıcıdan sayısal girdi almayı, KeyboardOptions ile klavye yönetimini ve NumberFormat ile para birimi formatlamayı öğrendik.</string>
+    <string name="category_forms">Forms &amp; Input</string>
 
     <!-- General -->
     <string name="back_button">Geri</string>
