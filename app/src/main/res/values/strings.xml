@@ -18,6 +18,9 @@
     <string name="bill_amount_label">Fatura Tutarı (₺)</string>
     <string name="tip_percentage_label">Bahşiş Oranı (%)</string>
     <string name="calculated_tip_label">Hesaplanan Bahşiş:</string>
+    <string name="calculated_tip_person">Kişi Sayısı</string>
+    <string name="round_up_tip">Bahşişi Yuvarla</string>
+
 
     <!-- Educational App Descriptions & Categories -->
     <string name="dice_roller_desc">Bu uygulamada; remember ve mutableStateOf ile Compose\'da durum yönetimini (State), Random ile rastgele veri üretimini ve dinamik görsel (Drawable) güncellemelerini öğrendik.</string>

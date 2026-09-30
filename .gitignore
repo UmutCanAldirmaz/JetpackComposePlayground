@@ -38,6 +38,7 @@ local.properties
 .idea/compiler.xml
 .idea/vcs.xml
 .idea/AndroidProjectSystem.xml
+.idea/deviceManager.xml
 
 # Intellij project files
 *.iml
