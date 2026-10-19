@@ -21,6 +21,72 @@
     <string name="calculated_tip_person">Kişi Sayısı</string>
     <string name="round_up_tip">Bahşişi Yuvarla</string>
 
+    <!-- Art Space -->
+    <string name="art_space_title">Art Space</string>
+    <string name="art_space_desc">Bu uygulamada; Box, Card ve Column bileşenleriyle görsel sergi kartları tasarlamayı ve durum (State) yönetimiyle önceki/sonraki sanat eseri geçişlerini öğrendik.</string>
+    <string name="category_layout">Layout &amp; State</string>
+    <string name="previous_button">Önceki</string>
+    <string name="next_button">Sonraki</string>
+
+    <string name="artwork_1_title">Danaë</string>
+    <string name="artwork_1_artist">Gustav Klimt (1907)</string>
+    <string name="artwork_2_title">Life and Death</string>
+    <string name="artwork_2_artist">Gustav Klimt (1908–1911)</string>
+    <string name="artwork_3_title">The Kiss</string>
+    <string name="artwork_3_artist">Gustav Klimt (1907–1908)</string>
+    <string name="artwork_4_title">The Great Wave off Kanagawa</string>
+    <string name="artwork_4_artist">Katsushika Hokusai (1831)</string>
+    <string name="artwork_5_title">The Starry Night</string>
+    <string name="artwork_5_artist">Vincent van Gogh (1889)</string>
+
+    <!-- Affirmations -->
+    <string name="affirmations_title">Affirmations</string>
+    <string name="affirmations_desc">Bu uygulamada; LazyColumn kullanarak kaydırılabilir listeler oluşturmayı, Card ve Item bileşenleriyle listeleme mantığını öğrendik.</string>
+    <string name="affirmation_1">Güne pozitif ve umut dolu başla.</string>
+    <string name="affirmation_2">Her zorluk yeni bir öğrenme fırsatıdır.</string>
+    <string name="affirmation_3">Kendine inan ve asla pes etme.</string>
+    <string name="affirmation_4">Bugün harika şeyler başarabilirsin.</string>
+    <string name="affirmation_5">Huzur içimizden gelir, dışarıda aramayın.</string>
+    <string name="affirmation_6">Her adım seni hedefine daha çok yaklaştırır.</string>
+
+    <!-- Woof -->
+    <string name="woof_title">Woof</string>
+    <string name="woof_desc">Bu uygulamada; sevimli köpek profillerini listeleyen, Material Design 3 kartları ve özel tipografi kullanan modern liste tasarımları yaptık.</string>
+    <string name="dog_name_1">Koda</string>
+    <string name="dog_age_1">2 yaşında</string>
+    <string name="dog_name_2">Lola</string>
+    <string name="dog_age_2">16 yaşında</string>
+    <string name="dog_name_3">Frankie</string>
+    <string name="dog_age_3">2 yaşında</string>
+    <string name="dog_name_4">Nox</string>
+    <string name="dog_age_4">8 yaşında</string>
+    <string name="dog_name_5">Faye</string>
+    <string name="dog_age_5">8 yaşında</string>
+    <string name="dog_name_6">Bella</string>
+    <string name="dog_age_6">14 yaşında</string>
+    <string name="about">Hakkında</string>
+    <string name="dog_description_1">Koda, doğayı ve dağ yürüyüşlerini çok sever. Sahibiyle birlikte kamp yapmaktan ve yeni yerler keşfetmekten zevk alır.</string>
+    <string name="dog_description_2">Lola, uykuyu ve güneşlenmeyi seven yaşlı ve sevimli bir dosttur. Günün büyük kısmını yastığında dinlenerek geçirir.</string>
+    <string name="dog_description_3">Frankie, enerjik ve oyuncu bir köpektir. Top yakalamaya bayılır ve parkta koşmayı çok sever.</string>
+    <string name="dog_description_4">Nox, sakin ve sadık bir korumadır. Akşamları sahibinin yanında oturup televizyon izlemeyi sever.</string>
+    <string name="dog_description_5">Faye, neşeli ve dost canlısı bir köpektir. Çocuklarla oynamaktan ve yeni arkadaşlar edinmekten mutlu olur.</string>
+    <string name="dog_description_6">Bella, nazik ve akıllı bir köpektir. Komutları öğrenmeyi ve ödül mamaları almayı çok sever.</string>
+
+    <!-- SuperHeroes -->
+    <string name="superheroes_title">SuperHeroes</string>
+    <string name="superheroes_desc">Bu uygulamada; süper kahraman kartları, kahraman özellikleri ve kahraman görselleriyle Material Design 3 liste tasarımları oluşturduk.</string>
+    <string name="hero_name_1">Android Süper Kahramanı 1</string>
+    <string name="hero_desc_1">Kod optimizasyonunda ve hızlı geliştirmede üstün yetenekler.</string>
+    <string name="hero_name_2">Android Süper Kahramanı 2</string>
+    <string name="hero_desc_2">Hafıza sızıntılarını anında tespit edip yok eder.</string>
+    <string name="hero_name_3">Android Süper Kahramanı 3</string>
+    <string name="hero_desc_3">Jetpack Compose ile piksel kusursuz UI tasarımları üretir.</string>
+    <string name="hero_name_4">Android Süper Kahramanı 4</string>
+    <string name="hero_desc_4">Asenkron işlemleri Coroutines ile kusursuz yönetir.</string>
+    <string name="hero_name_5">Android Süper Kahramanı 5</string>
+    <string name="hero_desc_5">Mimari desenleri titizlikle uygular.</string>
+    <string name="hero_name_6">Android Süper Kahramanı 6</string>
+    <string name="hero_desc_6">Kapsamlı test senaryolarıyla sıfır hata garantisi sunar.</string>
 
     <!-- Educational App Descriptions & Categories -->
     <string name="dice_roller_desc">Bu uygulamada; remember ve mutableStateOf ile Compose\'da durum yönetimini (State), Random ile rastgele veri üretimini ve dinamik görsel (Drawable) güncellemelerini öğrendik.</string>

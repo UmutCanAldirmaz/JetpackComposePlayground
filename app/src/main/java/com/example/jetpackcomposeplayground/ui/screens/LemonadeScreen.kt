@@ -5,12 +5,30 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -18,14 +36,17 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeplayground.R
 import kotlin.random.Random
 
+
+@Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LemonadeScreen(
-    onBackClick: () -> Unit,
+    onBackClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     BackHandler(onBack = onBackClick)
@@ -36,7 +57,11 @@ fun LemonadeScreen(
 
     val (instructionText, imageRes) = when (step) {
         1 -> Pair(stringResource(R.string.lemon_select_text), R.drawable.lemon_tree)
-        2 -> Pair(stringResource(R.string.lemon_squeeze_text, squeezeCount, requiredSqueezes), R.drawable.lemon_squeeze)
+        2 -> Pair(
+            stringResource(R.string.lemon_squeeze_text, squeezeCount, requiredSqueezes),
+            R.drawable.lemon_squeeze
+        )
+
         3 -> Pair(stringResource(R.string.lemon_drink_text), R.drawable.lemon_drink)
         else -> Pair(stringResource(R.string.lemon_restart_text), R.drawable.lemon_restart)
     }
@@ -72,7 +97,11 @@ fun LemonadeScreen(
             Box(
                 modifier = Modifier
                     .clip(RoundedCornerShape(32.dp))
-                    .border(2.dp, MaterialTheme.colorScheme.primary.copy(alpha = 0.5f), RoundedCornerShape(32.dp))
+                    .border(
+                        2.dp,
+                        MaterialTheme.colorScheme.primary.copy(alpha = 0.5f),
+                        RoundedCornerShape(32.dp)
+                    )
                     .background(MaterialTheme.colorScheme.tertiaryContainer.copy(alpha = 0.3f))
                     .clickable {
                         when (step) {
@@ -81,15 +110,18 @@ fun LemonadeScreen(
                                 squeezeCount = 0
                                 requiredSqueezes = Random.nextInt(2, 5)
                             }
+
                             2 -> {
                                 squeezeCount++
                                 if (squeezeCount >= requiredSqueezes) {
                                     step = 3
                                 }
                             }
+
                             3 -> {
                                 step = 4
                             }
+
                             4 -> {
                                 step = 1
                             }
