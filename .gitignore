@@ -57,3 +57,4 @@ Thumbs.db
 # Assistant artifacts and scratch files
 .artifacts/
 scratch/
+.kotlin/
