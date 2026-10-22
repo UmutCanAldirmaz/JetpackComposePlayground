@@ -13,7 +13,8 @@ enum class AppRoute {
     SUPER_HEROES,
     EXERCISE,
     COUNTER_EXERCISE,
-    DESSERT_CLICKER
+    DESSERT_CLICKER,
+    LAZY_GRID_PRACTICE
 }
 
 data class PracticeApp(
@@ -83,5 +84,11 @@ val practiceAppList = listOf(
         titleRes = R.string.dessert_clicker_title,
         descriptionRes = R.string.dessert_clicker_desc,
         categoryRes = R.string.category_state_machine
+    ),
+    PracticeApp(
+        id = AppRoute.LAZY_GRID_PRACTICE,
+        titleRes = R.string.lazy_grid_practice_title,
+        descriptionRes = R.string.lazy_grid_practice_desc,
+        categoryRes = R.string.category_grids
     )
 )

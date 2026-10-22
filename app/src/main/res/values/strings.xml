@@ -109,11 +109,18 @@
 
     <!-- Dessert Clicker -->
     <string name="dessert_clicker_title">Dessert Clicker</string>
-    <string name="dessert_clicker_desc">Bu uygulamada; State yönetimi, tıklama olayları, paylaşım (Intent) ve dinamik tatlı geçiş mantığını öğrendik.</string>
+    <string name="dessert_clicker_desc">Bu uygulamada; Android yaşam döngüsünü (Android Lifecycle) keşfetmeyi ve Logcat konsolu üzerinden yaşam döngüsü loglarını izlemeyi öğrendik.</string>
     <string name="desserts_sold">Satılan Tatlı:</string>
     <string name="total_revenue">Toplam Gelir:</string>
     <string name="share">Paylaş</string>
     <string name="share_text">%d adet tatlı satılarak toplam ₺%d gelir elde edildi!</string>
+    <string name="dessert_sold">Desserts Sold</string>
+    <string name="sharing_not_available">Sharing not available</string>
+
+    <!-- Lazy Grid Practice -->
+    <string name="lazy_grid_practice_title">Lazy Grid Practice</string>
+    <string name="lazy_grid_practice_desc">Bu uygulamada; LazyVerticalGrid (Adaptive, maxLineSpan ile 5\'in katları tam satır) ve LazyHorizontalGrid (Fixed(3) satır, yatay kaydırma) yapılarını öğrendik.</string>
+    <string name="category_grids">Grids &amp; Layout</string>
 
     <!-- General -->
     <string name="back_button">Geri</string>
