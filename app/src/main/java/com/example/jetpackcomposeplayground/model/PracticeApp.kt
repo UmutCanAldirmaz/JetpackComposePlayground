@@ -10,7 +10,10 @@ enum class AppRoute {
     ART_SPACE,
     AFFIRMATIONS,
     WOOF,
-    SUPER_HEROES
+    SUPER_HEROES,
+    EXERCISE,
+    COUNTER_EXERCISE,
+    DESSERT_CLICKER
 }
 
 data class PracticeApp(
@@ -62,5 +65,23 @@ val practiceAppList = listOf(
         titleRes = R.string.superheroes_title,
         descriptionRes = R.string.superheroes_desc,
         categoryRes = R.string.category_layout
+    ),
+    PracticeApp(
+        id = AppRoute.EXERCISE,
+        titleRes = R.string.exercise_title,
+        descriptionRes = R.string.exercise_desc,
+        categoryRes = R.string.category_sandbox
+    ),
+    PracticeApp(
+        id = AppRoute.COUNTER_EXERCISE,
+        titleRes = R.string.counter_exercise_title,
+        descriptionRes = R.string.counter_exercise_desc,
+        categoryRes = R.string.category_state_machine
+    ),
+    PracticeApp(
+        id = AppRoute.DESSERT_CLICKER,
+        titleRes = R.string.dessert_clicker_title,
+        descriptionRes = R.string.dessert_clicker_desc,
+        categoryRes = R.string.category_state_machine
     )
 )

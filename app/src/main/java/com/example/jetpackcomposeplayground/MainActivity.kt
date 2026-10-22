@@ -8,7 +8,10 @@ import androidx.compose.runtime.*
 import com.example.jetpackcomposeplayground.model.AppRoute
 import com.example.jetpackcomposeplayground.ui.screens.AffirmationsScreen
 import com.example.jetpackcomposeplayground.ui.screens.ArtSpaceScreen
+import com.example.jetpackcomposeplayground.ui.screens.CounterScreen
+import com.example.jetpackcomposeplayground.ui.screens.DessertClickerScreen
 import com.example.jetpackcomposeplayground.ui.screens.DiceRollerScreen
+import com.example.jetpackcomposeplayground.ui.screens.ExerciseScreen
 import com.example.jetpackcomposeplayground.ui.screens.HomeScreen
 import com.example.jetpackcomposeplayground.ui.screens.LemonadeScreen
 import com.example.jetpackcomposeplayground.ui.screens.SuperHeroesScreen
@@ -76,6 +79,27 @@ class MainActivity : ComponentActivity() {
                     }
                     AppRoute.SUPER_HEROES -> {
                         SuperHeroesScreen(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.EXERCISE -> {
+                        ExerciseScreen(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.COUNTER_EXERCISE -> {
+                        CounterScreen(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.DESSERT_CLICKER -> {
+                        DessertClickerScreen(
                             onBackClick = {
                                 currentRoute = AppRoute.HOME
                             }
