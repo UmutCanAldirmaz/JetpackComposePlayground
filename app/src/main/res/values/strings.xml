@@ -122,6 +122,15 @@
     <string name="lazy_grid_practice_desc">Bu uygulamada; LazyVerticalGrid (Adaptive, maxLineSpan ile 5\'in katları tam satır) ve LazyHorizontalGrid (Fixed(3) satır, yatay kaydırma) yapılarını öğrendik.</string>
     <string name="category_grids">Grids &amp; Layout</string>
 
+    <!-- Lazy List State Practice -->
+    <string name="lazy_list_state_practice_title">Lazy List State Control</string>
+    <string name="lazy_list_state_practice_desc">Bu uygulamada; LazyListState ile belirli bir indekse anında (scrollToItem) veya animasyonlu (animateScrollToItem) kaydırma ve visibleItemsInfo ile görünür öğe sayısını izlemeyi öğrendik.</string>
+
+    <!-- Advanced Lazy Lists Practice -->
+    <string name="advanced_lazy_lists_practice_title">Advanced Lazy Lists</string>
+    <string name="advanced_lazy_lists_practice_desc">Bu uygulamada; LazyRow ile yatay filtre çubuğu (spacedBy, contentPadding) ve tek bir LazyColumn içinde header, items ve footer (Rapor Sonu) birleştirmeyi öğrendik.</string>
+    <string name="category_advanced_lists">Lists &amp; States</string>
+
     <!-- General -->
     <string name="back_button">Geri</string>
 </resources>

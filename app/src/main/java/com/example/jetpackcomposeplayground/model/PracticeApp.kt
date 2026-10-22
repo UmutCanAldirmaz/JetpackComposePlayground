@@ -7,14 +7,16 @@ enum class AppRoute {
     DICE_ROLLER,
     LEMONADE,
     TIP_CALCULATOR,
-    ART_SPACE,
     AFFIRMATIONS,
     WOOF,
     SUPER_HEROES,
-    EXERCISE,
-    COUNTER_EXERCISE,
+    ART_SPACE,
     DESSERT_CLICKER,
-    LAZY_GRID_PRACTICE
+    COUNTER_EXERCISE,
+    LAZY_GRID_PRACTICE,
+    LAZY_LIST_STATE_PRACTICE,
+    ADVANCED_LAZY_LISTS_PRACTICE,
+    EXERCISE
 }
 
 data class PracticeApp(
@@ -25,6 +27,7 @@ data class PracticeApp(
 )
 
 val practiceAppList = listOf(
+    // === UNIT 1 & 2: Temel Compose & Layouts ===
     PracticeApp(
         id = AppRoute.DICE_ROLLER,
         titleRes = R.string.dice_roller_title,
@@ -43,12 +46,8 @@ val practiceAppList = listOf(
         descriptionRes = R.string.tip_calc_desc,
         categoryRes = R.string.category_forms
     ),
-    PracticeApp(
-        id = AppRoute.ART_SPACE,
-        titleRes = R.string.art_space_title,
-        descriptionRes = R.string.art_space_desc,
-        categoryRes = R.string.category_layout
-    ),
+
+    // === UNIT 3: Display Lists & Material Design ===
     PracticeApp(
         id = AppRoute.AFFIRMATIONS,
         titleRes = R.string.affirmations_title,
@@ -67,17 +66,13 @@ val practiceAppList = listOf(
         descriptionRes = R.string.superheroes_desc,
         categoryRes = R.string.category_layout
     ),
+
+    // === UNIT 4: Navigation & Android Lifecycle ===
     PracticeApp(
-        id = AppRoute.EXERCISE,
-        titleRes = R.string.exercise_title,
-        descriptionRes = R.string.exercise_desc,
-        categoryRes = R.string.category_sandbox
-    ),
-    PracticeApp(
-        id = AppRoute.COUNTER_EXERCISE,
-        titleRes = R.string.counter_exercise_title,
-        descriptionRes = R.string.counter_exercise_desc,
-        categoryRes = R.string.category_state_machine
+        id = AppRoute.ART_SPACE,
+        titleRes = R.string.art_space_title,
+        descriptionRes = R.string.art_space_desc,
+        categoryRes = R.string.category_layout
     ),
     PracticeApp(
         id = AppRoute.DESSERT_CLICKER,
@@ -85,10 +80,40 @@ val practiceAppList = listOf(
         descriptionRes = R.string.dessert_clicker_desc,
         categoryRes = R.string.category_state_machine
     ),
+
+    // === UNIT 5: Architecture Components (ViewModel & StateFlow) ===
+    PracticeApp(
+        id = AppRoute.COUNTER_EXERCISE,
+        titleRes = R.string.counter_exercise_title,
+        descriptionRes = R.string.counter_exercise_desc,
+        categoryRes = R.string.category_state_machine
+    ),
+
+    // === UNIT 6: Advanced Lists, Grids & State Control ===
     PracticeApp(
         id = AppRoute.LAZY_GRID_PRACTICE,
         titleRes = R.string.lazy_grid_practice_title,
         descriptionRes = R.string.lazy_grid_practice_desc,
         categoryRes = R.string.category_grids
+    ),
+    PracticeApp(
+        id = AppRoute.LAZY_LIST_STATE_PRACTICE,
+        titleRes = R.string.lazy_list_state_practice_title,
+        descriptionRes = R.string.lazy_list_state_practice_desc,
+        categoryRes = R.string.category_grids
+    ),
+    PracticeApp(
+        id = AppRoute.ADVANCED_LAZY_LISTS_PRACTICE,
+        titleRes = R.string.advanced_lazy_lists_practice_title,
+        descriptionRes = R.string.advanced_lazy_lists_practice_desc,
+        categoryRes = R.string.category_advanced_lists
+    ),
+
+    // === LAB & SANDBOX ===
+    PracticeApp(
+        id = AppRoute.EXERCISE,
+        titleRes = R.string.exercise_title,
+        descriptionRes = R.string.exercise_desc,
+        categoryRes = R.string.category_sandbox
     )
 )

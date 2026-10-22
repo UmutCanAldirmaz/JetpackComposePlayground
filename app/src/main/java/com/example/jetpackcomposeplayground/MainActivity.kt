@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.*
 import com.example.jetpackcomposeplayground.model.AppRoute
+import com.example.jetpackcomposeplayground.ui.screens.AdvancedLazyListsScreen
 import com.example.jetpackcomposeplayground.ui.screens.AffirmationsScreen
 import com.example.jetpackcomposeplayground.ui.screens.ArtSpaceScreen
 import com.example.jetpackcomposeplayground.ui.screens.CounterScreen
@@ -15,6 +16,7 @@ import com.example.jetpackcomposeplayground.ui.screens.DiceRollerScreen
 import com.example.jetpackcomposeplayground.ui.screens.ExerciseScreen
 import com.example.jetpackcomposeplayground.ui.screens.HomeScreen
 import com.example.jetpackcomposeplayground.ui.screens.LazyGridPracticeScreen
+import com.example.jetpackcomposeplayground.ui.screens.LazyListStatePracticeScreen
 import com.example.jetpackcomposeplayground.ui.screens.LemonadeScreen
 import com.example.jetpackcomposeplayground.ui.screens.SuperHeroesScreen
 import com.example.jetpackcomposeplayground.ui.screens.TipCalculatorScreen
@@ -117,6 +119,20 @@ class MainActivity : ComponentActivity() {
                             }
                         )
                     }
+                    AppRoute.LAZY_LIST_STATE_PRACTICE -> {
+                        LazyListStatePracticeScreen(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.ADVANCED_LAZY_LISTS_PRACTICE -> {
+                        AdvancedLazyListsScreen(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
                 }
             }
         }
@@ -129,7 +145,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onResume() {
         super.onResume()
-        Log.d(TAG, "onResume Called")
+        Log.d(TAG, "onResume Grade/Resume")
     }
 
     override fun onRestart() {
