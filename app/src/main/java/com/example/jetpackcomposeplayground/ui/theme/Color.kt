@@ -15,7 +15,7 @@ val OnSecondaryContainerLight = Color(0xFF134E4A)
 
 val TertiaryLight = Color(0xFFEA580C) // Vibrant Coral/Orange
 val OnTertiaryLight = Color(0xFFFFFFFF)
-val TertiaryContainerLight = Color(0xFFFFEDD5)
+val TertiaryContainerLight = Color(0xFFB0FAFD)
 val OnTertiaryContainerLight = Color(0xFF7C2D12)
 
 val BackgroundLight = Color(0xFFF8FAFC)
