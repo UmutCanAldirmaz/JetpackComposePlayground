@@ -98,6 +98,23 @@
     <string name="tip_calc_desc">Bu uygulamada; OutlinedTextField ile kullanıcıdan sayısal girdi almayı, KeyboardOptions ile klavye yönetimini ve NumberFormat ile para birimi formatlamayı öğrendik.</string>
     <string name="category_forms">Forms &amp; Input</string>
 
+    <!-- Exercise / Sandbox -->
+    <string name="exercise_title">Exercise Sandbox</string>
+    <string name="exercise_desc">Bu sayfada yeni Compose denemelerinizi, özel bileşenlerinizi ve interaktif UI testlerinizi özgürce deneyebilirsiniz.</string>
+    <string name="category_sandbox">Sandbox &amp; Lab</string>
+
+    <!-- Counter Exercise -->
+    <string name="counter_exercise_title">Lifecycle Counter</string>
+    <string name="counter_exercise_desc">Bu egzersizde; ViewModel, StateFlow ve collectAsStateWithLifecycle kullanarak arka plana atıldığında duran coroutine sayacını inceledik.</string>
+
+    <!-- Dessert Clicker -->
+    <string name="dessert_clicker_title">Dessert Clicker</string>
+    <string name="dessert_clicker_desc">Bu uygulamada; State yönetimi, tıklama olayları, paylaşım (Intent) ve dinamik tatlı geçiş mantığını öğrendik.</string>
+    <string name="desserts_sold">Satılan Tatlı:</string>
+    <string name="total_revenue">Toplam Gelir:</string>
+    <string name="share">Paylaş</string>
+    <string name="share_text">%d adet tatlı satılarak toplam ₺%d gelir elde edildi!</string>
+
     <!-- General -->
     <string name="back_button">Geri</string>
 </resources>
