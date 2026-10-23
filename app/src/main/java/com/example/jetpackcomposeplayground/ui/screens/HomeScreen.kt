@@ -34,14 +34,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.jetpackcomposeplayground.R
 import com.example.jetpackcomposeplayground.model.AppRoute
 import com.example.jetpackcomposeplayground.model.practiceAppList
 
+@Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    onAppSelected: (AppRoute) -> Unit,
+    onAppSelected: (AppRoute) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Scaffold(
@@ -155,7 +157,8 @@ fun HomeScreen(
                                 text = stringResource(app.titleRes),
                                 style = MaterialTheme.typography.titleLarge,
                                 fontWeight = FontWeight.Bold,
-                                color = MaterialTheme.colorScheme.primary
+                                color = MaterialTheme.colorScheme.primary,
+                                modifier = Modifier.weight(1f).padding(end = 8.dp)
                             )
                             Surface(
                                 color = MaterialTheme.colorScheme.secondaryContainer,

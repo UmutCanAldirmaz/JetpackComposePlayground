@@ -17,6 +17,7 @@ enum class AppRoute {
     LAZY_LIST_STATE_PRACTICE,
     ADVANCED_LAZY_LISTS_PRACTICE,
     ORDER_HISTORY,
+    DYNAMIC_LIST_ANIMATIONS,
     EXERCISE
 }
 
@@ -114,6 +115,12 @@ val practiceAppList = listOf(
         titleRes = R.string.order_history_title,
         descriptionRes = R.string.order_history_desc,
         categoryRes = R.string.category_advanced_lists
+    ),
+    PracticeApp(
+        id = AppRoute.DYNAMIC_LIST_ANIMATIONS,
+        titleRes = R.string.dynamic_animations_title,
+        descriptionRes = R.string.dynamic_animations_desc,
+        categoryRes = R.string.category_animations
     ),
 
     // === LAB & SANDBOX ===

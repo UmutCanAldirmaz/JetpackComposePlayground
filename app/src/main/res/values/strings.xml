@@ -132,8 +132,15 @@
     <string name="category_advanced_lists">Lists &amp; States</string>
 
     <!-- Order History (Multi-Type Heterogeneous LazyColumn) -->
-    <string name="order_history_title">Order History (Heterogeneous Feed)</string>
+    <string name="order_history_title">Order History</string>
     <string name="order_history_desc">Bu uygulamada; sealed interface (OrderFeedItem), key ve contentType parametreleriyle çoklu görünüm tipli (SummaryCard, ActiveOrder, PromotionBanner) LazyColumn performans optimizasyonunu öğrendik.</string>
+    <!-- Dynamic List Animations -->
+    <string name="dynamic_animations_title">Dynamic List Animations</string>
+    <string name="dynamic_animations_desc">Bu uygulamada; Modifier.animateItem() ile fadeInSpec, fadeOutSpec ve placementSpec animasyonlarını, sepet elemanı silme (400ms tween), ters çevirme ve grid shuffling (karıştırma) tekniklerini öğrendik.</string>
+    <string name="category_animations">Animations &amp; Lists</string>
+
+
+
 
     <!-- General -->
     <string name="back_button">Geri</string>
