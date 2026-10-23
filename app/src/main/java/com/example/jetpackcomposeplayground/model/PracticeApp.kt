@@ -16,6 +16,7 @@ enum class AppRoute {
     LAZY_GRID_PRACTICE,
     LAZY_LIST_STATE_PRACTICE,
     ADVANCED_LAZY_LISTS_PRACTICE,
+    ORDER_HISTORY,
     EXERCISE
 }
 
@@ -89,7 +90,7 @@ val practiceAppList = listOf(
         categoryRes = R.string.category_state_machine
     ),
 
-    // === UNIT 6: Advanced Lists, Grids & State Control ===
+    // === UNIT 6: Advanced Lists, Grids, Heterogeneous Feed & State Control ===
     PracticeApp(
         id = AppRoute.LAZY_GRID_PRACTICE,
         titleRes = R.string.lazy_grid_practice_title,
@@ -106,6 +107,12 @@ val practiceAppList = listOf(
         id = AppRoute.ADVANCED_LAZY_LISTS_PRACTICE,
         titleRes = R.string.advanced_lazy_lists_practice_title,
         descriptionRes = R.string.advanced_lazy_lists_practice_desc,
+        categoryRes = R.string.category_advanced_lists
+    ),
+    PracticeApp(
+        id = AppRoute.ORDER_HISTORY,
+        titleRes = R.string.order_history_title,
+        descriptionRes = R.string.order_history_desc,
         categoryRes = R.string.category_advanced_lists
     ),
 

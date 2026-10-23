@@ -18,6 +18,7 @@ import com.example.jetpackcomposeplayground.ui.screens.HomeScreen
 import com.example.jetpackcomposeplayground.ui.screens.LazyGridPracticeScreen
 import com.example.jetpackcomposeplayground.ui.screens.LazyListStatePracticeScreen
 import com.example.jetpackcomposeplayground.ui.screens.LemonadeScreen
+import com.example.jetpackcomposeplayground.ui.screens.OrderHistoryScreen
 import com.example.jetpackcomposeplayground.ui.screens.SuperHeroesScreen
 import com.example.jetpackcomposeplayground.ui.screens.TipCalculatorScreen
 import com.example.jetpackcomposeplayground.ui.screens.WoofScreen
@@ -128,6 +129,13 @@ class MainActivity : ComponentActivity() {
                     }
                     AppRoute.ADVANCED_LAZY_LISTS_PRACTICE -> {
                         AdvancedLazyListsScreen(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.ORDER_HISTORY -> {
+                        OrderHistoryScreen(
                             onBackClick = {
                                 currentRoute = AppRoute.HOME
                             }

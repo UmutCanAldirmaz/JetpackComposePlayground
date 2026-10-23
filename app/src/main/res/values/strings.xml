@@ -131,6 +131,10 @@
     <string name="advanced_lazy_lists_practice_desc">Bu uygulamada; LazyRow ile yatay filtre çubuğu (spacedBy, contentPadding) ve tek bir LazyColumn içinde header, items ve footer (Rapor Sonu) birleştirmeyi öğrendik.</string>
     <string name="category_advanced_lists">Lists &amp; States</string>
 
+    <!-- Order History (Multi-Type Heterogeneous LazyColumn) -->
+    <string name="order_history_title">Order History (Heterogeneous Feed)</string>
+    <string name="order_history_desc">Bu uygulamada; sealed interface (OrderFeedItem), key ve contentType parametreleriyle çoklu görünüm tipli (SummaryCard, ActiveOrder, PromotionBanner) LazyColumn performans optimizasyonunu öğrendik.</string>
+
     <!-- General -->
     <string name="back_button">Geri</string>
 </resources>
