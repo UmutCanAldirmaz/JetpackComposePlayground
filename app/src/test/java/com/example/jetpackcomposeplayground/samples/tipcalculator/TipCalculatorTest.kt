@@ -1,11 +1,11 @@
-package com.example.jetpackcomposeplayground
+package com.example.jetpackcomposeplayground.samples.tipcalculator
 
 import com.example.jetpackcomposeplayground.samples.tipcalculator.calculateTip
 import junit.framework.TestCase.assertEquals
 import org.junit.Test
 import java.text.NumberFormat
 
-class TipCalculatorTests {
+class TipCalculatorTest {
 
     @Test
     fun calculateTip_20PercentNoRoundupTwoPerson() {
@@ -36,5 +36,4 @@ class TipCalculatorTests {
         val actualTip = calculateTip(amount, tipPercent, tipPerson, true)
         assertEquals(expectidTip, actualTip)
     }
-
 }
