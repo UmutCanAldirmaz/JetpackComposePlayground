@@ -6,23 +6,24 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.*
-import com.example.jetpackcomposeplayground.model.AppRoute
-import com.example.jetpackcomposeplayground.ui.screens.AdvancedLazyListsScreen
-import com.example.jetpackcomposeplayground.ui.screens.AffirmationsScreen
-import com.example.jetpackcomposeplayground.ui.screens.ArtSpaceScreen
-import com.example.jetpackcomposeplayground.ui.screens.CounterScreen
-import com.example.jetpackcomposeplayground.ui.screens.DessertClickerScreen
-import com.example.jetpackcomposeplayground.ui.screens.DiceRollerScreen
-import com.example.jetpackcomposeplayground.ui.screens.ExerciseScreen
-import com.example.jetpackcomposeplayground.ui.screens.HomeScreen
-import com.example.jetpackcomposeplayground.ui.screens.LazyGridPracticeScreen
-import com.example.jetpackcomposeplayground.ui.screens.LazyListStatePracticeScreen
-import com.example.jetpackcomposeplayground.ui.screens.LemonadeScreen
-import com.example.jetpackcomposeplayground.ui.screens.OrderHistoryScreen
-import com.example.jetpackcomposeplayground.ui.screens.SuperHeroesScreen
-import com.example.jetpackcomposeplayground.ui.screens.TipCalculatorScreen
-import com.example.jetpackcomposeplayground.ui.screens.WoofScreen
-import com.example.jetpackcomposeplayground.ui.theme.JetpackComposePlaygroundTheme
+import com.example.jetpackcomposeplayground.core.theme.JetpackComposePlaygroundTheme
+import com.example.jetpackcomposeplayground.home.AppRoute
+import com.example.jetpackcomposeplayground.home.HomeScreen
+import com.example.jetpackcomposeplayground.samples.advancedlazylists.AdvancedLazyListsScreen
+import com.example.jetpackcomposeplayground.samples.affirmations.AffirmationsScreen
+import com.example.jetpackcomposeplayground.samples.artspace.ArtSpaceScreen
+import com.example.jetpackcomposeplayground.samples.counter.ui.CounterScreen
+import com.example.jetpackcomposeplayground.samples.dessertclicker.ui.DessertClickerScreen
+import com.example.jetpackcomposeplayground.samples.diceroller.DiceRollerScreen
+import com.example.jetpackcomposeplayground.samples.dynamiclistanimations.DynamicListAnimationsScreen
+import com.example.jetpackcomposeplayground.samples.lazygrid.LazyGridPracticeScreen
+import com.example.jetpackcomposeplayground.samples.lazyliststate.LazyListStatePracticeScreen
+import com.example.jetpackcomposeplayground.samples.lemonade.LemonadeScreen
+import com.example.jetpackcomposeplayground.samples.orderhistory.ui.OrderHistoryScreen
+import com.example.jetpackcomposeplayground.samples.sandbox.ExerciseScreen
+import com.example.jetpackcomposeplayground.samples.superheroes.SuperHeroesScreen
+import com.example.jetpackcomposeplayground.samples.tipcalculator.TipCalculatorScreen
+import com.example.jetpackcomposeplayground.samples.woof.WoofScreen
 
 private const val TAG = "MainActivityDebugging"
 
@@ -136,6 +137,13 @@ class MainActivity : ComponentActivity() {
                     }
                     AppRoute.ORDER_HISTORY -> {
                         OrderHistoryScreen(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.DYNAMIC_LIST_ANIMATIONS -> {
+                        DynamicListAnimationsScreen(
                             onBackClick = {
                                 currentRoute = AppRoute.HOME
                             }

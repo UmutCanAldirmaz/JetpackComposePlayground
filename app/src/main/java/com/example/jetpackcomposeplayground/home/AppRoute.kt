@@ -1,0 +1,20 @@
+package com.example.jetpackcomposeplayground.home
+
+enum class AppRoute {
+    HOME,
+    DICE_ROLLER,
+    LEMONADE,
+    TIP_CALCULATOR,
+    AFFIRMATIONS,
+    WOOF,
+    SUPER_HEROES,
+    ART_SPACE,
+    DESSERT_CLICKER,
+    COUNTER_EXERCISE,
+    LAZY_GRID_PRACTICE,
+    LAZY_LIST_STATE_PRACTICE,
+    ADVANCED_LAZY_LISTS_PRACTICE,
+    ORDER_HISTORY,
+    DYNAMIC_LIST_ANIMATIONS,
+    EXERCISE
+}
