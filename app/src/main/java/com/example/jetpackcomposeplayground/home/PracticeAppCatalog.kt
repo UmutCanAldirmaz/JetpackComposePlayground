@@ -62,6 +62,12 @@ val practiceAppList = listOf(
         descriptionRes = R.string.counter_exercise_desc,
         categoryRes = R.string.category_state_machine
     ),
+    PracticeApp(
+        id = AppRoute.UNSCRAMBLE,
+        titleRes = R.string.unscramble_title,
+        descriptionRes = R.string.unscramble_desc,
+        categoryRes = R.string.category_state_machine
+    ),
 
     // === ADVANCED LISTS, GRIDS, ANIMATIONS & STATE ===
     PracticeApp(

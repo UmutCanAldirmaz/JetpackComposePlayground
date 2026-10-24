@@ -23,6 +23,7 @@ import com.example.jetpackcomposeplayground.samples.orderhistory.ui.OrderHistory
 import com.example.jetpackcomposeplayground.samples.sandbox.ExerciseScreen
 import com.example.jetpackcomposeplayground.samples.superheroes.SuperHeroesScreen
 import com.example.jetpackcomposeplayground.samples.tipcalculator.TipCalculatorScreen
+import com.example.jetpackcomposeplayground.samples.unscramble.ui.UnscrambleScreen
 import com.example.jetpackcomposeplayground.samples.woof.WoofScreen
 
 private const val TAG = "MainActivityDebugging"
@@ -102,6 +103,13 @@ class MainActivity : ComponentActivity() {
                     }
                     AppRoute.COUNTER_EXERCISE -> {
                         CounterScreen(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.UNSCRAMBLE -> {
+                        UnscrambleScreen(
                             onBackClick = {
                                 currentRoute = AppRoute.HOME
                             }

@@ -40,7 +40,6 @@ fun LazyGridPracticeScreen(
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
-        containerColor = Color.White,
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.lazy_grid_practice_title)) },
@@ -63,7 +62,6 @@ fun LazyGridPracticeScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White)
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp),

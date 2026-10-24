@@ -139,6 +139,21 @@
     <string name="dynamic_animations_desc">Bu uygulamada; Modifier.animateItem() ile fadeInSpec, fadeOutSpec ve placementSpec animasyonlarını, sepet elemanı silme (400ms tween), ters çevirme ve grid shuffling (karıştırma) tekniklerini öğrendik.</string>
     <string name="category_animations">Animations &amp; Lists</string>
 
+    <!-- Unscramble Game -->
+    <string name="unscramble_title">Unscramble</string>
+    <string name="unscramble_desc">Karışık verilen harflerden doğru kelimeyi bulma oyunu (ViewModel &amp; StateFlow).</string>
+    <string name="instructions">Tüm harfleri kullanarak kelimeyi çözün.</string>
+    <string name="skip">Atla</string>
+    <string name="submit">Gönder</string>
+    <string name="score">Puan: %d</string>
+    <string name="word_count">%d/10</string>
+    <string name="enter_your_word">Kelimenizi girin</string>
+    <string name="congratulations">Tebrikler!</string>
+    <string name="you_scored">Puanınız: %d</string>
+    <string name="exit">Çıkış</string>
+    <string name="play_again">Tekrar Oyna</string>
+    <string name="wrong_guess">Yanlış Tahmin!</string>
+
 
 
 

@@ -31,6 +31,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -52,10 +53,10 @@ fun TipCalculatorScreen(
 ) {
     BackHandler(onBack = onBackClick)
 
-    var amountInput by remember { mutableStateOf("") }
-    var tipInput by remember { mutableStateOf("15") }
-    var personCountInput by remember { mutableStateOf("1") }
-    var roundUp by remember { mutableStateOf(false) }
+    var amountInput by rememberSaveable { mutableStateOf("") }
+    var tipInput by rememberSaveable { mutableStateOf("15") }
+    var personCountInput by rememberSaveable { mutableStateOf("1") }
+    var roundUp by rememberSaveable { mutableStateOf(false) }
 
     val amount = amountInput.toDoubleOrNull() ?: 0.0
     val tipPercent = tipInput.toDoubleOrNull() ?: 0.0
@@ -176,10 +177,10 @@ internal fun calculateTip(
     personCount: Int = 1,
     roundUp: Boolean = false
 ): String {
-    var totalTip = tipPercent / 100 * amount
+    val count = if (personCount > 0) personCount else 1
+    var tipPerPerson = (tipPercent / 100 * amount) / count
     if (roundUp) {
-        totalTip = ceil(totalTip)
+        tipPerPerson = ceil(tipPerPerson)
     }
-    val tipPerPerson = if (personCount > 0) totalTip / personCount else totalTip
     return NumberFormat.getCurrencyInstance().format(tipPerPerson)
 }

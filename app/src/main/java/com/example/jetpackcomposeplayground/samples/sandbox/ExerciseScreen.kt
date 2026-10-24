@@ -77,7 +77,6 @@ fun ExerciseScreen(
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
-        containerColor = Color.White,
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.exercise_title)) },
@@ -100,7 +99,6 @@ fun ExerciseScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White)
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
                 .imePadding()
@@ -120,7 +118,7 @@ fun ExerciseScreen(
             ) {
                 Text(
                     text = if (isToggled) "Aktif 🚀" else "Dokun! 🎨",
-                    color = Color.White,
+                    color = if (isToggled) MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onTertiary,
                     fontWeight = FontWeight.Bold,
                     style = MaterialTheme.typography.titleMedium
                 )

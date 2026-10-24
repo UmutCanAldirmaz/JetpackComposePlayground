@@ -36,7 +36,6 @@ fun AdvancedLazyListsScreen(
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
-        containerColor = Color.White,
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.advanced_lazy_lists_practice_title)) },
@@ -59,7 +58,6 @@ fun AdvancedLazyListsScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White)
                 .padding(innerPadding)
         ) {
             // Exercise 1: Horizontal Filter Bar (LazyRow)

@@ -4,7 +4,6 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -23,7 +22,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -31,7 +29,7 @@ import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeplayground.R
 
 private data class CartItem(val id: Int, val name: String, val price: String)
-private data class CharacterItem(val id: Int, val name: String, val color: Color)
+private data class CharacterItem(val id: Int, val name: String)
 
 @Preview
 @OptIn(ExperimentalMaterial3Api::class)
@@ -71,19 +69,18 @@ fun DynamicListAnimationsScreen(
     var characters by remember {
         mutableStateOf(
             listOf(
-                CharacterItem(1, "Iron Man 🔴", Color(0xFFFFEBEE)),
-                CharacterItem(2, "Thor ⚡", Color(0xFFFFF8E1)),
-                CharacterItem(3, "Hulk 🟢", Color(0xFFE8F5E9)),
-                CharacterItem(4, "Captain 🛡️", Color(0xFFE3F2FD)),
-                CharacterItem(5, "Spidey 🕷️", Color(0xFFF3E5F5)),
-                CharacterItem(6, "Panther 🐾", Color(0xFFE0F2F1))
+                CharacterItem(1, "Iron Man 🔴"),
+                CharacterItem(2, "Thor ⚡"),
+                CharacterItem(3, "Hulk 🟢"),
+                CharacterItem(4, "Captain 🛡️"),
+                CharacterItem(5, "Spidey 🕷️"),
+                CharacterItem(6, "Panther 🐾")
             )
         )
     }
 
     Scaffold(
         modifier = modifier.fillMaxSize(),
-        containerColor = Color.White,
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(R.string.dynamic_animations_title)) },
@@ -106,7 +103,6 @@ fun DynamicListAnimationsScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White)
                 .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
                 .padding(16.dp),
@@ -157,13 +153,16 @@ fun DynamicListAnimationsScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .animateItem(),
-                        colors = CardDefaults.cardColors(containerColor = Color(0xFFE0F7FA)),
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.tertiaryContainer
+                        ),
                         shape = RoundedCornerShape(12.dp)
                     ) {
                         Text(
                             text = fruit.second,
                             style = MaterialTheme.typography.titleSmall,
                             fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.onTertiaryContainer,
                             modifier = Modifier.padding(16.dp)
                         )
                     }
@@ -305,7 +304,9 @@ fun DynamicListAnimationsScreen(
                                     stiffness = Spring.StiffnessLow
                                 )
                             ),
-                        colors = CardDefaults.cardColors(containerColor = char.color),
+                        colors = CardDefaults.cardColors(
+                            containerColor = MaterialTheme.colorScheme.secondaryContainer
+                        ),
                         shape = RoundedCornerShape(12.dp)
                     ) {
                         Box(
@@ -316,7 +317,7 @@ fun DynamicListAnimationsScreen(
                                 text = char.name,
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.Bold,
-                                color = Color(0xFF1C1B1F)
+                                color = MaterialTheme.colorScheme.onSecondaryContainer
                             )
                         }
                     }

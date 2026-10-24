@@ -62,9 +62,9 @@ fun ArtSpaceScreen(
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                    titleContentColor = Color(0xFF1C1B1F),
-                    navigationIconContentColor = Color(0xFF1C1B1F)
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                    navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer
                 )
             )
         }
@@ -72,7 +72,6 @@ fun ArtSpaceScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White)
                 .padding(innerPadding)
                 .padding(24.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -86,8 +85,8 @@ fun ArtSpaceScreen(
                     .padding(vertical = 12.dp),
                 elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
                 shape = RoundedCornerShape(16.dp),
-                border = BorderStroke(1.dp, Color(0xFFE8E8E8)),
-                colors = CardDefaults.cardColors(containerColor = Color.White)
+                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outlineVariant),
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)
             ) {
                 Box(
                     modifier = Modifier
@@ -111,7 +110,7 @@ fun ArtSpaceScreen(
             // Artwork Description Card
             Surface(
                 modifier = Modifier.fillMaxWidth(),
-                color = Color(0xFFA9EAF6),
+                color = MaterialTheme.colorScheme.secondaryContainer,
                 shape = RoundedCornerShape(16.dp),
                 shadowElevation = 2.dp
             ) {
@@ -125,14 +124,14 @@ fun ArtSpaceScreen(
                         text = stringResource(id = currentArtwork.titleRes),
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold,
-                        color = Color(0xFF1C1B1F)
+                        color = MaterialTheme.colorScheme.onSecondaryContainer
                     )
                     Spacer(modifier = Modifier.height(6.dp))
                     Text(
                         text = stringResource(id = currentArtwork.artistRes),
                         style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.Medium,
-                        color = Color(0xFF68686D)
+                        color = MaterialTheme.colorScheme.onSecondaryContainer.copy(alpha = 0.8f)
                     )
                 }
             }
