@@ -1,6 +1,7 @@
 package com.example.jetpackcomposeplayground.samples.dessertclicker.data
 
 import com.example.jetpackcomposeplayground.R
+import com.example.jetpackcomposeplayground.samples.dessertclicker.model.Dessert
 
 object Datasource {
     val dessertList = listOf(

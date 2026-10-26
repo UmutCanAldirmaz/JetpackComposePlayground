@@ -15,7 +15,6 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -26,27 +25,21 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.jetpackcomposeplayground.R
-import com.example.jetpackcomposeplayground.samples.dessertclicker.data.Datasource
-import com.example.jetpackcomposeplayground.samples.dessertclicker.data.Dessert
 
 @Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DessertClickerScreen(
+    viewModel: DessertClickerViewModel = viewModel(),
     onBackClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     BackHandler(onBack = onBackClick)
 
-    val desserts = Datasource.dessertList
-
-    var revenue by rememberSaveable { mutableIntStateOf(0) }
-    var dessertsSold by rememberSaveable { mutableIntStateOf(0) }
-    val currentDessertIndex by rememberSaveable { mutableIntStateOf(0) }
-    var currentDessertPrice by rememberSaveable { mutableIntStateOf(desserts[currentDessertIndex].price) }
-    var currentDessertImageId by rememberSaveable { mutableIntStateOf(desserts[currentDessertIndex].imageId) }
-
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val intentContext = LocalContext.current
 
     Scaffold(
@@ -67,8 +60,8 @@ fun DessertClickerScreen(
                         onClick = {
                             shareSoldDessertsInformation(
                                 intentContext = intentContext,
-                                dessertsSold = dessertsSold,
-                                revenue = revenue
+                                dessertsSold = uiState.dessertsSold,
+                                revenue = uiState.revenue
                             )
                         }
                     ) {
@@ -87,17 +80,10 @@ fun DessertClickerScreen(
         }
     ) { contentPadding ->
         DessertClickerAppContent(
-            revenue = revenue,
-            dessertsSold = dessertsSold,
-            dessertImageId = currentDessertImageId,
-            onDessertClicked = {
-                revenue += currentDessertPrice
-                dessertsSold++
-
-                val dessertToShow = determineDessertToShow(desserts, dessertsSold)
-                currentDessertImageId = dessertToShow.imageId
-                currentDessertPrice = dessertToShow.price
-            },
+            revenue = uiState.revenue,
+            dessertsSold = uiState.dessertsSold,
+            dessertImageId = uiState.currentDessertImageId,
+            onDessertClicked = { viewModel.onDessertClicked() },
             modifier = Modifier.padding(contentPadding)
         )
     }
@@ -145,21 +131,6 @@ private fun DessertClickerAppContent(
             )
         }
     }
-}
-
-fun determineDessertToShow(
-    desserts: List<Dessert>,
-    dessertsSold: Int
-): Dessert {
-    var dessertToShow = desserts.first()
-    for (dessert in desserts) {
-        if (dessertsSold >= dessert.startProductionAmount) {
-            dessertToShow = dessert
-        } else {
-            break
-        }
-    }
-    return dessertToShow
 }
 
 private fun shareSoldDessertsInformation(intentContext: Context, dessertsSold: Int, revenue: Int) {
