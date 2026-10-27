@@ -19,9 +19,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposeplayground.R
 import com.example.jetpackcomposeplayground.samples.cupcake.ui.components.FormattedPriceLabel
 
@@ -46,7 +46,7 @@ fun SelectOptionScreen(
         modifier = modifier,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
+        Column(modifier = Modifier.padding(dimensionResource(R.dimen.padding_medium))) {
             options.forEach { item ->
                 Row(
                     modifier = Modifier.selectable(
@@ -65,28 +65,34 @@ fun SelectOptionScreen(
                             onSelectionChanged(item)
                         }
                     )
-                    Text(text = item, modifier = Modifier.padding(start = 8.dp))
+                    Text(
+                        text = item,
+                        modifier = Modifier.padding(start = dimensionResource(R.dimen.padding_small))
+                    )
                 }
             }
             HorizontalDivider(
-                thickness = 1.dp,
-                modifier = Modifier.padding(bottom = 16.dp, top = 8.dp)
+                thickness = dimensionResource(R.dimen.thickness_divider),
+                modifier = Modifier.padding(
+                    bottom = dimensionResource(R.dimen.padding_medium),
+                    top = dimensionResource(R.dimen.padding_small)
+                )
             )
             FormattedPriceLabel(
                 subtotal = subtotal,
                 modifier = Modifier
                     .align(Alignment.End)
                     .padding(
-                        top = 16.dp,
-                        bottom = 16.dp
+                        top = dimensionResource(R.dimen.padding_medium),
+                        bottom = dimensionResource(R.dimen.padding_medium)
                     )
             )
         }
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
+                .padding(dimensionResource(R.dimen.padding_medium)),
+            horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
             verticalAlignment = Alignment.Bottom
         ) {
             OutlinedButton(
