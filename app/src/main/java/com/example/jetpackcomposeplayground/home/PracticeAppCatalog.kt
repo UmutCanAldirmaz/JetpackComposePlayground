@@ -68,6 +68,12 @@ val practiceAppList = listOf(
         descriptionRes = R.string.unscramble_desc,
         categoryRes = R.string.category_state_machine
     ),
+    PracticeApp(
+        id = AppRoute.CUPCAKE,
+        titleRes = R.string.cupcake_title,
+        descriptionRes = R.string.cupcake_desc,
+        categoryRes = R.string.category_navigation
+    ),
 
     // === ADVANCED LISTS, GRIDS, ANIMATIONS & STATE ===
     PracticeApp(

@@ -13,6 +13,7 @@ import com.example.jetpackcomposeplayground.samples.advancedlazylists.AdvancedLa
 import com.example.jetpackcomposeplayground.samples.affirmations.AffirmationsScreen
 import com.example.jetpackcomposeplayground.samples.artspace.ArtSpaceScreen
 import com.example.jetpackcomposeplayground.samples.counter.ui.CounterScreen
+import com.example.jetpackcomposeplayground.samples.cupcake.CupcakeScreen
 import com.example.jetpackcomposeplayground.samples.dessertclicker.ui.DessertClickerScreen
 import com.example.jetpackcomposeplayground.samples.diceroller.DiceRollerScreen
 import com.example.jetpackcomposeplayground.samples.dynamiclistanimations.DynamicListAnimationsScreen
@@ -110,6 +111,13 @@ class MainActivity : ComponentActivity() {
                     }
                     AppRoute.UNSCRAMBLE -> {
                         UnscrambleScreen(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.CUPCAKE -> {
+                        CupcakeScreen(
                             onBackClick = {
                                 currentRoute = AppRoute.HOME
                             }

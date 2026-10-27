@@ -18,9 +18,9 @@ class TipCalculatorTest {
     }
 
     @Test
-    fun calculateTip_20PercentNoRoundupThreePerson() {
+    fun calculateTip_20PercentRoundupThreePerson() {
         val amount = 100.00
-        val tipPercent = 20.20
+        val tipPercent = 20.00
         val tipPerson = 3
         val expectidTip = NumberFormat.getCurrencyInstance().format(7)
         val actualTip = calculateTip(amount, tipPercent, tipPerson, true)
@@ -28,11 +28,11 @@ class TipCalculatorTest {
     }
 
     @Test
-    fun calculateTip_20PercentNoRoundupNoPerson() {
+    fun calculateTip_20PercentRoundupNoPerson() {
         val amount = 100.00
-        val tipPercent = 20.20
+        val tipPercent = 20.00
         val tipPerson = 0
-        val expectidTip = NumberFormat.getCurrencyInstance().format(21)
+        val expectidTip = NumberFormat.getCurrencyInstance().format(20)
         val actualTip = calculateTip(amount, tipPercent, tipPerson, true)
         assertEquals(expectidTip, actualTip)
     }

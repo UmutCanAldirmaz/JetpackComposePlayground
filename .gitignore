@@ -58,3 +58,4 @@ Thumbs.db
 .artifacts/
 scratch/
 .kotlin/
+*.artifact.md

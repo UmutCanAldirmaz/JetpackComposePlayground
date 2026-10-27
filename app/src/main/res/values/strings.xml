@@ -159,4 +159,36 @@
 
     <!-- General -->
     <string name="back_button">Geri</string>
+
+    <!-- Cupcake App (Unit 4: Navigation) -->
+    <string name="cupcake_title">Cupcake</string>
+    <string name="cupcake_desc">Bu uygulamada; Navigation (NavHost, NavController, composable) ile ekranlar arası geçiş yapmayı, ViewModel ile veri paylaşımını ve sipariş özetini öğrendik.</string>
+    <string name="category_navigation">Navigation &amp; Architecture</string>
+    <string name="order_cupcakes">Cupcake Sipariş Et</string>
+    <string name="one_cupcake">1 Adet Cupcake</string>
+    <string name="six_cupcakes">6 Adet Cupcake</string>
+    <string name="twelve_cupcakes">12 Adet Cupcake</string>
+    <string name="choose_flavor">Aroma Seçin</string>
+    <string name="vanilla">Vanilya</string>
+    <string name="chocolate">Çikolata</string>
+    <string name="red_velvet">Red Velvet</string>
+    <string name="salted_caramel">Tuzlu Karamel</string>
+    <string name="coffee">Kahve</string>
+    <string name="special_flavor">Özel Aroma</string>
+    <string name="cancel">İptal</string>
+    <string name="next">İleri</string>
+    <string name="choose_pickup_date">Teslimat Tarihi Seçin</string>
+    <string name="order_summary">Sipariş Özeti</string>
+    <string name="send">Sipariş Bilgisini Paylaş</string>
+    <string name="quantity">Adet</string>
+    <string name="flavor">Aroma</string>
+    <string name="pickup_date">Teslimat Tarihi</string>
+    <string name="subtotal_price">Ara Toplam %s</string>
+    <string name="total_price">Toplam %s</string>
+    <string name="new_cupcake_order">Yeni Cupcake Siparişi</string>
+    <string name="order_details">Adet: %1$s \nAroma: %2$s \nTeslim Tarihi: %3$s \nToplam: %4$s \n\nTeşekkürler!</string>
+    <plurals name="cupcakes">
+        <item quantity="one">%d adet cupcake</item>
+        <item quantity="other">%d adet cupcake</item>
+    </plurals>
 </resources>
