@@ -112,7 +112,7 @@ fun UnscrambleScreen(
                     onClick = { gameViewModel.checkUserGuess() }
                 ) {
                     Text(
-                        text = stringResource(R.string.submit),
+                        text = stringResource(R.string.unscramble_submit),
                         fontSize = 16.sp
                     )
                 }
