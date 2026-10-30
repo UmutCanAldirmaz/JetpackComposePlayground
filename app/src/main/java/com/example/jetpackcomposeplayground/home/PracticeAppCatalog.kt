@@ -86,6 +86,12 @@ val practiceAppList = listOf(
         descriptionRes = R.string.reply_desc,
         categoryRes = R.string.category_navigation
     ),
+    PracticeApp(
+        id = AppRoute.SPORTS,
+        titleRes = R.string.sports_title,
+        descriptionRes = R.string.sports_desc,
+        categoryRes = R.string.category_navigation
+    ),
 
     // === ADVANCED LISTS, GRIDS, ANIMATIONS & STATE ===
     PracticeApp(

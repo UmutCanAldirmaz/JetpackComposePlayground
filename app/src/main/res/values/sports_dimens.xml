@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sports_padding_small">8dp</dimen>
+    <dimen name="sports_padding_medium">16dp</dimen>
+    <dimen name="sports_card_corner_radius">20dp</dimen>
+    <dimen name="sports_card_image_height">128dp</dimen>
+    <dimen name="sports_card_text_vertical_space">4dp</dimen>
+    <dimen name="sports_detail_content_padding_horizontal">40dp</dimen>
+    <dimen name="sports_detail_content_padding_vertical">24dp</dimen>
+</resources>
