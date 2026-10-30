@@ -19,13 +19,11 @@ import com.example.jetpackcomposeplayground.R
 import com.example.jetpackcomposeplayground.samples.reply.data.Account
 
 /**
- * a static data store of [Account]s. This includes both [Account]s owned by the current user and
+ * An static data store of [Account]s. This includes both [Account]s owned by the current user and
  * all [Account]s of the current user's contacts.
  */
 object LocalAccountsDataProvider {
     val defaultAccount = Account(-1, -1, -1, -1, R.drawable.avatar_1)
-
-
 
     private val allUserContactAccounts = listOf(
         Account(

@@ -46,8 +46,41 @@ tailrec fun Context.findActivity(): Activity? = when (this) {
     else -> null
 }
 
-@Preview(showBackground = true)
+@Preview(name = "Compact Screen (Phone)", widthDp = 400, heightDp = 900, showBackground = true)
 @Composable
-fun ReplySampleScreenPreview() {
-    ReplySampleScreen()
+fun ReplyAppCompactPreview() {
+    ReplyTheme {
+        Surface(modifier = Modifier.fillMaxSize()) {
+            ReplyApp(
+                windowSize = WindowWidthSizeClass.Compact,
+                modifier = Modifier.fillMaxSize()
+            )
+        }
+    }
+}
+
+@Preview(name = "Medium Screen (Tablet)", widthDp = 700, heightDp = 900, showBackground = true)
+@Composable
+fun ReplyAppMediumPreview() {
+    ReplyTheme {
+        Surface(modifier = Modifier.fillMaxSize()) {
+            ReplyApp(
+                windowSize = WindowWidthSizeClass.Medium,
+                modifier = Modifier.fillMaxSize()
+            )
+        }
+    }
+}
+
+@Preview(name = "Expanded Screen (Desktop/Foldable)", widthDp = 1000, heightDp = 900, showBackground = true)
+@Composable
+fun ReplyAppExpandedPreview() {
+    ReplyTheme {
+        Surface(modifier = Modifier.fillMaxSize()) {
+            ReplyApp(
+                windowSize = WindowWidthSizeClass.Expanded,
+                modifier = Modifier.fillMaxSize()
+            )
+        }
+    }
 }
