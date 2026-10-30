@@ -205,4 +205,8 @@
     <string name="total">Total: %s</string>
     <string name="submit">Submit</string>
 
+    <!-- Reply App (Adaptive Navigation) -->
+    <string name="reply_title">Reply (Adaptive App)</string>
+    <string name="reply_desc">Bu uygulamada pencere boyutu sınıflarına (Window Size Classes) göre uyarlanan dinamik navigasyonu (Bottom Navigation, Navigation Rail, Permanent Navigation Drawer) öğrendik.</string>
+
 </resources>

@@ -15,6 +15,7 @@ import com.example.jetpackcomposeplayground.samples.artspace.ArtSpaceScreen
 import com.example.jetpackcomposeplayground.samples.counter.ui.CounterScreen
 import com.example.jetpackcomposeplayground.samples.cupcake.CupcakeScreen
 import com.example.jetpackcomposeplayground.samples.lunchtray.LunchTrayScreen
+import com.example.jetpackcomposeplayground.samples.reply.ReplySampleScreen
 import com.example.jetpackcomposeplayground.samples.dessertclicker.ui.DessertClickerScreen
 import com.example.jetpackcomposeplayground.samples.diceroller.DiceRollerScreen
 import com.example.jetpackcomposeplayground.samples.dynamiclistanimations.DynamicListAnimationsScreen
@@ -126,6 +127,13 @@ class MainActivity : ComponentActivity() {
                     }
                     AppRoute.LUNCH_TRAY -> {
                         LunchTrayScreen(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.REPLY -> {
+                        ReplySampleScreen(
                             onBackClick = {
                                 currentRoute = AppRoute.HOME
                             }
