@@ -1,4 +1,6 @@
 <resources>
+    <string name="reply_title">Reply (Adaptive App)</string>
+    <string name="reply_desc">Bu uygulamada pencere boyutu sınıflarına (Window Size Classes) göre uyarlanan dinamik navigasyonu (Bottom Navigation, Navigation Rail, Permanent Navigation Drawer) öğrendik.</string>
     <string name="reply_app_name">Reply</string>
     <string name="navigation_drawer">Navigation Drawer</string>
     <string name="navigation_rail">Navigation Rail</string>

@@ -24,4 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "JetpackComposePlayground"
 include(":app")
- 
+include(":playground")
