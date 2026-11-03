@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    id("org.jetbrains.kotlin.plugin.serialization") version "2.4.21"
 }
 
 android {
@@ -53,8 +54,11 @@ dependencies {
     implementation("androidx.compose.material3:material3-window-size-class:1.4.0")
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    // Retrofit with Scalar Converter
-    implementation("com.squareup.retrofit2:converter-scalars:2.11.0")
+    // Retrofit with Kotlinx Serialization Converter
+    implementation("com.squareup.retrofit2:converter-kotlinx-serialization:2.11.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+    // Coil for Image Loading
+    implementation("io.coil-kt:coil-compose:2.6.0")
     testImplementation(libs.junit)
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.11.0")
     androidTestImplementation(platform(libs.androidx.compose.bom))
