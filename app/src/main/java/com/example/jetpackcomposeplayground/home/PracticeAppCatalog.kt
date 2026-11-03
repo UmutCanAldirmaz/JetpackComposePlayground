@@ -125,6 +125,20 @@ val practiceAppList = listOf(
         categoryRes = R.string.category_animations
     ),
 
+    // === UNIT 5: Coroutines & Asynchronous Programming ===
+    PracticeApp(
+        id = AppRoute.RACE_TRACKER,
+        titleRes = R.string.race_tracker_title,
+        descriptionRes = R.string.race_tracker_desc,
+        categoryRes = R.string.category_coroutines
+    ),
+    PracticeApp(
+        id = AppRoute.MARS_PHOTOS,
+        titleRes = R.string.mars_photos_title,
+        descriptionRes = R.string.mars_photos_desc,
+        categoryRes = R.string.category_network
+    ),
+
     // === LAB & SANDBOX ===
     PracticeApp(
         id = AppRoute.EXERCISE,

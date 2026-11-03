@@ -24,6 +24,8 @@ import com.example.jetpackcomposeplayground.samples.lazygrid.LazyGridPracticeScr
 import com.example.jetpackcomposeplayground.samples.lazyliststate.LazyListStatePracticeScreen
 import com.example.jetpackcomposeplayground.samples.lemonade.LemonadeScreen
 import com.example.jetpackcomposeplayground.samples.orderhistory.ui.OrderHistoryScreen
+import com.example.jetpackcomposeplayground.samples.racetracker.RaceTrackerApp
+import com.example.jetpackcomposeplayground.samples.marsphotos.ui.MarsPhotosApp
 import com.example.jetpackcomposeplayground.samples.sandbox.ExerciseScreen
 import com.example.jetpackcomposeplayground.samples.superheroes.SuperHeroesScreen
 import com.example.jetpackcomposeplayground.samples.tipcalculator.TipCalculatorScreen
@@ -184,6 +186,20 @@ class MainActivity : ComponentActivity() {
                     }
                     AppRoute.DYNAMIC_LIST_ANIMATIONS -> {
                         DynamicListAnimationsScreen(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.RACE_TRACKER -> {
+                        RaceTrackerApp(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.MARS_PHOTOS -> {
+                        MarsPhotosApp(
                             onBackClick = {
                                 currentRoute = AppRoute.HOME
                             }
