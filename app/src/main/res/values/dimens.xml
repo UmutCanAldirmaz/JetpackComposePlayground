@@ -3,6 +3,9 @@
     <!-- Shared. Reply and Sports dimensions live in reply_dimens.xml and sports_dimens.xml. -->
     <dimen name="padding_small">8dp</dimen>
     <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_large">24dp</dimen>
+    <dimen name="progress_indicator_height">16dp</dimen>
+    <dimen name="progress_indicator_corner_radius">4dp</dimen>
     <dimen name="image_size">132dp</dimen>
     <dimen name="thickness_divider">1dp</dimen>
 </resources>

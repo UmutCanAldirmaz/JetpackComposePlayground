@@ -198,4 +198,26 @@
     <!-- Exercise Sandbox -->
     <string name="exercise_title">Exercise Sandbox</string>
     <string name="exercise_desc">Bu sayfada yeni Compose denemelerinizi, özel bileşenlerinizi ve interaktif UI testlerinizi özgürce deneyebilirsiniz.</string>
+
+    <!-- Race Tracker -->
+    <string name="race_tracker_title">Race Tracker</string>
+    <string name="race_tracker_desc">Bu uygulamada; Coroutine kullanımı, launch, delay ve coroutine iptali/duraklatması ile iki oyuncunun yarış simülasyonunu öğrendik.</string>
+    <string name="category_coroutines">Coroutines &amp; Async</string>
+    <string name="run_a_race">Run a race</string>
+    <string name="pause">Pause</string>
+    <string name="start">Start</string>
+    <string name="reset">Reset</string>
+    <string name="progress_percentage">%1$d%%</string>
+    <string name="player_one_name">Player 1</string>
+    <string name="player_two_name">Player 2</string>
+
+    <!-- Mars Photos -->
+    <string name="mars_photos_title">Mars Photos</string>
+    <string name="mars_photos_desc">Bu uygulamada; Retrofit, Coil ve Web servis entegrasyonu ile Mars fotoğraflarını çekmeyi ve asenkron veri yüklemeyi öğreneceğiz.</string>
+    <string name="category_network">Web Service &amp; Network</string>
+    <string name="loading_failed">Failed to load</string>
+    <string name="placeholder_result">Placeholder result text</string>
+    <string name="retry">Retry</string>
+    <string name="loading">Loading</string>
+    <string name="mars_photo">Mars photo</string>
 </resources>
