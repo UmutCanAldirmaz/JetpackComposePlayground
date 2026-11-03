@@ -36,8 +36,6 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.jetpackcomposeplayground.R
-import com.example.jetpackcomposeplayground.samples.marsphotos.ui.screens.HomeScreen
-import com.example.jetpackcomposeplayground.samples.marsphotos.ui.screens.MarsViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
