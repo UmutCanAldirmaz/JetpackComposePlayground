@@ -138,6 +138,12 @@ val practiceAppList = listOf(
         descriptionRes = R.string.mars_photos_desc,
         categoryRes = R.string.category_network
     ),
+    PracticeApp(
+        id = AppRoute.AMPHIBIANS,
+        titleRes = R.string.amphibians_title,
+        descriptionRes = R.string.amphibians_desc,
+        categoryRes = R.string.category_network
+    ),
 
     // === LAB & SANDBOX ===
     PracticeApp(

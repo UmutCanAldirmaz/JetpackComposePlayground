@@ -24,12 +24,11 @@ import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.AP
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
-import com.example.jetpackcomposeplayground.samples.marsphotos.MarsPhotosApplication
+import com.example.jetpackcomposeplayground.PlaygroundApplication
 import com.example.jetpackcomposeplayground.samples.marsphotos.data.MarsPhotosRepository
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
-
 
 class MarsViewModel(private val marsPhotosRepository: MarsPhotosRepository) : ViewModel() {
     /** The mutable State that stores the status of the most recent request */
@@ -45,32 +44,26 @@ class MarsViewModel(private val marsPhotosRepository: MarsPhotosRepository) : Vi
 
     /**
      * Gets Mars photos information from the Mars API Retrofit service and updates the
-     * [MarsPhoto] [List] [MutableList].
+     * UI state.
      */
     fun getMarsPhotos() {
         viewModelScope.launch {
             marsUiState = MarsUiState.Loading
             marsUiState = try {
-                val listResult = marsPhotosRepository.getMarsPhotos()
-                MarsUiState.Success(
-                    "Success: ${listResult.size} Mars photos retrieved"
-                )
+                MarsUiState.Success(marsPhotosRepository.getMarsPhotos())
             } catch (e: IOException) {
                 MarsUiState.Error
             } catch (e: HttpException) {
                 MarsUiState.Error
             }
-
-
         }
     }
-
 
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
-                val application = (this[APPLICATION_KEY] as MarsPhotosApplication)
-                val marsPhotosRepository = application.container.marsPhotosRepository
+                val application = (this[APPLICATION_KEY] as PlaygroundApplication)
+                val marsPhotosRepository = application.marsPhotosContainer.marsPhotosRepository
                 MarsViewModel(marsPhotosRepository = marsPhotosRepository)
             }
         }

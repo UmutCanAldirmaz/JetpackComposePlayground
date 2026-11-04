@@ -15,8 +15,10 @@
  */
 package com.example.jetpackcomposeplayground.samples.marsphotos.ui
 
+import com.example.jetpackcomposeplayground.samples.marsphotos.model.MarsPhoto
+
 sealed interface MarsUiState {
-    data class Success(val photos: String) : MarsUiState
+    data class Success(val photos: List<MarsPhoto>) : MarsUiState
     object Error : MarsUiState
     object Loading : MarsUiState
 }

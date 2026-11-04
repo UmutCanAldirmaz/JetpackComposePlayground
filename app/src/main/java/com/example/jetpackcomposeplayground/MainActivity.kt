@@ -26,6 +26,7 @@ import com.example.jetpackcomposeplayground.samples.lemonade.LemonadeScreen
 import com.example.jetpackcomposeplayground.samples.orderhistory.ui.OrderHistoryScreen
 import com.example.jetpackcomposeplayground.samples.racetracker.RaceTrackerApp
 import com.example.jetpackcomposeplayground.samples.marsphotos.ui.MarsPhotosApp
+import com.example.jetpackcomposeplayground.samples.amphibians.ui.AmphibiansApp
 import com.example.jetpackcomposeplayground.samples.sandbox.ExerciseScreen
 import com.example.jetpackcomposeplayground.samples.superheroes.SuperHeroesScreen
 import com.example.jetpackcomposeplayground.samples.tipcalculator.TipCalculatorScreen
@@ -200,6 +201,13 @@ class MainActivity : ComponentActivity() {
                     }
                     AppRoute.MARS_PHOTOS -> {
                         MarsPhotosApp(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.AMPHIBIANS -> {
+                        AmphibiansApp(
                             onBackClick = {
                                 currentRoute = AppRoute.HOME
                             }

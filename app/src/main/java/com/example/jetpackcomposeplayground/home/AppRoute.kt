@@ -23,5 +23,6 @@ enum class AppRoute {
     DYNAMIC_LIST_ANIMATIONS,
     RACE_TRACKER,
     MARS_PHOTOS,
+    AMPHIBIANS,
     EXERCISE
 }

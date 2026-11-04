@@ -36,7 +36,6 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.jetpackcomposeplayground.R
-
 import com.example.jetpackcomposeplayground.samples.marsphotos.ui.theme.MarsPhotosTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -55,11 +54,12 @@ fun MarsPhotosApp(
             Surface(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(innerPadding)
             ) {
                 val marsViewModel: MarsViewModel = viewModel(factory = MarsViewModel.Factory)
                 HomeScreen(
-                    marsUiState = marsViewModel.marsUiState
+                    marsUiState = marsViewModel.marsUiState,
+                    retryAction = marsViewModel::getMarsPhotos,
+                    contentPadding = innerPadding
                 )
             }
         }
