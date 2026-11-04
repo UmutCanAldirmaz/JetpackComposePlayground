@@ -37,27 +37,31 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.jetpackcomposeplayground.R
 
+import com.example.jetpackcomposeplayground.samples.marsphotos.ui.theme.MarsPhotosTheme
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MarsPhotosApp(
     onBackClick: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
-    BackHandler(onBack = onBackClick)
-    val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
-    Scaffold(
-        modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
-        topBar = { MarsTopAppBar(scrollBehavior = scrollBehavior, onBackClick = onBackClick) }
-    ) { innerPadding ->
-        Surface(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(innerPadding)
-        ) {
-            val marsViewModel: MarsViewModel = viewModel()
-            HomeScreen(
-                marsUiState = marsViewModel.marsUiState
-            )
+    MarsPhotosTheme {
+        BackHandler(onBack = onBackClick)
+        val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+        Scaffold(
+            modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+            topBar = { MarsTopAppBar(scrollBehavior = scrollBehavior, onBackClick = onBackClick) }
+        ) { innerPadding ->
+            Surface(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding)
+            ) {
+                val marsViewModel: MarsViewModel = viewModel(factory = MarsViewModel.Factory)
+                HomeScreen(
+                    marsUiState = marsViewModel.marsUiState
+                )
+            }
         }
     }
 }
