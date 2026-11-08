@@ -24,5 +24,7 @@ enum class AppRoute {
     RACE_TRACKER,
     MARS_PHOTOS,
     AMPHIBIANS,
+    SQL_BASICS,
+    INVENTORY,
     EXERCISE
 }

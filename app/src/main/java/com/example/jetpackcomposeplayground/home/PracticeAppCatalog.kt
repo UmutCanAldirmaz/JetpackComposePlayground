@@ -145,6 +145,20 @@ val practiceAppList = listOf(
         categoryRes = R.string.category_network
     ),
 
+    // === UNIT 6: SQL & Data Persistence ===
+    PracticeApp(
+        id = AppRoute.SQL_BASICS,
+        titleRes = R.string.sql_basics_title,
+        descriptionRes = R.string.sql_basics_desc,
+        categoryRes = R.string.category_database
+    ),
+    PracticeApp(
+        id = AppRoute.INVENTORY,
+        titleRes = R.string.inventory_title,
+        descriptionRes = R.string.inventory_desc,
+        categoryRes = R.string.category_room
+    ),
+
     // === LAB & SANDBOX ===
     PracticeApp(
         id = AppRoute.EXERCISE,
