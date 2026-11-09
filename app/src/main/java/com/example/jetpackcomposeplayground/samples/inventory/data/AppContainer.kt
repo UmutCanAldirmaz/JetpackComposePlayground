@@ -3,20 +3,22 @@ package com.example.jetpackcomposeplayground.samples.inventory.data
 import android.content.Context
 
 /**
- * App container for Dependency injection.
+ * Manuel Bağımlılık Enjeksiyonu (Manual Dependency Injection) için kapsayıcı arayüzü.
  */
 interface AppContainer {
     val itemsRepository: ItemsRepository
 }
 
 /**
- * [AppContainer] implementation that provides instance of [OfflineItemsRepository]
+ * [AppContainer] arayüzünün [OfflineItemsRepository] sağlayan somut gerçekleştirimi.
+ *
+ * @param context Veritabanını oluşturmak için gerekli uygulama bağlamı.
  */
 class AppDataContainer(@Suppress("unused") private val context: Context) : AppContainer {
     /**
-     * Implementation for [ItemsRepository]
+     * [ItemsRepository] için Room tabanlı çevrimdışı repository örneği (Lazy initialization).
      */
     override val itemsRepository: ItemsRepository by lazy {
-        OfflineItemsRepository()
+        OfflineItemsRepository(InventoryDatabase.getDatabase(context).itemDao())
     }
 }

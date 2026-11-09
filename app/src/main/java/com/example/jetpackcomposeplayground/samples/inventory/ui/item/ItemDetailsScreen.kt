@@ -41,6 +41,9 @@ import com.example.jetpackcomposeplayground.samples.inventory.data.Item
 import com.example.jetpackcomposeplayground.samples.inventory.ui.InventoryTopAppBar
 import com.example.jetpackcomposeplayground.samples.inventory.ui.navigation.NavigationDestination
 
+/**
+ * Ürün detay ekranı navigasyon hedefi. `itemId` bağımsız değişkenini barındırır.
+ */
 object ItemDetailsDestination : NavigationDestination {
     override val route = "item_details"
     override val titleRes = R.string.item_detail_title
@@ -48,6 +51,13 @@ object ItemDetailsDestination : NavigationDestination {
     val routeWithArgs = "$route/{$itemIdArg}"
 }
 
+/**
+ * Seçilen ürünün detaylarını ve işlem butonlarını (Sat, Sil, Düzenle) gösteren ekran bileşeni.
+ *
+ * @param navigateToEditItem Düzenleme ekranına geçiş fonksiyonu.
+ * @param navigateBack Geri dönme fonksiyonu.
+ * @param modifier Düzenleyici.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ItemDetailsScreen(
@@ -64,6 +74,7 @@ fun ItemDetailsScreen(
             )
         },
         floatingActionButton = {
+            // Ürün düzenleme buton (FAB)
             FloatingActionButton(
                 onClick = { navigateToEditItem(0) },
                 shape = MaterialTheme.shapes.medium,
@@ -92,6 +103,9 @@ fun ItemDetailsScreen(
     }
 }
 
+/**
+ * Detay ekranı gövde bileşeni.
+ */
 @Composable
 private fun ItemDetailsBody(
     itemDetailsUiState: ItemDetailsUiState,
@@ -105,10 +119,12 @@ private fun ItemDetailsBody(
     ) {
         var deleteConfirmationRequired by rememberSaveable { mutableStateOf(false) }
 
+        // Ürün Bilgi Kartı
         ItemDetails(
             item = itemDetailsUiState.itemDetails.toItem(),
             modifier = Modifier.fillMaxWidth()
         )
+        // Sat Butonu
         Button(
             onClick = onSellItem,
             modifier = Modifier.fillMaxWidth(),
@@ -117,6 +133,7 @@ private fun ItemDetailsBody(
         ) {
             Text(stringResource(R.string.sell))
         }
+        // Sil Butonu
         OutlinedButton(
             onClick = { deleteConfirmationRequired = true },
             shape = MaterialTheme.shapes.small,
@@ -124,6 +141,7 @@ private fun ItemDetailsBody(
         ) {
             Text(stringResource(R.string.delete))
         }
+        // Silme Onay Diyalog Penceresi
         if (deleteConfirmationRequired) {
             DeleteConfirmationDialog(
                 onDeleteConfirm = {
@@ -137,6 +155,9 @@ private fun ItemDetailsBody(
     }
 }
 
+/**
+ * Ürünün isim, stok ve fiyat detaylarını gösteren kart bileşeni.
+ */
 @Composable
 fun ItemDetails(
     item: Item, modifier: Modifier = Modifier
@@ -181,6 +202,9 @@ fun ItemDetails(
     }
 }
 
+/**
+ * Tek bir etiket ve değer çiftini yatay hizada gösteren yardımcı satır bileşeni.
+ */
 @Composable
 private fun ItemDetailsRow(
     @StringRes labelResID: Int, itemDetail: String, modifier: Modifier = Modifier
@@ -192,6 +216,9 @@ private fun ItemDetailsRow(
     }
 }
 
+/**
+ * Kullanıcıdan ürünü silme işlemini onaylamasını isteyen uyarı diyaloğu.
+ */
 @Composable
 private fun DeleteConfirmationDialog(
     onDeleteConfirm: () -> Unit,
@@ -199,7 +226,7 @@ private fun DeleteConfirmationDialog(
     modifier: Modifier = Modifier
 ) {
     AlertDialog(
-        onDismissRequest = { /* Do nothing */ },
+        onDismissRequest = { /* İptal edildiğinde bir şey yapma */ },
         title = { Text(stringResource(R.string.attention)) },
         text = { Text(stringResource(R.string.delete_question)) },
         modifier = modifier,

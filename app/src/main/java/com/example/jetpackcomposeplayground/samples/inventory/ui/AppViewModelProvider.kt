@@ -1,5 +1,6 @@
 package com.example.jetpackcomposeplayground.samples.inventory.ui
 
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory
 import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewmodel.CreationExtras
@@ -12,37 +13,39 @@ import com.example.jetpackcomposeplayground.samples.inventory.ui.item.ItemEditVi
 import com.example.jetpackcomposeplayground.samples.inventory.ui.item.ItemEntryViewModel
 
 /**
- * Provides Factory to create instance of ViewModel for the entire Inventory app
+ * Tüm Inventory uygulaması genelinde ViewModel örneklerinin oluşturulması için Fabrika ([ViewModelProvider.Factory]) sağlar.
  */
 object AppViewModelProvider {
     val Factory = viewModelFactory {
-        // Initializer for ItemEditViewModel
+        // ItemEditViewModel için fabrika ilklendiricisi
         initializer {
             ItemEditViewModel(
                 this.createSavedStateHandle()
             )
         }
-        // Initializer for ItemEntryViewModel
+        // ItemEntryViewModel için fabrika ilklendiricisi
         initializer {
-            ItemEntryViewModel()
+            ItemEntryViewModel(inventoryApplication().container.itemsRepository)
         }
 
-        // Initializer for ItemDetailsViewModel
+        // ItemDetailsViewModel için fabrika ilklendiricisi
         initializer {
             ItemDetailsViewModel(
                 this.createSavedStateHandle()
             )
         }
 
-        // Initializer for HomeViewModel
+        // HomeViewModel için fabrika ilklendiricisi
         initializer {
-            HomeViewModel()
+            HomeViewModel(inventoryApplication().container.itemsRepository)
         }
     }
 }
 
 /**
- * Extension function to queries for [PlaygroundApplication] object.
+ * [CreationExtras] üzerinden [PlaygroundApplication] nesnesine ve onun konteynırına erişen genişletme fonksiyonu.
  */
-fun CreationExtras.playgroundApplication(): PlaygroundApplication =
+fun CreationExtras.inventoryApplication(): PlaygroundApplication =
     (this[AndroidViewModelFactory.APPLICATION_KEY] as PlaygroundApplication)
+
+

@@ -5,43 +5,65 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.example.jetpackcomposeplayground.samples.inventory.data.Item
+import com.example.jetpackcomposeplayground.samples.inventory.data.ItemsRepository
 import java.text.NumberFormat
 
 /**
- * ViewModel to validate and insert items in the Room database.
+ * Room veritabanına yeni ürün eklemeyi ve veri girişlerinin doğrulanmasını yöneten ViewModel.
  */
-class ItemEntryViewModel : ViewModel() {
+class ItemEntryViewModel(private val itemsRepository: ItemsRepository) : ViewModel() {
 
     /**
-     * Holds current item ui state
+     * Anlık ürün ekleme UI durumunu tutar.
      */
     var itemUiState by mutableStateOf(ItemUiState())
         private set
 
     /**
-     * Updates the [itemUiState] with the value provided in the argument. This method also triggers
-     * a validation for input values.
+     * Kullanıcının form alanlarına girdiği değerler değiştikçe UI durumunu günceller ve girdi doğrulamasını tetikler.
+     *
+     * @param itemDetails Güncellenmiş ürün detayları.
      */
     fun updateUiState(itemDetails: ItemDetails) {
         itemUiState =
             ItemUiState(itemDetails = itemDetails, isEntryValid = validateInput(itemDetails))
     }
 
+    /**
+     * Form girdilerinin geçerli (boş olmadığını) kontrol eder.
+     */
     private fun validateInput(uiState: ItemDetails = itemUiState.itemDetails): Boolean {
         return with(uiState) {
             name.isNotBlank() && price.isNotBlank() && quantity.isNotBlank()
         }
     }
+
+    /**
+     * Form verisi geçerliyse veriyi Room veritabanına kaydeder.
+     */
+    suspend fun saveItem() {
+        if (validateInput()) {
+            itemsRepository.insertItem(itemUiState.itemDetails.toItem())
+        }
+    }
 }
 
+
+
 /**
- * Represents Ui State for an Item.
+ * Bir ürün için UI Durumunu temsil eder.
+ *
+ * @property itemDetails Ürüne ait form alan verileri.
+ * @property isEntryValid Form girdilerinin kaydetmek için geçerli olup olmadığı.
  */
 data class ItemUiState(
     val itemDetails: ItemDetails = ItemDetails(),
     val isEntryValid: Boolean = false
 )
 
+/**
+ * Form alanlarındaki String türündeki değerleri tutan veri sınıfı.
+ */
 data class ItemDetails(
     val id: Int = 0,
     val name: String = "",
@@ -50,9 +72,7 @@ data class ItemDetails(
 )
 
 /**
- * Extension function to convert [ItemDetails] to [Item]. If the value of [ItemDetails.price] is
- * not a valid [Double], then the price will be set to 0.0. Similarly if the value of
- * [ItemDetails.quantity] is not a valid [Int], then the quantity will be set to 0
+ * [ItemDetails] nesnesini veritabanı varlığı olan [Item] nesnesine dönüştüren genişletme fonksiyonu.
  */
 fun ItemDetails.toItem(): Item = Item(
     id = id,
@@ -61,12 +81,15 @@ fun ItemDetails.toItem(): Item = Item(
     quantity = quantity.toIntOrNull() ?: 0
 )
 
+/**
+ * Fiyatı yerel para birimi formatında String olarak döndüren genişletme fonksiyonu.
+ */
 fun Item.formatedPrice(): String {
     return NumberFormat.getCurrencyInstance().format(price)
 }
 
 /**
- * Extension function to convert [Item] to [ItemUiState]
+ * [Item] veritabanı nesnesini [ItemUiState] nesnesine dönüştüren genişletme fonksiyonu.
  */
 fun Item.toItemUiState(isEntryValid: Boolean = false): ItemUiState = ItemUiState(
     itemDetails = this.toItemDetails(),
@@ -74,7 +97,7 @@ fun Item.toItemUiState(isEntryValid: Boolean = false): ItemUiState = ItemUiState
 )
 
 /**
- * Extension function to convert [Item] to [ItemDetails]
+ * [Item] veritabanı nesnesini form verisi olan [ItemDetails] nesnesine dönüştüren genişletme fonksiyonu.
  */
 fun Item.toItemDetails(): ItemDetails = ItemDetails(
     id = id,
@@ -82,3 +105,4 @@ fun Item.toItemDetails(): ItemDetails = ItemDetails(
     price = price.toString(),
     quantity = quantity.toString()
 )
+

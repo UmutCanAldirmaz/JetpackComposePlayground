@@ -8,14 +8,16 @@ import androidx.lifecycle.ViewModel
 import com.example.jetpackcomposeplayground.samples.inventory.data.ItemsRepository
 
 /**
- * ViewModel to retrieve and update an item from the [ItemsRepository]'s data source.
+ * [ItemsRepository] üzerinden var olan bir ürünü güncelleyen ViewModel.
+ *
+ * @param savedStateHandle Navigasyondan gelen `itemId` parametresine erişimi sağlar.
  */
 class ItemEditViewModel(
     savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
 
     /**
-     * Holds current item ui state
+     * Güncellenecek ürünün mevcut UI durumunu tutar.
      */
     var itemUiState by mutableStateOf(ItemUiState())
         private set

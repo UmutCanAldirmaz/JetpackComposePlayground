@@ -17,7 +17,10 @@ import com.example.jetpackcomposeplayground.R
 import com.example.jetpackcomposeplayground.samples.inventory.ui.navigation.InventoryNavHost
 
 /**
- * Top level composable that represents screens for the application.
+ * Inventory uygulamasının en üst seviyedeki ana Composable kapsayıcısı.
+ *
+ * @param onBackClick Örnek kataloğuna dönmek için kullanılan lambda.
+ * @param navController Navigasyon denetleyicisi.
  */
 @Composable
 fun InventoryApp(
@@ -31,7 +34,13 @@ fun InventoryApp(
 }
 
 /**
- * App bar to display title and conditionally display the back navigation.
+ * Ortalanmış başlık ve isteğe bağlı geri gezinme oku barındıran üst çubuk (TopAppBar) bileşeni.
+ *
+ * @param title Başlık metni.
+ * @param canNavigateBack Geri navigasyon okunun gösterilip gösterilmeyeceği.
+ * @param modifier Düzenleyici.
+ * @param scrollBehavior Kaydırma davranışı.
+ * @param navigateUp Geri butonuna tıklandığında çalışacak lambda.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

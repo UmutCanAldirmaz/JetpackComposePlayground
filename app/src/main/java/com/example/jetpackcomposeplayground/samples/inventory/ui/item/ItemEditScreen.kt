@@ -18,6 +18,9 @@ import com.example.jetpackcomposeplayground.samples.inventory.ui.AppViewModelPro
 import com.example.jetpackcomposeplayground.samples.inventory.ui.InventoryTopAppBar
 import com.example.jetpackcomposeplayground.samples.inventory.ui.navigation.NavigationDestination
 
+/**
+ * Ürün düzenleme ekranı navigasyon hedefi. `itemId` bağımsız değişkenini barındırır.
+ */
 object ItemEditDestination : NavigationDestination {
     override val route = "item_edit"
     override val titleRes = R.string.edit_item_title
@@ -25,6 +28,14 @@ object ItemEditDestination : NavigationDestination {
     val routeWithArgs = "$route/{$itemIdArg}"
 }
 
+/**
+ * Var olan ürünü düzenleme form ekranı bileşeni.
+ *
+ * @param navigateBack Bir önceki ekrana dönme fonksiyonu.
+ * @param onNavigateUp Üst çubuk geri butonuna basıldığında çalışacak fonksiyon.
+ * @param modifier Düzenleyici.
+ * @param viewModel Düzenleme mantığını yöneten [ItemEditViewModel].
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ItemEditScreen(
@@ -61,5 +72,5 @@ fun ItemEditScreen(
 @Preview(showBackground = true)
 @Composable
 fun ItemEditScreenPreview() {
-    ItemEditScreen(navigateBack = { /*Do nothing*/ }, onNavigateUp = { /*Do nothing*/ })
+    ItemEditScreen(navigateBack = { /*İşlem yapılmıyor*/ }, onNavigateUp = { /*İşlem yapılmıyor*/ })
 }

@@ -32,19 +32,31 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.jetpackcomposeplayground.R
 import com.example.jetpackcomposeplayground.samples.inventory.data.Item
+import com.example.jetpackcomposeplayground.samples.inventory.ui.AppViewModelProvider
 import com.example.jetpackcomposeplayground.samples.inventory.ui.InventoryTopAppBar
 import com.example.jetpackcomposeplayground.samples.inventory.ui.item.formatedPrice
 import com.example.jetpackcomposeplayground.samples.inventory.ui.navigation.NavigationDestination
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 
+/**
+ * Ana ekran için navigasyon hedefi objesi.
+ */
 object HomeDestination : NavigationDestination {
     override val route = "home"
     override val titleRes = R.string.inventory_app_name
 }
 
 /**
- * Entry route for Home screen
+ * Envanterdeki ürünlerin listelendiği ana ekran Composable bileşeni.
+ *
+ * @param navigateToItemEntry Yeni ürün ekleme ekranına geçiş fonksiyonu.
+ * @param navigateToItemUpdate Ürün detayına geçiş fonksiyonu.
+ * @param onBackClick Örnek kataloğuna dönmek için kullanılan geri tuşu lambda fonksiyonu.
+ * @param modifier Düzen düzenleyici.
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -52,10 +64,13 @@ fun HomeScreen(
     navigateToItemEntry: () -> Unit,
     navigateToItemUpdate: (Int) -> Unit,
     onBackClick: () -> Unit = {},
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: HomeViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ) {
+    // Sistem geri tuşuna basıldığında ana kataloğa dönülmesini sağlar
     BackHandler(onBack = onBackClick)
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
+    val homeUiState by viewModel.homeUiState.collectAsState()
 
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
@@ -68,6 +83,7 @@ fun HomeScreen(
             )
         },
         floatingActionButton = {
+            // Yeni ürün ekleme buton (FAB)
             FloatingActionButton(
                 onClick = navigateToItemEntry,
                 shape = MaterialTheme.shapes.medium,
@@ -81,7 +97,7 @@ fun HomeScreen(
         },
     ) { innerPadding ->
         HomeBody(
-            itemList = listOf(),
+            itemList = homeUiState.itemList,
             onItemClick = navigateToItemUpdate,
             modifier = Modifier.fillMaxSize(),
             contentPadding = innerPadding,
@@ -89,6 +105,9 @@ fun HomeScreen(
     }
 }
 
+/**
+ * Ana ekran gövde bileşeni. Liste boşsa bilgi metni, değilse ürün listesini gösterir.
+ */
 @Composable
 private fun HomeBody(
     itemList: List<Item>,
@@ -118,6 +137,9 @@ private fun HomeBody(
     }
 }
 
+/**
+ * Ürünleri [LazyColumn] kullanarak performanslı şekilde listeleyen bileşen.
+ */
 @Composable
 private fun InventoryList(
     itemList: List<Item>,
@@ -140,6 +162,9 @@ private fun InventoryList(
     }
 }
 
+/**
+ * Liste içerisindeki tek bir ürünü temsil eden Material3 Kart bileşeni.
+ */
 @Composable
 private fun InventoryItem(
     item: Item, modifier: Modifier = Modifier

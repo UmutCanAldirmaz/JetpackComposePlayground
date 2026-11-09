@@ -17,7 +17,11 @@ import com.example.jetpackcomposeplayground.samples.inventory.ui.item.ItemEntryD
 import com.example.jetpackcomposeplayground.samples.inventory.ui.item.ItemEntryScreen
 
 /**
- * Provides Navigation graph for the application.
+ * Inventory uygulamasının ekranlar arası navigasyon grafiğini ([NavHost]) tanımlayan Composable bileşen.
+ *
+ * @param navController Navigasyon işlemlerini yöneten denetleyici.
+ * @param onBackClick Ana ekrandan geriye basıldığında örnek kataloğuna dönmek için çağrılan lambda.
+ * @param modifier Düzen düzenleyici parametresi.
  */
 @Composable
 fun InventoryNavHost(
@@ -30,21 +34,26 @@ fun InventoryNavHost(
         startDestination = HomeDestination.route,
         modifier = modifier
     ) {
+        // 1. Ana Ekran Rrotası (HomeScreen)
         composable(route = HomeDestination.route) {
             HomeScreen(
                 navigateToItemEntry = { navController.navigate(ItemEntryDestination.route) },
-                navigateToItemUpdate = {
-                    navController.navigate("${ItemDetailsDestination.route}/${it}")
+                navigateToItemUpdate = { id ->
+                    navController.navigate("${ItemDetailsDestination.route}/$id")
                 },
                 onBackClick = onBackClick
             )
         }
+
+        // 2. Ürün Ekleme Ekranı Rrotası (ItemEntryScreen)
         composable(route = ItemEntryDestination.route) {
             ItemEntryScreen(
                 navigateBack = { navController.popBackStack() },
                 onNavigateUp = { navController.navigateUp() }
             )
         }
+
+        // 3. Ürün Detay Ekranı Rrotası (ItemDetailsScreen) - Parametre: itemId
         composable(
             route = ItemDetailsDestination.routeWithArgs,
             arguments = listOf(navArgument(ItemDetailsDestination.itemIdArg) {
@@ -52,10 +61,12 @@ fun InventoryNavHost(
             })
         ) {
             ItemDetailsScreen(
-                navigateToEditItem = { navController.navigate("${ItemEditDestination.route}/$it") },
+                navigateToEditItem = { id -> navController.navigate("${ItemEditDestination.route}/$id") },
                 navigateBack = { navController.navigateUp() }
             )
         }
+
+        // 4. Ürün Düzenleme Ekranı Rrotası (ItemEditScreen) - Parametre: itemId
         composable(
             route = ItemEditDestination.routeWithArgs,
             arguments = listOf(navArgument(ItemEditDestination.itemIdArg) {

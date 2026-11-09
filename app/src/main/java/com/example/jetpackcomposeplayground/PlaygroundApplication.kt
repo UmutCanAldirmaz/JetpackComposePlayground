@@ -13,6 +13,8 @@ class PlaygroundApplication : Application() {
     lateinit var amphibiansContainer: AmphibiansAppContainer
     lateinit var inventoryContainer: InventoryAppContainer
 
+    val container: InventoryAppContainer get() = inventoryContainer
+
     override fun onCreate() {
         super.onCreate()
         marsPhotosContainer = DefaultMarsAppContainer()

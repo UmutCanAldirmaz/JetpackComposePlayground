@@ -1,16 +1,16 @@
 package com.example.jetpackcomposeplayground.samples.inventory.ui.navigation
 
 /**
- * Interface to describe the navigation destinations for the app
+ * Uygulamadaki ekran navigasyon hedeflerini (Destination) tanımlayan arayüz.
  */
 interface NavigationDestination {
     /**
-     * Unique name to define the path for a composable
+     * Ekranın benzersiz rotası (yönlendirme yolu).
      */
     val route: String
 
     /**
-     * String resource id to that contains title to be displayed for the screen.
+     * Üst çubukta (TopAppBar) gösterilecek ekran başlığının string kaynak ID'si.
      */
     val titleRes: Int
 }

@@ -17,7 +17,9 @@ import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import kotlinx.coroutines.launch
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
@@ -31,11 +33,22 @@ import com.example.jetpackcomposeplayground.samples.inventory.ui.navigation.Navi
 import java.util.Currency
 import java.util.Locale
 
+/**
+ * Ürün ekleme ekranı navigasyon hedefi.
+ */
 object ItemEntryDestination : NavigationDestination {
     override val route = "item_entry"
     override val titleRes = R.string.item_entry_title
 }
 
+/**
+ * Yeni ürün eklemek için form ekranını barındıran Composable bileşen.
+ *
+ * @param navigateBack Bir önceki ekrana dönme fonksiyonu.
+ * @param onNavigateUp Üst çubuk geri butonuna tıklandığında çalışacak fonksiyon.
+ * @param canNavigateBack Geri butonunun aktif olup olmadığı.
+ * @param viewModel Form verilerini ve doğrulamayı yöneten [ItemEntryViewModel].
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ItemEntryScreen(
@@ -44,6 +57,8 @@ fun ItemEntryScreen(
     canNavigateBack: Boolean = true,
     viewModel: ItemEntryViewModel = viewModel(factory = AppViewModelProvider.Factory)
 ) {
+    val coroutineScope = rememberCoroutineScope()
+
     Scaffold(
         topBar = {
             InventoryTopAppBar(
@@ -56,7 +71,12 @@ fun ItemEntryScreen(
         ItemEntryBody(
             itemUiState = viewModel.itemUiState,
             onItemValueChange = viewModel::updateUiState,
-            onSaveClick = { navigateBack() },
+            onSaveClick = {
+                coroutineScope.launch {
+                    viewModel.saveItem()
+                    navigateBack()
+                }
+            },
             modifier = Modifier
                 .padding(
                     start = innerPadding.calculateStartPadding(LocalLayoutDirection.current),
@@ -69,6 +89,9 @@ fun ItemEntryScreen(
     }
 }
 
+/**
+ * Ürün ekleme ekranı gövdesi. Form alanlarını ve Kaydet butonunu içerir.
+ */
 @Composable
 fun ItemEntryBody(
     itemUiState: ItemUiState,
@@ -96,6 +119,9 @@ fun ItemEntryBody(
     }
 }
 
+/**
+ * Kullanıcının ürün adı, fiyatı ve stok miktarını girebileceği [OutlinedTextField] form alanları.
+ */
 @Composable
 fun ItemInputForm(
     itemDetails: ItemDetails,
@@ -107,6 +133,7 @@ fun ItemInputForm(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium))
     ) {
+        // Ürün Adı Girdi Alanı
         OutlinedTextField(
             value = itemDetails.name,
             onValueChange = { onValueChange(itemDetails.copy(name = it)) },
@@ -120,6 +147,7 @@ fun ItemInputForm(
             enabled = enabled,
             singleLine = true
         )
+        // Ürün Fiyatı Girdi Alanı
         OutlinedTextField(
             value = itemDetails.price,
             onValueChange = { onValueChange(itemDetails.copy(price = it)) },
@@ -135,6 +163,7 @@ fun ItemInputForm(
             enabled = enabled,
             singleLine = true
         )
+        // Stok Miktarı Girdi Alanı
         OutlinedTextField(
             value = itemDetails.quantity,
             onValueChange = { onValueChange(itemDetails.copy(quantity = it)) },

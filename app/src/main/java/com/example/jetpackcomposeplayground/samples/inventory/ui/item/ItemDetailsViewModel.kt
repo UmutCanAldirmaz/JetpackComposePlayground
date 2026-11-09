@@ -5,7 +5,9 @@ import androidx.lifecycle.ViewModel
 import com.example.jetpackcomposeplayground.samples.inventory.data.ItemsRepository
 
 /**
- * ViewModel to retrieve, update and delete an item from the [ItemsRepository]'s data source.
+ * [ItemsRepository] üzerinden tek bir ürünün detaylarını getiren, satan ve silen ViewModel.
+ *
+ * @param savedStateHandle Navigasyondan gelen `itemId` parametresine erişimi sağlar.
  */
 class ItemDetailsViewModel(
     savedStateHandle: SavedStateHandle
@@ -21,7 +23,10 @@ class ItemDetailsViewModel(
 }
 
 /**
- * UI state for ItemDetailsScreen
+ * Ürün detay ekranı (ItemDetailsScreen) için UI durum sınıfı.
+ *
+ * @property outOfStock Ürünün stokta kalıp kalmadığı bilgisi.
+ * @property itemDetails Ürün detay verileri.
  */
 data class ItemDetailsUiState(
     val outOfStock: Boolean = true,
