@@ -1,14 +1,16 @@
-# Woof Uygulaması - Çalışma ve Öğrenme Notları
+# Unit 3: Woof App - Çalışma ve Teknik Notlar
 
-## Proje Amacı
-Woof, Material Design 3 renk paletleri, özel tipografi tasarımları ve akıcı açılır/kapanır (expandable) liste öğeleri oluşturmayı öğreten bir köpeklere özel liste uygulamasıdır.
+## Özet ve Konseptler
 
-## Temel Öğrenilenler ve Teknikler
-1. **Material 3 Tema ve Renkler:**
-   - `ColorScheme`, dark/light theme desteği, özel şekiller (`Shapes`).
-2. **Özel Tipografi (Typography):**
-   - Google Fonts entegrasyonu ve yazı tipi stillerinin özelleştirilmesi.
-3. **Akıcı Animasyonlar:**
-   - `Modifier.animateContentSize()` kullanarak kart genişleme/daralma animasyonlarının kolayca uygulanması.
-4. **LazyColumn Kullanımı:**
-   - Köpek listesinin verimli bir şekilde listelenmesi.
+Woof uygulaması, Material Design 3 temalandırmasını, genişletilebilir kart animasyonlarını (`animateContentSize`, `animateColorAsState`) ve karanlık mod (Dark Theme) uyumluluğunu gösterir.
+
+### 1. Yumuşak Animasyonlar (Animations)
+- **`animateContentSize()`**: Kart tıklandığında genişleme/daralma hareketini `spring` fiziksel yay animasyon spesifikasyonu ile pürüzsüzleştirir.
+- **`animateColorAsState()`**: Kart genişlediğinde arka plan rengini `surfaceVariant` ile `tertiaryContainer` arasında kademeli olarak değiştirir.
+
+### 2. Düzeyli UI Bileşenleri
+- **`DogItemButton`**: `ExpandMore` ve `ExpandLess` ikonları ile genişleme durumunu gösterir ve tetikler.
+- **`CircleShape` & `ContentScale.Crop`**: Köpek profil resimlerini dairesel kırpar.
+
+### 3. Material Design 3 Temalandırması
+- Light ve Dark Mode desteği `@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES)` ile test edilebilir.

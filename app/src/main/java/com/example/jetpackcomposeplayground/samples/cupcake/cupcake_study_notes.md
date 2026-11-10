@@ -1,17 +1,16 @@
-# Cupcake Uygulaması - Çalışma ve Öğrenme Notları
+# Unit 4: Cupcake App - Çalışma ve Teknik Notlar
 
-## Proje Amacı
-Cupcake uygulaması, Android Basics with Compose kursunun 4. ünitesinde **Jetpack Navigation** bileşenini öğrenmek için geliştirilmiş çok ekranlı bir sipariş yönetim uygulamasıdır.
+## Özet ve Konseptler
 
-## Temel Öğrenilenler ve Teknikler
-1. **Jetpack Navigation Compose:**
-   - `NavHostController`: Navigasyonun kontrolcüsü.
-   - `NavHost`: Navigasyon grafiğini tanımlayan ana kapsayıcı.
-   - `composable(route)`: Rotaların tanımlandığı ve ekranların bağlandığı yer.
-2. **Ekranlar Arası Veri Paylaşımı:**
-   - `ViewModel` kullanarak sipariş verilerinin (`OrderUiState`) ekranlar arasında korunması ve paylaşılması.
-3. **Geri Yığını (Back Stack) ve Navigasyon Aksiyonları:**
-   - `navController.navigate(...)` ile ileri gitme.
-   - `navController.popBackStack(...)` ile belirli bir ekrana dönme veya siparişi iptal etme.
-4. **Implicit Intents (Dolaylı Niyetler):**
-   - Sipariş özetini e-posta veya başka bir uygulama üzerinden paylaşmak için `Intent.ACTION_SEND` kullanımı.
+Cupcake uygulaması, Jetpack Navigation component ile çok ekranlı sipariş akışını, `SharedViewModel` kalıbını ve Android Share Intent entegrasyonunu gösterir.
+
+### 1. Jetpack Navigation & NavHost
+- **`NavHost` & `NavHostController`**: Sipariş başlangıcı (`Start`), Aroma seçimi (`Flavor`), Tarih seçimi (`Pickup`) ve Özet (`Summary`) ekranları arasında geçişi yönetir.
+- **`currentBackStackEntryAsState()`**: Aktif rota değiştiğinde `CupcakeAppBar` başlığını otomatik günceller.
+
+### 2. Paylaşımlı Durum (Shared ViewModel)
+- `OrderViewModel`: Sipariş adedi, aroma, teslimat tarihi ve hesaplanan toplam tutarı ekranlar arasında ortak tutar.
+- `cancelOrderAndNavigateToStart()`: Sipariş iptal edildiğinde state sıfırlanır ve `popBackStack(Start.name, inclusive = false)` ile başlangıç ekranına dönülür.
+
+### 3. Sipariş Paylaşımı (`Intent.ACTION_SEND`)
+- Sipariş özeti `Intent.createChooser` ile WhatsApp, E-posta vb. dış uygulamalarla paylaşılır.

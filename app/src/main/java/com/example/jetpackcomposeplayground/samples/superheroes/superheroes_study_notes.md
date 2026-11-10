@@ -1,9 +1,13 @@
-# Super Heroes (Süper Kahramanlar) - Çalışma ve Öğrenme Notları
+# Unit 3: SuperHeroes App - Çalışma ve Teknik Notlar
 
-## Proje Amacı
-Material Design 3 standartlarına uygun kart tasarımları ve kahraman listesi oluşturarak listeleme pratiklerini pekiştirmek.
+## Özet ve Konseptler
 
-## Temel Öğrenilenler
-- Material 3 `Card` ve `Surface` bileşenleri.
-- Liste öğeleri için hiyerarşik layout tasarımı (`Row` içinde `Column`).
-- Padding ve boşluk (`spacedBy`) yönetimi.
+SuperHeroes uygulaması, liste içi yatay hizalamayı (`Row`), görsel kırpmayı ve Material Design 3 tipografi yerleşimini gösterir.
+
+### 1. Yatay Yerleşim ve Ağırlık (`Row` & `weight`)
+- `Column(modifier = Modifier.weight(1f))`: Kahraman adı ve açıklamasının yatay eksende kalan tüm boşluğu kaplamasını sağlar.
+- `Image` bileşeni sağ tarafta `72.dp` sabit boyutta hizalanır.
+
+### 2. Kart ve Şekil Tasarımı
+- `Card(shape = RoundedCornerShape(16.dp))`: Yuvarlatılmış modern kart yapısı.
+- `clip(RoundedCornerShape(8.dp))`: Kahraman görsellerinin köşelerini yuvarlatır.

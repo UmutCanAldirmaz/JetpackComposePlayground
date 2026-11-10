@@ -1,14 +1,13 @@
-# Lunch Tray Uygulaması - Çalışma ve Öğrenme Notları
+# Unit 4: Lunch Tray App - Çalışma ve Teknik Notlar
 
-## Proje Amacı
-Lunch Tray, öğle yemeği menüsü (Ana yemek, yan yemek, tatlı/eşlikçi) seçimi ve çok adımlı sipariş akışını **Navigation Compose** ile yönetmeyi pekiştiren bir uygulamadır.
+## Özet ve Konseptler
 
-## Temel Öğrenilenler ve Teknikler
-1. **Çok Adımlı Sipariş Akışı:**
-   - Start -> Entree -> Side Dish -> Accompaniment -> Checkout şeklinde sıralı navigasyon adımları.
-2. **ViewModel ve State Güncellemeleri:**
-   - Her adımda seçilen menü öğesinin (`MenuItem`) sipariş durumuna (`OrderUiState`) eklenmesi ve anlık fiyat/vergi hesaplamaları.
-3. **Rotalar ve Enum Yönetimi:**
-   - `LunchTrayScreenRoute` enum sınıfı ile ekran rotalarının `name` üzerinden güvenli yönetilmesi.
-4. **Geri ve İptal Yönetimi:**
-   - Sipariş iptal edildiğinde sepetin sıfırlanıp (`resetOrder`) başlangıç ekranına dönülmesi (`popBackStack`).
+Lunch Tray uygulaması, menü seçimleri (Ana Yemek, Yan Yemek, İçecek/Eşlikçi) ve hesap kartı özeti adımlarından oluşan bir Navigation sipariş akışıdır.
+
+### 1. Çok Aşamalı Sipariş Navigasyonu
+- **`LunchTrayScreenRoute`**: `Start`, `Entree`, `SideDish`, `Accompaniment`, `Checkout` adımlarını temsil eder.
+- Her menü seçim ekranı tamamlandığında bir sonraki rotaya (`navController.navigate()`) geçilir.
+
+### 2. Fiyat ve Vergi Hesaplaması
+- `OrderViewModel`: Seçilen her `MenuItem` için ara toplamı (`subtotal`), vergiyi (`tax` - %8) ve genel toplamı (`total`) reaktif günceller.
+- `resetOrder()`: İptal veya sipariş tamamlama durumunda sepet verilerini temizler.

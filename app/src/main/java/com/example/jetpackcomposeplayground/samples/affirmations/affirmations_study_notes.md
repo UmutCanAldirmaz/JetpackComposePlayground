@@ -1,9 +1,15 @@
-# Affirmations (Olumlama Kartları) - Çalışma ve Öğrenme Notları
+# Unit 3: Affirmations App - Çalışma ve Teknik Notlar
 
-## Proje Amacı
-Büyük veri listelerini verimli bir şekilde listelemek için **`LazyColumn`** bileşenini kullanmak ve `Card` görünümleri tasarlamak.
+## Özet ve Konseptler
 
-## Temel Öğrenilenler
-- `LazyColumn` ve `items` ile performanslı liste oluşturma.
-- `CardDefaults` ile kart yükseklik ve renk ayarları.
-- Yerel kaynaklardan (`stringArray`, `drawable`) veri modeli oluşturma.
+Affirmations uygulaması, Jetpack Compose'da dinamik verileri `LazyColumn` ile listelemeyi ve `Card` mimarisini gösterir.
+
+### 1. Dikey Kaydırılabilir Liste (`LazyColumn`)
+- `LazyColumn`: Yalnızca ekranda görünen öğeleri belleğe yükleyerek (Lazy Loading) yüksek performanslı kaydırma sağlar.
+- `items(affirmations)`: Liste elemanlarını döngüye alarak kart bileşenlerine bağlar.
+- `verticalArrangement = Arrangement.spacedBy(16.dp)`: Kartlar arasına dinamik boşluk ekler.
+
+### 2. Görsel ve Metin Kart Tasarımı (`Card`)
+- `ContentScale.Crop`: Görsellerin en-boy oranını koruyarak kart genişliğini tam kaplamasını sağlar.
+- `shape = RoundedCornerShape(12.dp)`: Kart köşelerini yuvarlatır.
+- `elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)`: Kartlara derinlik gölgesi kazandırır.

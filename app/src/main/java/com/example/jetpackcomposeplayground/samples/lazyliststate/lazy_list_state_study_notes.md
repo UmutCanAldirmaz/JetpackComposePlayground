@@ -1,9 +1,13 @@
-# Lazy List State Practice - Çalışma ve Öğrenme Notları
+# Unit 3: Lazy List State Practice - Çalışma ve Teknik Notlar
 
-## Proje Amacı
-`LazyListState` kullanarak liste kaydırma (scroll) pozisyonunu takip etmek ve programatik kaydırma işlemleri gerçekleştirmek.
+## Özet ve Konseptler
 
-## Temel Öğrenilenler
-- `rememberLazyListState()` ile scroll durumunu hafızada tutma.
-- Kullanıcı aşağı kaydırdığında "Yukarı Çık" (Scroll to Top) butonunu gösterme (`derivedStateOf`).
-- `coroutineScope.launch { listState.animateScrollToItem(0) }` ile akıcı kaydırma.
+Lazy List State uygulaması, `LazyListState` nesnesi ile liste kaydırma durumlarını kontrol etmeyi ve dinamik layout bilgilerini izlemeyi gösterir.
+
+### 1. Liste Kaydırma Denetimi (`LazyListState`)
+- **`rememberLazyListState()`**: Liste kaydırma pozisyonunu saklar.
+- **`listState.scrollToItem(50)`**: 50. indeksli öğeye anında atlar.
+- **`listState.animateScrollToItem(index)`**: Animasyonlu yumuşak kaydırma gerçekleştirir.
+
+### 2. Görünür Öğeleri İzleme
+- **`listState.layoutInfo.visibleItemsInfo.size`**: Ekranda o an aktif çizilen öğe sayısını anlık olarak verir.

@@ -1,12 +1,12 @@
-# Dessert Clicker Uygulaması - Çalışma ve Öğrenme Notları
+# Unit 4: Dessert Clicker App - Çalışma ve Teknik Notlar
 
-## Proje Amacı
-Dessert Clicker, Android **Activity Yaşam Döngüsünü (Lifecycle)** ve ekran döndürme gibi konfigürasyon değişikliklerinde verilerin nasıl korunduğunu anlamak için geliştirilmiştir.
+## Özet ve Konseptler
 
-## Temel Öğrenilenler ve Teknikler
-1. **Activity Yaşam Döngüsü:**
-   - `onCreate`, `onStart`, `onResume`, `onPause`, `onStop`, `onDestroy` metotlarının gözlemlenmesi ve loglanması.
-2. **`remember` vs `rememberSaveable`:**
-   - Normal `remember` state'inin ekran döndüğünde kaybolduğunu, ancak `rememberSaveable` veya `ViewModel` kullanıldığında verinin korunduğunu görmek.
-3. **Implicit Intents (Paylaşım):**
-   - Elde edilen skorun veya tatlı sayısının başka uygulamalarla paylaşılması.
+Dessert Clicker uygulaması, Android Yaşam Döngüsünü (Lifecycle), ViewModel ile durum yönetimini ve Intent ile dış uygulamalara veri paylaşımını gösterir.
+
+### 1. Android Yaşam Döngüsü ve State Handling
+- `DessertClickerViewModel`: Satılan tatlı sayısı (`dessertsSold`) ve elde edilen geliri (`revenue`) tutar.
+- `collectAsStateWithLifecycle()`: Lifecycle durumuna duyarlı olarak `StateFlow` verisini Compose tarafında güvenle dinler.
+
+### 2. Dış Uygulamalarla Paylaşım (`Intent.ACTION_SEND`)
+- `shareSoldDessertsInformation()`: `Intent(Intent.ACTION_SEND)` ve `Intent.createChooser()` kullanarak kullanıcının satılan tatlı istatistiklerini mesajlaşma veya sosyal medya uygulamalarında paylaşmasını sağlar.

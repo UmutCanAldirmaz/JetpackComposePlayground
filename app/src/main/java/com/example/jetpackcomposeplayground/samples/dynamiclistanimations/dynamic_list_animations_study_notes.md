@@ -1,9 +1,9 @@
-# Dynamic List Animations - Çalışma ve Öğrenme Notları
+# Unit 3: Dynamic List Animations - Çalışma ve Teknik Notlar
 
-## Proje Amacı
-Liste öğe ekleme, silme ve güncelleme işlemlerinde akıcı Compose animasyonları uygulamak.
+## Özet ve Konseptler
 
-## Temel Öğrenilenler
-- `animateItemPlacement()` ile öğe yer değiştirme animasyonları.
-- `AnimatedVisibility` ile öğe ekleme/silme geçişleri.
-- Liste animasyonlarında performans ve anahtar (`key`) kullanımı.
+Dynamic List Animations uygulaması, `Modifier.animateItem()` kullanarak liste elemanı ekleme, silme ve sıralama hareketlerinin pürüzsüz animasyonlarla sunulmasını gösterir.
+
+### 1. `Modifier.animateItem()` Özelliği
+- **`fadeInSpec` & `fadeOutSpec`**: Ekleme ve silme sırasında opaklık geçişleri tanımlar.
+- **`placementSpec`**: Liste yeniden sıralandığında veya aradan öğe silindiğinde diğer öğelerin pürüzsüz yer değiştirmesini sağlar.

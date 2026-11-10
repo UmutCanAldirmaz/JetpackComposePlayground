@@ -1,9 +1,12 @@
-# Counter Exercise (Sayaç Egzersizi) - Çalışma ve Öğrenme Notları
+# Unit 4: Lifecycle Counter Exercise - Çalışma ve Teknik Notlar
 
-## Proje Amacı
-UI mantığını arayüzden ayırarak **`ViewModel`** ve **`StateFlow`** mimarisine geçiş yapmak.
+## Özet ve Konseptler
 
-## Temel Öğrenilenler
-- MVVM (Model-View-ViewModel) tasarım deseni.
-- `ViewModel` yaşam döngüsü ve konfigürasyon değişikliklerinde veri koruma.
-- `MutableStateFlow` ve UI tarafında `collectAsState()` kullanımı.
+Lifecycle Counter uygulaması, Android Yaşam Döngüsü (Lifecycle) duyarlı `StateFlow` aboneliğini ve Recomposition izlemeyi gösterir.
+
+### 1. Yaşam Döngüsüne Duyarlı State Akışı
+- **`collectAsStateWithLifecycle()`**: Uygulama arka plana atıldığında (Lifecycle `STOPPED` durumuna geçtiğinde) `StateFlow` dinlemesini durdurur. Bu sayede arka planda gereksiz CPU tüketimi ve bellek sızıntıları önlenir.
+
+### 2. Yan Etki ve Recomposition Takibi
+- **`SideEffect { recompositionCount++ }`**: Her Recomposition gerçekleştiğinde yan etki (Side Effect) tetiklenerek arayüzün kaç defa yeniden çizildiği ölçülür.
+- **`LaunchedEffect(count)`**: Sayaç değeri güncellendiğinde Logcat konsoluna debug günlüğü yazar.

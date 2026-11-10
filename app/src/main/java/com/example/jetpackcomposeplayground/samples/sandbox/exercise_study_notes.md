@@ -1,8 +1,9 @@
-# Sandbox & Exercise - Çalışma ve Öğrenme Notları
+# Exercise Sandbox & Lab - Çalışma ve Teknik Notlar
 
-## Proje Amacı
-Yeni Jetpack Compose bileşenlerini, deneysel API'leri ve kişisel laboratuvar denemelerini gerçekleştirmek için ayrılmış serbest alan.
+## Özet ve Konseptler
 
-## Temel Öğrenilenler
-- Hızlı prototipleme ve deneysel Compose API testleri.
-- Özel modifier ve bileşen denemeleri.
+Exercise Sandbox alanı, Jetpack Compose bileşenlerini, özel tasarımları, state denemelerini ve interaktif UI parçalarını serbestçe deneyebileceğiniz laboratuvar ortamıdır.
+
+### 1. Katmanlı UI Denemeleri
+- `Card`, `Column`, `Row`, `Button`, `Slider`, `Checkbox` gibi Compose temel yapı taşlarının kombinasyonları.
+- Anlık state değişikliklerini (`remember { mutableStateOf(...) }`) hızlıca test etme imkanı.
