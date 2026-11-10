@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveableStateHolder
 import com.example.jetpackcomposeplayground.core.theme.JetpackComposePlaygroundTheme
 import com.example.jetpackcomposeplayground.home.AppRoute
 import com.example.jetpackcomposeplayground.home.HomeScreen
@@ -31,6 +32,7 @@ import com.example.jetpackcomposeplayground.samples.sqlbasics.ui.SqlBasicsScreen
 import com.example.jetpackcomposeplayground.samples.busschedule.ui.BusScheduleApp
 import com.example.jetpackcomposeplayground.samples.inventory.ui.InventoryApp
 import com.example.jetpackcomposeplayground.samples.dessertrelease.ui.DessertReleaseApp
+import com.example.jetpackcomposeplayground.samples.flightsearch.ui.FlightSearchApp
 import com.example.jetpackcomposeplayground.samples.sandbox.ExerciseScreen
 import com.example.jetpackcomposeplayground.samples.superheroes.SuperHeroesScreen
 import com.example.jetpackcomposeplayground.samples.tipcalculator.TipCalculatorScreen
@@ -48,14 +50,20 @@ class MainActivity : ComponentActivity() {
             JetpackComposePlaygroundTheme {
                 var currentRoute by remember { mutableStateOf(AppRoute.HOME) }
 
-                when (currentRoute) {
-                    AppRoute.HOME -> {
-                        HomeScreen(
-                            onAppSelected = { route ->
-                                currentRoute = route
-                            }
-                        )
-                    }
+                // SaveableStateHolder: Her ekranın kendi rememberSaveable durumlarını (örneğin HomeScreen scroll pozisyonunu)
+                // rota değişse bile arka planda hafızada tutan genel Compose kapsayıcısıdır.
+                // Bu sayede MainActivity içerisinde ekranlara özel tek tek state tutmamıza gerek kalmaz.
+                val saveableStateHolder = rememberSaveableStateHolder()
+
+                saveableStateHolder.SaveableStateProvider(key = currentRoute) {
+                    when (currentRoute) {
+                        AppRoute.HOME -> {
+                            HomeScreen(
+                                onAppSelected = { route ->
+                                    currentRoute = route
+                                }
+                            )
+                        }
                     AppRoute.DICE_ROLLER -> {
                         DiceRollerScreen(
                             onBackClick = {
@@ -245,9 +253,17 @@ class MainActivity : ComponentActivity() {
                             }
                         )
                     }
+                    AppRoute.FLIGHT_SEARCH -> {
+                        FlightSearchApp(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
                 }
             }
         }
+    }
     }
 
     override fun onStart() {

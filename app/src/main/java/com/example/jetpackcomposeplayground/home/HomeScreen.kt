@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material.icons.filled.Apps
@@ -43,6 +44,9 @@ fun HomeScreen(
     onAppSelected: (AppRoute) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
+    // SaveableStateHolder tarafından otomatik saklanan ve restore edilen yerel listState
+    val listState = rememberLazyListState()
+
     Scaffold(
         modifier = modifier.fillMaxSize(),
         topBar = {
@@ -68,6 +72,7 @@ fun HomeScreen(
         }
     ) { innerPadding ->
         LazyColumn(
+            state = listState,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)

@@ -270,4 +270,15 @@
     <string name="top_bar_name">Android Dessert Release</string>
     <string name="grid_layout_toggle">Grid layout</string>
     <string name="linear_layout_toggle">Linear layout</string>
+
+    <!-- Flight Search App -->
+    <string name="flight_search_title">Flight Search</string>
+    <string name="flight_search_desc">Bu uygulamada; Room veritabanı (flight_search.db) ve Preferences DataStore kullanarak havalimanı arama, rotaları listeleme ve favori uçuşları kaydetmeyi öğrendik.</string>
+    <string name="search_placeholder">Havalimanı adı veya IATA kodu girin</string>
+    <string name="favorite_routes">Favori Rotalar</string>
+    <string name="autocomplete_suggestions">Arama Önerileri</string>
+    <string name="flights_from">%1$s Kalkışlı Uçuşlar</string>
+    <string name="no_favorites_found">Henüz kaydedilmiş favori rota bulunmuyor.</string>
+    <string name="departure">KALKIŞ</string>
+    <string name="destination">VARDIŞ</string>
 </resources>

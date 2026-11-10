@@ -21,25 +21,25 @@ object AppViewModelProvider {
         initializer {
             ItemEditViewModel(
                 this.createSavedStateHandle(),
-                inventoryApplication().container.itemsRepository
+                inventoryApplication().inventoryContainer.itemsRepository
             )
         }
         // ItemEntryViewModel için fabrika ilklendiricisi
         initializer {
-            ItemEntryViewModel(inventoryApplication().container.itemsRepository)
+            ItemEntryViewModel(inventoryApplication().inventoryContainer.itemsRepository)
         }
 
         // ItemDetailsViewModel için fabrika ilklendiricisi
         initializer {
             ItemDetailsViewModel(
                 this.createSavedStateHandle(),
-                inventoryApplication().container.itemsRepository
+                inventoryApplication().inventoryContainer.itemsRepository
             )
         }
 
         // HomeViewModel için fabrika ilklendiricisi
         initializer {
-            HomeViewModel(inventoryApplication().container.itemsRepository)
+            HomeViewModel(inventoryApplication().inventoryContainer.itemsRepository)
         }
     }
 }
@@ -49,5 +49,3 @@ object AppViewModelProvider {
  */
 fun CreationExtras.inventoryApplication(): PlaygroundApplication =
     (this[AndroidViewModelFactory.APPLICATION_KEY] as PlaygroundApplication)
-
-
