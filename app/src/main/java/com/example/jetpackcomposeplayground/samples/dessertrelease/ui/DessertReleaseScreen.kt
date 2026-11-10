@@ -15,6 +15,7 @@
  */
 package com.example.jetpackcomposeplayground.samples.dessertrelease.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -54,8 +55,9 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.jetpackcomposeplayground.R
 import com.example.jetpackcomposeplayground.samples.dessertrelease.data.local.LocalDessertReleaseData
 
-/*
- * Screen level composable
+/**
+ * Dessert Release uygulamasının en üst seviye (Screen-level) Composable bileşeni.
+ * State ve ViewModel bağlamını alt bileşenlere geçirir.
  */
 @Composable
 fun DessertReleaseApp(
@@ -64,13 +66,23 @@ fun DessertReleaseApp(
         factory = DessertReleaseViewModel.Factory
     )
 ) {
+    // Sadece DessertRelease ekranındayken telefonun fiziksel/jestsel geri tuşuna basıldığında
+    // ana ekrana (HomeScreen) geri dönülmesini sağlar.
+    BackHandler {
+        onBackClick()
+    }
+
     DessertReleaseScreen(
+        // collectAsState() ile ViewModel'deki StateFlow'u Compose'un takip edebildiği State nesnesine dönüştürüyoruz
         uiState = dessertReleaseViewModel.uiState.collectAsState().value,
         selectLayout = dessertReleaseViewModel::selectLayout,
         onBackClick = onBackClick
     )
 }
 
+/**
+ * Ana içerik ekranı. TopAppBar ve düzen durumuna göre (Linear / Grid) listeyi render eder.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun DessertReleaseScreen(
@@ -92,6 +104,7 @@ private fun DessertReleaseScreen(
                     }
                 },
                 actions = {
+                    // Düzen değiştirme ikonu (Grid -> Linear veya Linear -> Grid)
                     IconButton(
                         onClick = {
                             selectLayout(!isLinearLayout)
@@ -116,6 +129,7 @@ private fun DessertReleaseScreen(
                 start = dimensionResource(R.dimen.padding_medium),
                 end = dimensionResource(R.dimen.padding_medium),
             )
+        // isLinearLayout durumuna göre ilgili görünüm bileşenini çağırıyoruz
         if (isLinearLayout) {
             DessertReleaseLinearLayout(
                 modifier = modifier.fillMaxWidth(),
@@ -130,6 +144,9 @@ private fun DessertReleaseScreen(
     }
 }
 
+/**
+ * Dikey liste (Linear Layout - LazyColumn) görünümü.
+ */
 @Composable
 fun DessertReleaseLinearLayout(
     modifier: Modifier = Modifier,
@@ -162,6 +179,9 @@ fun DessertReleaseLinearLayout(
     }
 }
 
+/**
+ * 3 Sütunlu Izgara (Grid Layout - LazyVerticalGrid) görünümü.
+ */
 @Composable
 fun DessertReleaseGridLayout(
     modifier: Modifier = Modifier,

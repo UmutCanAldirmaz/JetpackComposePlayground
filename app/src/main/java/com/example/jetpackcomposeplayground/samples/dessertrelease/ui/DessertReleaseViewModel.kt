@@ -17,41 +17,82 @@ package com.example.jetpackcomposeplayground.samples.dessertrelease.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
+import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import com.example.jetpackcomposeplayground.PlaygroundApplication
 import com.example.jetpackcomposeplayground.R
-import kotlinx.coroutines.flow.MutableStateFlow
+import com.example.jetpackcomposeplayground.samples.dessertrelease.data.UserPreferencesRepository
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
-/*
- * View model of Dessert Release components
+/**
+ * Dessert Release bileşenlerinin durumunu (State) ve kullanıcı tercihlerini (DataStore) yöneten ViewModel.
+ *
+ * @param userPreferencesRepository DataStore okuma ve yazma işlemlerinden sorumlu repository bağımlılığı.
  */
-class DessertReleaseViewModel : ViewModel() {
+class DessertReleaseViewModel(
+    private val userPreferencesRepository: UserPreferencesRepository
+) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(DessertReleaseUiState())
+    /**
+     * UI Durumu (StateFlow):
+     * 1. [userPreferencesRepository.isLinearLayout]: DataStore'dan gelen soğuk (cold) Flow<Boolean> akışıdır.
+     * 2. [.map]: Gelen boolean veriyi [DessertReleaseUiState] nesnesine dönüştürür.
+     * 3. [.stateIn]: Soğuk Flow'u UI için her an hazır sıcak (hot) StateFlow'a çevirir.
+     *    - [scope = viewModelScope]: Akışın yaşam döngüsünü ViewModel'e bağlar.
+     *    - [started = SharingStarted.WhileSubscribed(5_000)]: UI görünür olduğu sürece dinler.
+     *      Ekran döndürüldüğünde (configuration change) veya geçici arka plana atıldığında 5 saniye tolerans tanır.
+     *    - [initialValue = DessertReleaseUiState()]: İlk veriler yüklenene kadar gösterilecek varsayılan durum.
+     */
+    val uiState: StateFlow<DessertReleaseUiState> =
+        userPreferencesRepository.isLinearLayout.map { isLinearLayout ->
+            DessertReleaseUiState(isLinearLayout)
+        }.stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5_000),
+            initialValue = DessertReleaseUiState()
+        )
 
-    // UI states access for various [DessertReleaseUiState]
-    val uiState: StateFlow<DessertReleaseUiState> = _uiState
-
-    /*
-     * [selectLayout] change the layout and icons accordingly and
-     * save the selection in DataStore through [userPreferencesRepository]
+    /**
+     * Kullanıcı düzen butonuna bastığında (Linear / Grid değişimi) çağrılır.
+     * DataStore yazma işlemi bir [suspend] fonksiyon olduğu için [viewModelScope.launch] ile
+     * yeni bir coroutine başlatılarak kaydedilir.
+     *
+     * @param isLinearLayout Seçilen düzen türü (true: Linear, false: Grid).
      */
     fun selectLayout(isLinearLayout: Boolean) {
-        _uiState.value = DessertReleaseUiState(isLinearLayout)
+        viewModelScope.launch {
+            userPreferencesRepository.saveLayoutPreference(isLinearLayout)
+        }
     }
 
+    /**
+     * ViewModel nesnesinin parametreli olarak ilklendirilebilmesini sağlayan Factory tanımı.
+     * Manuel Bağımlılık Enjeksiyonu (Manual DI) kullanarak [PlaygroundApplication] üzerinden
+     * [userPreferencesRepository] örneğine erişir ve ViewModel'e aktarır.
+     */
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
-                DessertReleaseViewModel()
+                // Application bağımlılığına erişip repository'yi ViewModel constructor'ına geçiyoruz
+                val application = (this[APPLICATION_KEY] as PlaygroundApplication)
+                DessertReleaseViewModel(application.dessertReleaseContainer.userPreferencesRepository)
             }
         }
     }
 }
 
-/*
- * Data class containing various UI States for Dessert Release screens
+/**
+ * Dessert Release ekranının UI durum verilerini tutan veri sınıfı (State Holder).
+ *
+ * @param isLinearLayout Düzenin Linear mı (true) yoksa Grid mi (false) olduğunu belirtir.
+ * @param toggleContentDescription Erişilebilirlik (Accessibility) için ikon açıklama metni kaynağı.
+ * @param toggleIcon Sağ üstteki butonun göstereceği ikon kaynağı (Grid veya Linear ikonu).
  */
 data class DessertReleaseUiState(
     val isLinearLayout: Boolean = true,
