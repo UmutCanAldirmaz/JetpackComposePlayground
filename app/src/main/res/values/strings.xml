@@ -262,4 +262,12 @@
     <string name="sell">Sell</string>
     <string name="yes">Yes</string>
     <string name="required_fields">*required fields</string>
+
+    <!-- DataStore & Dessert Release -->
+    <string name="category_datastore">DataStore &amp; Preferences</string>
+    <string name="dessert_release_title">Dessert Release</string>
+    <string name="dessert_release_desc">Bu uygulamada; DataStore Preferences kullanarak kullanıcı düzen tercihlerini (Grid/Linear) cihazda yerel olarak saklamayı öğreneceksiniz.</string>
+    <string name="top_bar_name">Android Dessert Release</string>
+    <string name="grid_layout_toggle">Grid layout</string>
+    <string name="linear_layout_toggle">Linear layout</string>
 </resources>

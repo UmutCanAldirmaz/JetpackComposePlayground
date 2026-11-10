@@ -27,5 +27,6 @@ enum class AppRoute {
     SQL_BASICS,
     BUS_SCHEDULE,
     INVENTORY,
+    DESSERT_RELEASE,
     EXERCISE
 }

@@ -30,6 +30,7 @@ import com.example.jetpackcomposeplayground.samples.amphibians.ui.AmphibiansApp
 import com.example.jetpackcomposeplayground.samples.sqlbasics.ui.SqlBasicsScreen
 import com.example.jetpackcomposeplayground.samples.busschedule.ui.BusScheduleApp
 import com.example.jetpackcomposeplayground.samples.inventory.ui.InventoryApp
+import com.example.jetpackcomposeplayground.samples.dessertrelease.ui.DessertReleaseApp
 import com.example.jetpackcomposeplayground.samples.sandbox.ExerciseScreen
 import com.example.jetpackcomposeplayground.samples.superheroes.SuperHeroesScreen
 import com.example.jetpackcomposeplayground.samples.tipcalculator.TipCalculatorScreen
@@ -232,6 +233,13 @@ class MainActivity : ComponentActivity() {
                     }
                     AppRoute.INVENTORY -> {
                         InventoryApp(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.DESSERT_RELEASE -> {
+                        DessertReleaseApp(
                             onBackClick = {
                                 currentRoute = AppRoute.HOME
                             }

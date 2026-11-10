@@ -164,6 +164,12 @@ val practiceAppList = listOf(
         descriptionRes = R.string.inventory_desc,
         categoryRes = R.string.category_room
     ),
+    PracticeApp(
+        id = AppRoute.DESSERT_RELEASE,
+        titleRes = R.string.dessert_release_title,
+        descriptionRes = R.string.dessert_release_desc,
+        categoryRes = R.string.category_datastore
+    ),
 
     // === LAB & SANDBOX ===
     PracticeApp(
