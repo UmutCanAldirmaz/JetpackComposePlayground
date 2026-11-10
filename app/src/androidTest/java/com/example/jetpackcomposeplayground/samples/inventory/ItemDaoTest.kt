@@ -19,6 +19,7 @@ import java.io.IOException
 
 /**
  * [ItemDao] veritabanı işlemlerini bellek içi (in-memory) veritabanı kullanarak test eden enstrümante test sınıfı.
+ * Codelab içerisindeki tüm DAO testlerini ve ek senaryoları barındırır.
  */
 @RunWith(AndroidJUnit4::class)
 class ItemDaoTest {
@@ -27,7 +28,7 @@ class ItemDaoTest {
     private lateinit var inventoryDatabase: InventoryDatabase
 
     private val item1 = Item(1, "Apples", 10.0, 20)
-    private val item2 = Item(2, "Bananas", 15.0, 30)
+    private val item2 = Item(2, "Bananas", 15.0, 97)
 
     @Before
     fun createDb() {
@@ -85,12 +86,34 @@ class ItemDaoTest {
 
     @Test
     @Throws(Exception::class)
-    fun daoDeleteItem_deletesAllItemsFromDB() = runBlocking {
+    fun daoUpdateItem_decreasesQuantityForSellAction() = runBlocking {
+        addOneItemToDb()
+        val soldItem = item1.copy(quantity = item1.quantity - 1)
+        itemDao.update(soldItem)
+
+        val updatedItem = itemDao.getItem(1).first()
+        assertEquals(19, updatedItem?.quantity)
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun daoDeleteItems_deletesAllItemsFromDB() = runBlocking {
         addTwoItemsToDb()
         itemDao.delete(item1)
         itemDao.delete(item2)
         val allItems = itemDao.getAllItems().first()
         assertTrue(allItems.isEmpty())
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun daoDeleteItem_deletesOneItemFromDB() = runBlocking {
+        addTwoItemsToDb()
+        itemDao.delete(item1)
+
+        val allItems = itemDao.getAllItems().first()
+        assertEquals(1, allItems.size)
+        assertEquals(item2, allItems[0])
     }
 
     private suspend fun addOneItemToDb() {

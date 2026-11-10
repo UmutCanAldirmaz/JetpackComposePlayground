@@ -166,7 +166,11 @@ fun ItemInputForm(
         // Stok Miktarı Girdi Alanı
         OutlinedTextField(
             value = itemDetails.quantity,
-            onValueChange = { onValueChange(itemDetails.copy(quantity = it)) },
+            onValueChange = { input ->
+                if (input.isEmpty() || input.all { it.isDigit() }) {
+                    onValueChange(itemDetails.copy(quantity = input))
+                }
+            },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             label = { Text(stringResource(R.string.quantity_req)) },
             colors = OutlinedTextFieldDefaults.colors(

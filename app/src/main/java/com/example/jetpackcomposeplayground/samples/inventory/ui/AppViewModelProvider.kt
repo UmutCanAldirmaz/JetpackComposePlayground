@@ -20,7 +20,8 @@ object AppViewModelProvider {
         // ItemEditViewModel için fabrika ilklendiricisi
         initializer {
             ItemEditViewModel(
-                this.createSavedStateHandle()
+                this.createSavedStateHandle(),
+                inventoryApplication().container.itemsRepository
             )
         }
         // ItemEntryViewModel için fabrika ilklendiricisi
@@ -31,7 +32,8 @@ object AppViewModelProvider {
         // ItemDetailsViewModel için fabrika ilklendiricisi
         initializer {
             ItemDetailsViewModel(
-                this.createSavedStateHandle()
+                this.createSavedStateHandle(),
+                inventoryApplication().container.itemsRepository
             )
         }
 

@@ -46,7 +46,7 @@ interface ItemDao {
      * @param id Aranacak ürünün ID'si.
      */
     @Query("SELECT * from items WHERE id = :id")
-    fun getItem(id: Int): Flow<Item>
+    fun getItem(id: Int): Flow<Item?>
 
     /**
      * Tüm ürünleri alfabetik olarak isme göre sıralı şekilde getirir.

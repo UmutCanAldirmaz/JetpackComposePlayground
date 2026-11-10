@@ -28,6 +28,7 @@ import com.example.jetpackcomposeplayground.samples.racetracker.RaceTrackerApp
 import com.example.jetpackcomposeplayground.samples.marsphotos.ui.MarsPhotosApp
 import com.example.jetpackcomposeplayground.samples.amphibians.ui.AmphibiansApp
 import com.example.jetpackcomposeplayground.samples.sqlbasics.ui.SqlBasicsScreen
+import com.example.jetpackcomposeplayground.samples.busschedule.ui.BusScheduleApp
 import com.example.jetpackcomposeplayground.samples.inventory.ui.InventoryApp
 import com.example.jetpackcomposeplayground.samples.sandbox.ExerciseScreen
 import com.example.jetpackcomposeplayground.samples.superheroes.SuperHeroesScreen
@@ -217,6 +218,13 @@ class MainActivity : ComponentActivity() {
                     }
                     AppRoute.SQL_BASICS -> {
                         SqlBasicsScreen(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.BUS_SCHEDULE -> {
+                        BusScheduleApp(
                             onBackClick = {
                                 currentRoute = AppRoute.HOME
                             }

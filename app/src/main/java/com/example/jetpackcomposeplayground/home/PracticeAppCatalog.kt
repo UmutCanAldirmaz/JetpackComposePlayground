@@ -153,6 +153,12 @@ val practiceAppList = listOf(
         categoryRes = R.string.category_database
     ),
     PracticeApp(
+        id = AppRoute.BUS_SCHEDULE,
+        titleRes = R.string.bus_schedule_title,
+        descriptionRes = R.string.bus_schedule_desc,
+        categoryRes = R.string.category_room
+    ),
+    PracticeApp(
         id = AppRoute.INVENTORY,
         titleRes = R.string.inventory_title,
         descriptionRes = R.string.inventory_desc,

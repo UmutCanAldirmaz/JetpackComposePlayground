@@ -230,6 +230,15 @@
     <string name="sql_basics_desc">Bu uygulamada; Room veritabanı kütüphanesini, Entity ve DAO tanımlamalarını, createFromAsset() ile hazır SQLite veritabanı (Email.db) yüklemeyi ve asenkron veri çekmeyi öğrendik.</string>
     <string name="category_database">SQL &amp; Room</string>
 
+    <!-- Bus Schedule App -->
+    <string name="bus_schedule_title">Bus Schedule App</string>
+    <string name="bus_schedule_desc">Bu uygulamada; Room veritabanı, createFromAsset ile önceden doldurulmuş otobüs tarifesi veritabanını (bus_schedule.db) yüklemeyi, Flow ile rota ve durak bazlı sorguları öğrendik.</string>
+    <string name="full_schedule">Bus Schedule</string>
+    <string name="back">Back</string>
+    <string name="stop_name">Stop Name</string>
+    <string name="route_stop_name">Stop</string>
+    <string name="arrival_time">Arrival Time</string>
+
     <!-- Inventory App -->
     <string name="inventory_title">Inventory App</string>
     <string name="inventory_desc">Bu uygulamada; Room Veritabanı ve Repository kalıbı kullanarak envanter öğeleri ekleme, güncelleme ve silme (Starter kodu) mimarisini öğrendik.</string>
