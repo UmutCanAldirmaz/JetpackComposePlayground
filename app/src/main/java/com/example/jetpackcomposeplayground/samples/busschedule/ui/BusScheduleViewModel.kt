@@ -26,7 +26,7 @@ class BusScheduleViewModel(private val busScheduleDao: BusScheduleDao) : ViewMod
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
                 val application = (this[APPLICATION_KEY] as PlaygroundApplication)
-                BusScheduleViewModel(application.busScheduleDatabase.busScheduleDao())
+                BusScheduleViewModel(application.busScheduleContainer.busScheduleDatabase.busScheduleDao())
             }
         }
     }

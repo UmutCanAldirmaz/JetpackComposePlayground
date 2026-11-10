@@ -47,7 +47,7 @@ import com.example.jetpackcomposeplayground.R
 import com.example.jetpackcomposeplayground.samples.busschedule.data.BusSchedule
 import java.text.SimpleDateFormat
 import java.util.Date
-import java.util.Locale
+import androidx.compose.ui.platform.LocalLocale
 
 enum class BusScheduleScreens {
     FullSchedule,
@@ -72,6 +72,8 @@ fun BusScheduleApp(
             onBackClick()
         }
     }
+
+    BackHandler { onBackHandler() }
 
     Scaffold(
         topBar = {
@@ -238,7 +240,7 @@ fun BusScheduleDetails(
                     )
                 }
                 Text(
-                    text = SimpleDateFormat("h:mm a", Locale.getDefault())
+                    text = SimpleDateFormat("h:mm a", LocalLocale.current.platformLocale)
                         .format(Date(schedule.arrivalTimeInMillis.toLong() * 1000)),
                     style = MaterialTheme.typography.bodyLarge.copy(
                         fontSize = dimensionResource(R.dimen.font_large).value.sp,
