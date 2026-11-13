@@ -177,6 +177,14 @@ val practiceAppList = listOf(
         categoryRes = R.string.category_room
     ),
 
+    // === UNIT 7: WorkManager & Background Work ===
+    PracticeApp(
+        id = AppRoute.BLUROMATIC,
+        titleRes = R.string.bluromatic_title,
+        descriptionRes = R.string.bluromatic_desc,
+        categoryRes = R.string.category_workmanager
+    ),
+
     // === LAB & SANDBOX ===
     PracticeApp(
         id = AppRoute.EXERCISE,

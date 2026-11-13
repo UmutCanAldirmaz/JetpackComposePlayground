@@ -29,5 +29,6 @@ enum class AppRoute {
     INVENTORY,
     DESSERT_RELEASE,
     FLIGHT_SEARCH,
+    BLUROMATIC,
     EXERCISE
 }

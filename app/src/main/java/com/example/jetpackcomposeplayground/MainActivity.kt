@@ -33,6 +33,7 @@ import com.example.jetpackcomposeplayground.samples.busschedule.ui.BusScheduleAp
 import com.example.jetpackcomposeplayground.samples.inventory.ui.InventoryApp
 import com.example.jetpackcomposeplayground.samples.dessertrelease.ui.DessertReleaseApp
 import com.example.jetpackcomposeplayground.samples.flightsearch.ui.FlightSearchApp
+import com.example.jetpackcomposeplayground.samples.bluromatic.ui.BluromaticApp
 import com.example.jetpackcomposeplayground.samples.sandbox.ExerciseScreen
 import com.example.jetpackcomposeplayground.samples.superheroes.SuperHeroesScreen
 import com.example.jetpackcomposeplayground.samples.tipcalculator.TipCalculatorScreen
@@ -255,6 +256,13 @@ class MainActivity : ComponentActivity() {
                     }
                     AppRoute.FLIGHT_SEARCH -> {
                         FlightSearchApp(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.BLUROMATIC -> {
+                        BluromaticApp(
                             onBackClick = {
                                 currentRoute = AppRoute.HOME
                             }

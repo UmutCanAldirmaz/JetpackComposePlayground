@@ -3,6 +3,8 @@ package com.example.jetpackcomposeplayground
 import android.app.Application
 import com.example.jetpackcomposeplayground.samples.amphibians.data.AppContainer as AmphibiansAppContainer
 import com.example.jetpackcomposeplayground.samples.amphibians.data.DefaultAppContainer as DefaultAmphibiansAppContainer
+import com.example.jetpackcomposeplayground.samples.bluromatic.data.AppContainer as BluromaticAppContainer
+import com.example.jetpackcomposeplayground.samples.bluromatic.data.DefaultAppContainer as DefaultBluromaticAppContainer
 import com.example.jetpackcomposeplayground.samples.busschedule.data.BusScheduleAppContainer
 import com.example.jetpackcomposeplayground.samples.busschedule.data.DefaultBusScheduleAppContainer
 import com.example.jetpackcomposeplayground.samples.dessertrelease.data.DefaultDessertReleaseAppContainer
@@ -25,6 +27,7 @@ class PlaygroundApplication : Application() {
     lateinit var busScheduleContainer: BusScheduleAppContainer
     lateinit var dessertReleaseContainer: DessertReleaseAppContainer
     lateinit var flightSearchContainer: FlightSearchAppContainer
+    lateinit var bluromaticContainer: BluromaticAppContainer
 
     override fun onCreate() {
         super.onCreate()
@@ -34,5 +37,6 @@ class PlaygroundApplication : Application() {
         busScheduleContainer = DefaultBusScheduleAppContainer(this)
         dessertReleaseContainer = DefaultDessertReleaseAppContainer(this)
         flightSearchContainer = DefaultFlightSearchAppContainer(this)
+        bluromaticContainer = DefaultBluromaticAppContainer(this)
     }
 }
