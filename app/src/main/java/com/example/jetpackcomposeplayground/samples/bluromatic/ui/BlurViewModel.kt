@@ -19,35 +19,70 @@ package com.example.jetpackcomposeplayground.samples.bluromatic.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
+import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import androidx.work.WorkInfo
 import com.example.jetpackcomposeplayground.PlaygroundApplication
+import com.example.jetpackcomposeplayground.samples.bluromatic.KEY_IMAGE_URI
 import com.example.jetpackcomposeplayground.samples.bluromatic.data.BlurAmountData
 import com.example.jetpackcomposeplayground.samples.bluromatic.data.BluromaticRepository
-import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 
 /**
- * [BlurViewModel] starts and stops the WorkManger and applies blur to the image. Also updates the
- * visibility states of the buttons depending on the states of the WorkManger.
+ * Bu sınıf, Blur-O-Matic arayüzü ile WorkManager Repository katmanı arasındaki
+ * durum yönetimini ve veri akışını sağlayan ViewModel sınıfıdır.
  */
 class BlurViewModel(private val bluromaticRepository: BluromaticRepository) : ViewModel() {
 
+    // UI tarafında radyo butonlarında gösterilecek olan blur seviyesi seçeneklerini tutar.
     internal val blurAmount = BlurAmountData.blurAmount
 
-    val blurUiState: StateFlow<BlurUiState> = MutableStateFlow(BlurUiState.Default)
+    // Arka plan işinin durumunu (Default, Loading, Complete) takip eden ve UI'a yayımlayan StateFlow nesnesidir.
+    val blurUiState: StateFlow<BlurUiState> = bluromaticRepository.outputWorkInfo
+        .map { info ->
+            // WorkManager çıktısından kaydedilen resmin URI adresini okur.
+            val outputImageUri = info.outputData.getString(KEY_IMAGE_URI)
+            when {
+                // İşlem bittiyse ve çıktı URI'si geçerliyse Complete durumuna geçer.
+                info.state.isFinished && !outputImageUri.isNullOrEmpty() -> {
+                    BlurUiState.Complete(outputUri = outputImageUri)
+                }
+                // İşlem iptal edildiyse varsayılan başlangıç durumuna dönülür.
+                info.state == WorkInfo.State.CANCELLED -> {
+                    BlurUiState.Default
+                }
+                // Diğer durumlarda (ENQUEUED, RUNNING) yükleniyor (Loading) durumu gösterilir.
+                else -> BlurUiState.Loading
+            }
+        }.stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5_000),
+            initialValue = BlurUiState.Default
+        )
 
     /**
-     * Call the method from repository to create the WorkRequest to apply the blur
-     * and save the resulting image
-     * @param blurLevel The amount to blur the image
+     * Kullanıcı tarafından seçilen blur seviyesini alıp Repository üzerinden WorkManager zincirini başlatır.
+     *
+     * @param blurLevel Seçilen bulanıklık seviyesi.
      */
     fun applyBlur(blurLevel: Int) {
         bluromaticRepository.applyBlur(blurLevel)
     }
 
     /**
-     * Factory for [BlurViewModel] that takes [BluromaticRepository] as a dependency
+     * Arka planda yürütülen veya kuyruktaki WorkManager işini iptal etmek için Repository çağrısı yapar.
+     */
+    fun cancelWork() {
+        bluromaticRepository.cancelWork()
+    }
+
+    /**
+     * ViewModel bağımlılığı olan BluromaticRepository'yi PlaygroundApplication
+     * konteynerinden alarak ViewModel'i oluşturan Factory yapısıdır.
      */
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
@@ -62,6 +97,9 @@ class BlurViewModel(private val bluromaticRepository: BluromaticRepository) : Vi
     }
 }
 
+/**
+ * Blur-O-Matic ekranının mevcut durumlarını (Varsayılan, Yükleniyor, Tamamlandı) temsil eden Sealed Interface yapısıdır.
+ */
 sealed interface BlurUiState {
     object Default : BlurUiState
     object Loading : BlurUiState

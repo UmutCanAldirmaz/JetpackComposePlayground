@@ -24,11 +24,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
@@ -36,7 +38,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -53,6 +57,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -65,16 +70,22 @@ import com.example.jetpackcomposeplayground.R
 import com.example.jetpackcomposeplayground.core.theme.JetpackComposePlaygroundTheme
 import com.example.jetpackcomposeplayground.samples.bluromatic.data.BlurAmount
 
+/**
+ * Bu Composable fonksiyonu, Blur-O-Matic uygulamasının en üst seviye (Screen-level) ekran bileşenidir.
+ * TopAppBar, geri gezinme (BackHandler) desteği ve ViewModel bağlantısını sağlar.
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BluromaticApp(
     onBackClick: () -> Unit = {},
     blurViewModel: BlurViewModel = viewModel(factory = BlurViewModel.Factory)
 ) {
+    // Telefonun fiziksel/jestsel geri tuşuna basıldığında ana ekrana dönülmesini sağlar.
     BackHandler {
         onBackClick()
     }
 
+    // ViewModel'deki blurUiState StateFlow nesnesini dinleyerek Compose State yapısına dönüştürür.
     val uiState by blurViewModel.blurUiState.collectAsStateWithLifecycle()
 
     Scaffold(
@@ -96,7 +107,7 @@ fun BluromaticApp(
             blurUiState = uiState,
             blurAmountOptions = blurViewModel.blurAmount,
             applyBlur = blurViewModel::applyBlur,
-            cancelWork = {},
+            cancelWork = blurViewModel::cancelWork,
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
@@ -106,6 +117,9 @@ fun BluromaticApp(
     }
 }
 
+/**
+ * Bu Composable fonksiyonu, resim görünümü, radyo butonları ve durum duyarlı aksiyon butonlarını çizer.
+ */
 @Composable
 fun BluromaticScreenContent(
     blurUiState: BlurUiState,
@@ -114,8 +128,12 @@ fun BluromaticScreenContent(
     cancelWork: () -> Unit,
     modifier: Modifier = Modifier
 ) {
+    // Kullanıcının seçtiği blur seviyesini (1, 2 veya 3) yerel Compose durumunda tutar.
     var selectedValue by rememberSaveable { mutableStateOf(1) }
+    val context = LocalContext.current
+
     Column(modifier = modifier) {
+        // Bulanıklaştırılacak örnek görseli (android_cupcake) ekrana yerleştirir.
         Image(
             painter = painterResource(R.drawable.android_cupcake),
             contentDescription = stringResource(R.string.description_image),
@@ -124,22 +142,34 @@ fun BluromaticScreenContent(
                 .height(400.dp),
             contentScale = ContentScale.Fit,
         )
+
+        // Blur seviyelerinin seçileceği radyo butonu listesini çizer.
         BlurAmountContent(
             selectedValue = selectedValue,
             blurAmounts = blurAmountOptions,
             modifier = Modifier.fillMaxWidth(),
             onSelectedValueChange = { selectedValue = it }
         )
+
+        // Arka plan işinin durumuna (Default, Loading, Complete) göre dinamik aksiyon butonlarını çizer.
         BlurActions(
             blurUiState = blurUiState,
             onStartClick = { applyBlur(selectedValue) },
-            onSeeFileClick = {},
+            onSeeFileClick = { currentUri ->
+                showBlurredImage(context, currentUri)
+            },
             onCancelClick = { cancelWork() },
             modifier = Modifier.fillMaxWidth()
         )
     }
 }
 
+/**
+ * Bu Composable fonksiyonu, mevcut BlurUiState durumuna göre durum duyarlı aksiyon butonlarını gruplayarak çizer:
+ * - Default: Sadece "Start" butonu.
+ * - Loading: "Cancel Work" butonu ve dairesel ilerleme çubuğu (CircularProgressIndicator).
+ * - Complete: "Start" ve oluşturulan resmi açan "See File" butonları.
+ */
 @Composable
 private fun BlurActions(
     blurUiState: BlurUiState,
@@ -152,15 +182,41 @@ private fun BlurActions(
         modifier = modifier,
         horizontalArrangement = Arrangement.Center
     ) {
-        Button(
-            onClick = onStartClick,
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Text(stringResource(R.string.start))
+        when (blurUiState) {
+            is BlurUiState.Default -> {
+                Button(
+                    onClick = onStartClick,
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(stringResource(R.string.start))
+                }
+            }
+
+            is BlurUiState.Loading -> {
+                FilledTonalButton(onClick = onCancelClick) {
+                    Text(stringResource(R.string.cancel_work))
+                }
+                CircularProgressIndicator(
+                    modifier = Modifier.padding(dimensionResource(R.dimen.padding_small))
+                )
+            }
+
+            is BlurUiState.Complete -> {
+                Button(onClick = onStartClick) {
+                    Text(stringResource(R.string.start))
+                }
+                Spacer(modifier = Modifier.width(dimensionResource(R.dimen.padding_small)))
+                FilledTonalButton(onClick = { onSeeFileClick(blurUiState.outputUri) }) {
+                    Text(stringResource(R.string.see_file))
+                }
+            }
         }
     }
 }
 
+/**
+ * Bu Composable fonksiyonu, kullanıcının blur yoğunluğunu seçeceği radyo buton grubunu çizer.
+ */
 @Composable
 private fun BlurAmountContent(
     selectedValue: Int,
@@ -201,6 +257,9 @@ private fun BlurAmountContent(
     }
 }
 
+/**
+ * Bu yardımcı fonksiyon, kaydedilen resmi varsayılan resim görüntüleyici Intent (ACTION_VIEW) ile açar.
+ */
 private fun showBlurredImage(context: Context, currentUri: String) {
     val uri = if (currentUri.isNotEmpty()) {
         Uri.parse(currentUri)
