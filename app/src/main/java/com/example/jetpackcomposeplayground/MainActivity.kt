@@ -2,7 +2,7 @@ package com.example.jetpackcomposeplayground
 
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.*
@@ -35,6 +35,7 @@ import com.example.jetpackcomposeplayground.samples.dessertrelease.ui.DessertRel
 import com.example.jetpackcomposeplayground.samples.flightsearch.ui.FlightSearchApp
 import com.example.jetpackcomposeplayground.samples.bluromatic.ui.BluromaticApp
 import com.example.jetpackcomposeplayground.samples.waterme.ui.WaterMeApp
+import com.example.jetpackcomposeplayground.samples.juicetracker.ui.JuiceTrackerScreen
 import com.example.jetpackcomposeplayground.samples.sandbox.ExerciseScreen
 import com.example.jetpackcomposeplayground.samples.superheroes.SuperHeroesScreen
 import com.example.jetpackcomposeplayground.samples.tipcalculator.TipCalculatorScreen
@@ -43,7 +44,7 @@ import com.example.jetpackcomposeplayground.samples.woof.WoofScreen
 
 private const val TAG = "MainActivityDebugging"
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate Called")
@@ -271,6 +272,13 @@ class MainActivity : ComponentActivity() {
                     }
                     AppRoute.WATER_ME -> {
                         WaterMeApp(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.JUICE_TRACKER -> {
+                        JuiceTrackerScreen(
                             onBackClick = {
                                 currentRoute = AppRoute.HOME
                             }

@@ -56,6 +56,7 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.com.google.android.material)
+    implementation(libs.androidx.compose.ui.viewbinding)
 
     // Retrofit
     implementation(libs.retrofit)

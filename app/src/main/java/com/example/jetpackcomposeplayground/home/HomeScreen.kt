@@ -65,7 +65,7 @@ fun HomeScreen(
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface,
+                    containerColor = MaterialTheme.colorScheme.surfaceContainer,
                     titleContentColor = MaterialTheme.colorScheme.onSurface
                 )
             )
@@ -141,7 +141,7 @@ fun HomeScreen(
                     onClick = { onAppSelected(app.id) },
                     elevation = CardDefaults.elevatedCardElevation(defaultElevation = 2.dp),
                     colors = CardDefaults.elevatedCardColors(
-                        containerColor = MaterialTheme.colorScheme.surface
+                        containerColor = MaterialTheme.colorScheme.surfaceContainerLow
                     ),
                     modifier = Modifier.fillMaxWidth()
                 ) {

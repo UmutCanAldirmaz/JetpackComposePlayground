@@ -18,6 +18,8 @@ import com.example.jetpackcomposeplayground.samples.marsphotos.data.DefaultAppCo
 
 import com.example.jetpackcomposeplayground.samples.waterme.data.AppContainer as WaterMeAppContainer
 import com.example.jetpackcomposeplayground.samples.waterme.data.DefaultAppContainer as DefaultWaterMeAppContainer
+import com.example.jetpackcomposeplayground.samples.juicetracker.data.AppContainer as JuiceTrackerAppContainer
+import com.example.jetpackcomposeplayground.samples.juicetracker.data.DefaultAppContainer as DefaultJuiceTrackerAppContainer
 
 /**
  * Tüm uygulamanın giriş noktası olan [Application] sınıfı.
@@ -32,6 +34,7 @@ class PlaygroundApplication : Application() {
     lateinit var flightSearchContainer: FlightSearchAppContainer
     lateinit var bluromaticContainer: BluromaticAppContainer
     lateinit var waterMeContainer: WaterMeAppContainer
+    lateinit var juiceTrackerContainer: JuiceTrackerAppContainer
 
     override fun onCreate() {
         super.onCreate()
@@ -43,5 +46,6 @@ class PlaygroundApplication : Application() {
         flightSearchContainer = DefaultFlightSearchAppContainer(this)
         bluromaticContainer = DefaultBluromaticAppContainer(this)
         waterMeContainer = DefaultWaterMeAppContainer(this)
+        juiceTrackerContainer = DefaultJuiceTrackerAppContainer(this)
     }
 }

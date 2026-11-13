@@ -31,5 +31,6 @@ enum class AppRoute {
     FLIGHT_SEARCH,
     BLUROMATIC,
     WATER_ME,
+    JUICE_TRACKER,
     EXERCISE
 }
