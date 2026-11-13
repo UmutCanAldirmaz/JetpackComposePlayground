@@ -16,6 +16,9 @@ import com.example.jetpackcomposeplayground.samples.inventory.data.AppDataContai
 import com.example.jetpackcomposeplayground.samples.marsphotos.data.AppContainer as MarsAppContainer
 import com.example.jetpackcomposeplayground.samples.marsphotos.data.DefaultAppContainer as DefaultMarsAppContainer
 
+import com.example.jetpackcomposeplayground.samples.waterme.data.AppContainer as WaterMeAppContainer
+import com.example.jetpackcomposeplayground.samples.waterme.data.DefaultAppContainer as DefaultWaterMeAppContainer
+
 /**
  * Tüm uygulamanın giriş noktası olan [Application] sınıfı.
  * Manuel Bağımlılık Enjeksiyonu (Manual Dependency Injection) konteynerlarını barındırır.
@@ -28,6 +31,7 @@ class PlaygroundApplication : Application() {
     lateinit var dessertReleaseContainer: DessertReleaseAppContainer
     lateinit var flightSearchContainer: FlightSearchAppContainer
     lateinit var bluromaticContainer: BluromaticAppContainer
+    lateinit var waterMeContainer: WaterMeAppContainer
 
     override fun onCreate() {
         super.onCreate()
@@ -38,5 +42,6 @@ class PlaygroundApplication : Application() {
         dessertReleaseContainer = DefaultDessertReleaseAppContainer(this)
         flightSearchContainer = DefaultFlightSearchAppContainer(this)
         bluromaticContainer = DefaultBluromaticAppContainer(this)
+        waterMeContainer = DefaultWaterMeAppContainer(this)
     }
 }

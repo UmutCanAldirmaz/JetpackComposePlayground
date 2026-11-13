@@ -34,6 +34,7 @@ import com.example.jetpackcomposeplayground.samples.inventory.ui.InventoryApp
 import com.example.jetpackcomposeplayground.samples.dessertrelease.ui.DessertReleaseApp
 import com.example.jetpackcomposeplayground.samples.flightsearch.ui.FlightSearchApp
 import com.example.jetpackcomposeplayground.samples.bluromatic.ui.BluromaticApp
+import com.example.jetpackcomposeplayground.samples.waterme.ui.WaterMeApp
 import com.example.jetpackcomposeplayground.samples.sandbox.ExerciseScreen
 import com.example.jetpackcomposeplayground.samples.superheroes.SuperHeroesScreen
 import com.example.jetpackcomposeplayground.samples.tipcalculator.TipCalculatorScreen
@@ -263,6 +264,13 @@ class MainActivity : ComponentActivity() {
                     }
                     AppRoute.BLUROMATIC -> {
                         BluromaticApp(
+                            onBackClick = {
+                                currentRoute = AppRoute.HOME
+                            }
+                        )
+                    }
+                    AppRoute.WATER_ME -> {
+                        WaterMeApp(
                             onBackClick = {
                                 currentRoute = AppRoute.HOME
                             }

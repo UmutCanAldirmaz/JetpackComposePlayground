@@ -30,5 +30,6 @@ enum class AppRoute {
     DESSERT_RELEASE,
     FLIGHT_SEARCH,
     BLUROMATIC,
+    WATER_ME,
     EXERCISE
 }

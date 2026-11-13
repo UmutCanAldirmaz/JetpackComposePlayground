@@ -184,6 +184,12 @@ val practiceAppList = listOf(
         descriptionRes = R.string.bluromatic_desc,
         categoryRes = R.string.category_workmanager
     ),
+    PracticeApp(
+        id = AppRoute.WATER_ME,
+        titleRes = R.string.water_me_title,
+        descriptionRes = R.string.water_me_desc,
+        categoryRes = R.string.category_workmanager
+    ),
 
     // === LAB & SANDBOX ===
     PracticeApp(
