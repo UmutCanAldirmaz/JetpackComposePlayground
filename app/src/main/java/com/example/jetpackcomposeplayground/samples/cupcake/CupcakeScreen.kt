@@ -7,8 +7,6 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Icon
@@ -122,7 +120,6 @@ fun CupcakeScreen(
             startDestination = CupcakeScreenRoute.Start.name,
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
                 .padding(innerPadding)
         ) {
             composable(route = CupcakeScreenRoute.Start.name) {
@@ -205,4 +202,12 @@ private fun shareOrder(context: Context, subject: String, summary: String) {
             context.getString(R.string.new_cupcake_order)
         )
     )
+}
+
+@androidx.compose.ui.tooling.preview.Preview
+@Composable
+fun PreviewCupcakeScreen() {
+    MaterialTheme {
+        CupcakeScreen()
+    }
 }

@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveableStateHolder
+import androidx.navigationevent.compose.LocalNavigationEventDispatcherOwner
 import com.example.jetpackcomposeplayground.core.theme.JetpackComposePlaygroundTheme
 import com.example.jetpackcomposeplayground.home.AppRoute
 import com.example.jetpackcomposeplayground.home.HomeScreen
@@ -50,8 +51,12 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onCreate Called")
         enableEdgeToEdge()
         setContent {
-            JetpackComposePlaygroundTheme {
-                var currentRoute by remember { mutableStateOf(AppRoute.HOME) }
+            val dispatcherOwner = LocalNavigationEventDispatcherOwner.current ?: this
+            CompositionLocalProvider(
+                LocalNavigationEventDispatcherOwner provides dispatcherOwner
+            ) {
+                JetpackComposePlaygroundTheme {
+                    var currentRoute by remember { mutableStateOf(AppRoute.HOME) }
 
                 // SaveableStateHolder: Her ekranın kendi rememberSaveable durumlarını (örneğin HomeScreen scroll pozisyonunu)
                 // rota değişse bile arka planda hafızada tutan genel Compose kapsayıcısıdır.
@@ -288,7 +293,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    }
+}
+}
 
     override fun onStart() {
         super.onStart()
