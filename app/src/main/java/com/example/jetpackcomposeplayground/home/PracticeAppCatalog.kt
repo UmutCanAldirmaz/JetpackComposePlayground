@@ -191,7 +191,7 @@ val practiceAppList = listOf(
         categoryRes = R.string.category_workmanager
     ),
 
-    // === UNIT 8: Android Views & Fragments ===
+    // === UNIT 8: Android Views & Interoperability ===
     PracticeApp(
         id = AppRoute.JUICE_TRACKER,
         titleRes = R.string.juice_tracker_title,

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetpackcomposeplayground.samples.juicetracker.ui
+package com.example.jetpackcomposeplayground.samples.juicetracker.views_with_compose
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -23,14 +23,26 @@ import com.example.jetpackcomposeplayground.samples.juicetracker.data.JuiceRepos
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
-/**
- * ViewModel to retrieve, delete a juice entry from the [JuiceRepository]'s data source.
- */
-class TrackerViewModel(private val juiceRepository: JuiceRepository) : ViewModel() {
+class EntryViewModel(private val juiceRepository: JuiceRepository) : ViewModel() {
 
-    val juicesStream: Flow<List<Juice>> = juiceRepository.juicesStream
+    fun getJuiceStream(id: Long): Flow<Juice?> {
+        return juiceRepository.getJuiceStream(id)
+    }
 
-    fun deleteJuice(juice: Juice) = viewModelScope.launch {
-        juiceRepository.deleteJuice(juice)
+    fun saveJuice(
+        id: Long,
+        name: String,
+        description: String,
+        color: String,
+        rating: Int
+    ) {
+        val juice = Juice(id, name, description, color, rating)
+        viewModelScope.launch {
+            if (id > 0) {
+                juiceRepository.updateJuice(juice)
+            } else {
+                juiceRepository.addJuice(juice)
+            }
+        }
     }
 }

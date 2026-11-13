@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetpackcomposeplayground.samples.juicetracker
+package com.example.jetpackcomposeplayground.samples.juicetracker.views_with_compose
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,8 +29,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.jetpackcomposeplayground.R
 import com.example.jetpackcomposeplayground.databinding.FragmentTrackerBinding
 import com.example.jetpackcomposeplayground.samples.juicetracker.ui.AppViewModelProvider
-import com.example.jetpackcomposeplayground.samples.juicetracker.ui.JuiceListAdapter
-import com.example.jetpackcomposeplayground.samples.juicetracker.ui.TrackerViewModel
 import kotlinx.coroutines.launch
 
 class TrackerFragment : Fragment() {

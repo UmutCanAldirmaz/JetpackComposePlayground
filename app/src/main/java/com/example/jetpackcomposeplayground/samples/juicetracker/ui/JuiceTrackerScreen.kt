@@ -17,6 +17,7 @@
 package com.example.jetpackcomposeplayground.samples.juicetracker.ui
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -24,20 +25,32 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.PrimaryTabRow
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Tab
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.viewinterop.AndroidViewBinding
 import com.example.jetpackcomposeplayground.R
 import com.example.jetpackcomposeplayground.databinding.ActivityJuiceTrackerBinding
+import com.example.jetpackcomposeplayground.samples.juicetracker.compose_with_views.JuiceTrackerComposeScreenContent
 
 /**
- * Bu Composable ekranı, Jetpack Compose ile Android XML Views & Fragment yapısını
- * birlikte çalıştıran (Compose-View Interoperability) ana ekran bileşenidir.
- * [AndroidViewBinding] kullanarak [ActivityJuiceTrackerBinding] üzerinden XML Navigation Graph'ı Compose içinde çalıştırır.
+ * Juice Tracker Main Interoperability Screen.
+ * Combines both View Interoperability techniques in a single unified interface with Tabs:
+ * 1. "Views with Compose": XML Navigation Graph & Fragments with ComposeView inside RecyclerView.
+ * 2. "Compose with Views": Pure Compose UI with AndroidView (RatingBar, Spinner, AdBanner).
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -48,26 +61,77 @@ fun JuiceTrackerScreen(
         onBackClick()
     }
 
+    var selectedTabIndex by remember { mutableIntStateOf(0) }
+    val tabs = listOf("Views in Compose", "Compose with Views")
+
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.juice_tracker_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onBackClick) {
-                        Icon(
-                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = stringResource(R.string.back_button)
+            Column {
+                TopAppBar(
+                    title = {
+                        Text(
+                            text = stringResource(R.string.juice_tracker_title),
+                            fontWeight = FontWeight.Bold
+                        )
+                    },
+                    navigationIcon = {
+                        IconButton(onClick = onBackClick) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = stringResource(R.string.back_button)
+                            )
+                        }
+                    },
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceContainer
+                    )
+                )
+                PrimaryTabRow(
+                    selectedTabIndex = selectedTabIndex,
+                    containerColor = MaterialTheme.colorScheme.surfaceContainer
+                ) {
+                    tabs.forEachIndexed { index, title ->
+                        Tab(
+                            selected = selectedTabIndex == index,
+                            onClick = { selectedTabIndex = index },
+                            text = {
+                                Text(
+                                    text = title,
+                                    fontWeight = if (selectedTabIndex == index) FontWeight.Bold else FontWeight.Normal
+                                )
+                            }
                         )
                     }
                 }
-            )
+            }
         }
     ) { innerPadding ->
-        AndroidViewBinding(
-            factory = ActivityJuiceTrackerBinding::inflate,
+        Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-        )
+        ) {
+            when (selectedTabIndex) {
+                0 -> {
+                    // Option 1: Views with Compose (AndroidViewBinding hosting XML Navigation Graph & Fragments)
+                    AndroidViewBinding(
+                        factory = ActivityJuiceTrackerBinding::inflate,
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
+                1 -> {
+                    // Option 2: Compose with Views (Pure Compose UI embedding AndroidView RatingBar/Spinner/AdBanner)
+                    JuiceTrackerComposeScreenContent()
+                }
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+fun PreviewJuiceTrackerScreen() {
+    MaterialTheme {
+        JuiceTrackerScreen()
     }
 }

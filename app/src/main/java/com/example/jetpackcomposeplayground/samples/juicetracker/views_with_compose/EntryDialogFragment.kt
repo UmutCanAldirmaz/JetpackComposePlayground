@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.jetpackcomposeplayground.samples.juicetracker
+package com.example.jetpackcomposeplayground.samples.juicetracker.views_with_compose
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -32,15 +32,10 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.jetpackcomposeplayground.databinding.FragmentEntryDialogBinding
 import com.example.jetpackcomposeplayground.samples.juicetracker.data.JuiceColor
 import com.example.jetpackcomposeplayground.samples.juicetracker.ui.AppViewModelProvider
-import com.example.jetpackcomposeplayground.samples.juicetracker.ui.EntryViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.launch
 
-/**
- * Bu diyalog parçacığı (BottomSheetDialogFragment) yeni bir meyve suyu kaydı eklemeyi
- * veya mevcut kaydı düzenlemeyi sağlar.
- */
 class EntryDialogFragment : BottomSheetDialogFragment() {
 
     private val entryViewModel by viewModels<EntryViewModel> { AppViewModelProvider.Factory }
@@ -61,7 +56,6 @@ class EntryDialogFragment : BottomSheetDialogFragment() {
         val binding = FragmentEntryDialogBinding.bind(view)
         val juiceId = arguments?.getLong("itemId") ?: 0L
 
-        // itemId > 0 ise mevcut bir öğe düzenlenmektedir.
         if (juiceId > 0) {
             viewLifecycleOwner.lifecycleScope.launch {
                 repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -78,7 +72,6 @@ class EntryDialogFragment : BottomSheetDialogFragment() {
         }
 
         binding.name.doOnTextChanged { text, _, _, _ ->
-            // İsim boş değilse Kaydet butonunu aktif et
             binding.saveButton.isEnabled = !text.isNullOrBlank()
         }
 
@@ -99,7 +92,6 @@ class EntryDialogFragment : BottomSheetDialogFragment() {
             }
         }
 
-        // Kaydet butonu tıklama olayı
         binding.saveButton.setOnClickListener {
             entryViewModel.saveJuice(
                 juiceId,
@@ -111,7 +103,6 @@ class EntryDialogFragment : BottomSheetDialogFragment() {
             dismiss()
         }
 
-        // İptal butonu tıklama olayı
         binding.cancelButton.setOnClickListener {
             dismiss()
         }

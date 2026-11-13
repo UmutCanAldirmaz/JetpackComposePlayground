@@ -21,7 +21,7 @@
     app:startDestination="@id/trackerFragment">
     <fragment
         android:id="@+id/trackerFragment"
-        android:name="com.example.jetpackcomposeplayground.samples.juicetracker.TrackerFragment"
+        android:name="com.example.jetpackcomposeplayground.samples.juicetracker.views_with_compose.TrackerFragment"
         android:label="fragment_tracker"
         tools:layout="@layout/fragment_tracker" >
         <action
@@ -30,7 +30,7 @@
     </fragment>
     <dialog
         android:id="@+id/entryDialogFragment"
-        android:name="com.example.jetpackcomposeplayground.samples.juicetracker.EntryDialogFragment"
+        android:name="com.example.jetpackcomposeplayground.samples.juicetracker.views_with_compose.EntryDialogFragment"
         android:label="fragment_entry_dialog"
         tools:layout="@layout/fragment_entry_dialog">
         <argument

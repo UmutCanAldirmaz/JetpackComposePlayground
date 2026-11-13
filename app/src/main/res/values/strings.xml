@@ -337,17 +337,25 @@
     <string name="ornamental_fig">Ornamental fig</string>
     <string name="delicious_multiple_fruit">Delicious multiple fruit</string>
 
-    <!-- UNIT 8: Android Views & Fragments (Juice Tracker) -->
-    <string name="category_views">Views &amp; Fragments</string>
-    <string name="juice_tracker_title">Juice Tracker (Views &amp; XML)</string>
-    <string name="juice_tracker_desc">Bu alıştırmada; klasik Android XML Layout, View Binding, Fragment, Navigation Graph (nav_graph.xml) ve Room veritabanını öğreneceksiniz.</string>
+    <!-- UNIT 8: Android Views & Interoperability -->
+    <string name="category_views">Views &amp; Interoperability</string>
+    <string name="juice_tracker_title">Juice Tracker (View Interoperability)</string>
+    <string name="juice_tracker_desc">Bu alıştırmada; hem View tabanlı uygulamaya Compose eklemeyi (ComposeView) hem de Compose uygulamasına Android View eklemeyi (AndroidView) öğreneceksiniz.</string>
     <string name="juice_type">Type of juice</string>
     <string name="delete">Delete</string>
     <string name="juice_name">Juice Name</string>
     <string name="juice_description">Description</string>
     <string name="juice_rating">Rating</string>
+    <string name="rating">Rating</string>
+    <string name="color">Color</string>
+    <string name="add_juice">Add juice</string>
+    <string name="bottom_sheet_headline">Types of juice</string>
     <string name="save">Save</string>
-    <string name="juice_color">Color</string>
+    <string name="juice_color">Color: %s</string>
+    <plurals name="number_of_stars">
+        <item quantity="one">%d star</item>
+        <item quantity="other">%d stars</item>
+    </plurals>
 
     <string name="red">Red</string>
     <string name="blue">Blue</string>

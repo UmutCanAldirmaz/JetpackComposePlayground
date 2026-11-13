@@ -21,6 +21,9 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.jetpackcomposeplayground.PlaygroundApplication
+import com.example.jetpackcomposeplayground.samples.juicetracker.views_with_compose.EntryViewModel
+import com.example.jetpackcomposeplayground.samples.juicetracker.views_with_compose.TrackerViewModel
+import com.example.jetpackcomposeplayground.samples.juicetracker.compose_with_views.JuiceTrackerComposeViewModel
 
 object AppViewModelProvider {
     val Factory = viewModelFactory {
@@ -31,6 +34,10 @@ object AppViewModelProvider {
         // Initializer for TrackerViewModel
         initializer {
             TrackerViewModel(playgroundApplication().juiceTrackerContainer.trackerRepository)
+        }
+        // Initializer for JuiceTrackerComposeViewModel
+        initializer {
+            JuiceTrackerComposeViewModel(playgroundApplication().juiceTrackerContainer.trackerRepository)
         }
     }
 }
