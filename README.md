@@ -30,6 +30,8 @@
 
 <img src="docs/screenshots/home.png" width="260" alt="JetpackComposePlayground ana ekranı" />
 
+<img src="docs/screenshots/home2.png" width="260" alt="ana ekranı gece modu" />
+
 <br/><br/>
 
 **[Genel Bakış](#-proje-genel-bakış) · [Ekran Görüntüleri](#-ekran-görüntüleri) · [Mimari](#-mimari-ve-temel-özellikler) · [Uygulama Kataloğu](#-etkileşimli-uygulama-kataloğu) · [Interop Vitrini](#-view-ve-compose-birlikte-çalışabilirlik-vitrini) · [Kurulum](#-başlarken-ve-kurulum) · [Testler](#-test-stratejisi)**
@@ -163,8 +165,11 @@ Hem bir **öğrenme laboratuvarı** hem de bir şeyin *nasıl doğru yapılacağ
     <td align="center" width="25%"><img src="docs/screenshots/cupcake.png" width="170" alt="Cupcake" /><br/><sub><b>🧁 Cupcake</b></sub></td>
     <td align="center" width="25%"><img src="docs/screenshots/lunchtray.png" width="170" alt="Lunch Tray" /><br/><sub><b>🥗 Lunch Tray</b></sub></td>
     <td align="center" width="25%"><img src="docs/screenshots/reply.png" width="170" alt="Reply" /><br/><sub><b>📧 Reply</b></sub></td>
-    <td align="center" width="25%"><img src="docs/screenshots/sports.png" width="170" alt="Sports" /><br/><sub><b>⚽ Sports</b></sub></td>
+    <td align="center" width="25%"><img src="docs/screenshots/sports2.png" width="170" alt="Sports" /><br/><sub><b>⚽ Sports</b></sub></td>
   </tr>
+  <tr>
+  <td align="center" width="25%"><img src="docs/screenshots/sports.png" width="170" alt="Sports" /><br/><sub><b>⚽ Sports Tablet</b></sub></td>
+    </tr>
 </table>
 
 </div>
