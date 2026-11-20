@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="dice_roller_title">Dice Roller</string>
-    <string name="dice_roller_desc">Bu uygulamada; remember ve mutableStateOf ile Compose\'da durum yönetimini (State), Random ile rastgele veri üretimini ve dinamik görsel (Drawable) güncellemelerini öğrendik.</string>
-    <string name="roll_dice">Roll</string>
-</resources>

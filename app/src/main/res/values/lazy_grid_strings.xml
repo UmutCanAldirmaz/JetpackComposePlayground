@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="lazy_grid_practice_title">Lazy Grid Practice</string>
-    <string name="lazy_grid_practice_desc">Bu uygulamada; LazyVerticalGrid (Adaptive, maxLineSpan ile 5\'in katları tam satır) ve LazyHorizontalGrid (Fixed(3) satır, yatay kaydırma) yapılarını öğrendik.</string>
-</resources>

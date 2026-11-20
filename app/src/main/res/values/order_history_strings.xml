@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="order_history_title">Order History</string>
-    <string name="order_history_desc">Bu uygulamada; sealed interface (OrderFeedItem), key ve contentType parametreleriyle çoklu görünüm tipli (SummaryCard, ActiveOrder, PromotionBanner) LazyColumn performans optimizasyonunu öğrendik.</string>
-</resources>

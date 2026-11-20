@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="lemonade_title">Lemonade</string>
-    <string name="lemonade_desc">Bu uygulamada; çok aşamalı kullanıcı akışlarını yönetmek için State Machine mantığını, koşullu UI render etmeyi ve tıklama sayaçları ile state güncellemelerini öğrendik.</string>
-    <string name="lemon_select_text">Limon ağacından limon seçmek için tıkla!</string>
-    <string name="lemon_squeeze_text">Suyu sıkmak için limona bas (%1$d/%2$d)!</string>
-    <string name="lemon_drink_text">Limonatayı içmek için bardağa tıkla!</string>
-    <string name="lemon_restart_text">Boş bardağı yenilemek için tıkla!</string>
-</resources>
