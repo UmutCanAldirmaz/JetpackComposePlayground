@@ -165,8 +165,9 @@ Hem bir **öğrenme laboratuvarı** hem de bir şeyin *nasıl doğru yapılacağ
     <td align="center" width="25%"><img src="docs/screenshots/cupcake.png" width="170" alt="Cupcake" /><br/><sub><b>🧁 Cupcake</b></sub></td>
     <td align="center" width="25%"><img src="docs/screenshots/lunchtray.png" width="170" alt="Lunch Tray" /><br/><sub><b>🥗 Lunch Tray</b></sub></td>
     <td align="center" width="25%"><img src="docs/screenshots/reply.png" width="170" alt="Reply" /><br/><sub><b>📧 Reply</b></sub></td>
-    <td align="center" width="25%"><img src="docs/screenshots/sports.png" width="170" alt="Sports" /><br/><sub><b>⚽ Sports</b></sub></td>
     <td align="center" width="25%"><img src="docs/screenshots/sports2.png" width="170" alt="Sports" /><br/><sub><b>⚽ Sports</b></sub></td>
+    <td align="center" width="25%"><img src="docs/screenshots/sports.png" width="170" alt="Sports" /><br/><sub><b>⚽ Sports Tablet</b></sub></td>
+    
     
   </tr>
 </table>
