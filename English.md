@@ -70,7 +70,7 @@ It is built to be **both a learning lab and a reference you can come back to** w
 | 🔌 **Production-style integrations** | Type-safe navigation, offline-first persistence, background work chains, and network layers with proper error states. |
 | 🔁 **Legacy ↔ Compose bridges** | Working examples of `ComposeView`, `AndroidView`, and `AndroidViewBinding` for incremental migration. |
 | 🧪 **Tested code** | Compose UI tests, navigation tests, and DAO persistence tests. |
-| 📝 **Study notes per app** | Each sample ships with a `*_study_notes.md` that explains the *why*, not only the *what*. |
+| 📝 **Study notes per app** | Each sample ships with `*_study_notes_tr.md` and `*_study_notes_eng.md` files explaining the *why*, not only the *what*. |
 | 🧪 **A sandbox** | The *Exercise Lab* is a free area for experimenting without touching the curated samples. |
 
 > [!NOTE]
@@ -473,7 +473,7 @@ continuation
 ## 📱 Interactive App Catalog
 
 > [!TIP]
-> **30 sample apps across 8 units, plus the Exercise Lab sandbox (31 samples in total).** Each sample has its own folder under `samples/` with source code and a `*_study_notes.md` file.
+> **30 sample apps across 8 units, plus the Exercise Lab sandbox (31 samples in total).** Each sample has its own folder under `samples/` with source code and dedicated `*_study_notes_tr.md` & `*_study_notes_eng.md` files.
 
 | 📚 Units | 📱 Apps | 🧩 Focus |
 |:---:|:---:|:---|
@@ -812,12 +812,13 @@ app/src/
 
 ## 📝 Study Notes & Documentation
 
-Every sample folder contains a dedicated **`*_study_notes.md`** file, a compact write-up of what that app teaches.
+Every sample folder contains dedicated **`*_study_notes_tr.md`** (Turkish) and **`*_study_notes_eng.md`** (English) study note files, compact write-ups of what that app teaches.
 
 ```text
 samples/<sample>/
 ├── …                              # screens, ViewModels, data layer
-└── <sample>_study_notes.md        👈 concepts, pitfalls, key takeaways
+├── <sample>_study_notes_tr.md     👈 Turkish study note (kavramlar, tuzaklar, çıkarımlar)
+└── <sample>_study_notes_eng.md    👈 English study note (concepts, pitfalls, takeaways)
 ```
 
 **What a typical study note covers:**
@@ -1059,7 +1060,7 @@ Contributions, issues, and ideas are welcome.
 5. 🔃 Open a Pull Request
 
 > [!NOTE]
-> When adding a new sample, create its folder under `samples/`, register it in `home/PracticeAppCatalog.kt`, include a matching `*_study_notes.md` file, and add the app to the [App Catalog](#-interactive-app-catalog).
+> When adding a new sample, create its folder under `samples/`, register it in `home/PracticeAppCatalog.kt`, include matching `*_study_notes_tr.md` & `*_study_notes_eng.md` files, and add the app to the [App Catalog](#-interactive-app-catalog).
 
 ---
 

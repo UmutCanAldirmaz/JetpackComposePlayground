@@ -72,7 +72,7 @@ Hem bir **öğrenme laboratuvarı** hem de bir şeyin *nasıl doğru yapılacağ
 | 🔌 **Üretim tarzı entegrasyonlar** | Type-safe navigasyon, çevrimdışı öncelikli kalıcılık, arka plan iş zincirleri ve doğru hata durumlarına sahip ağ katmanları. |
 | 🔁 **Eski ↔ Compose köprüleri** | Kademeli geçiş için `ComposeView`, `AndroidView` ve `AndroidViewBinding` ile çalışan örnekler. |
 | 🧪 **Test edilmiş kod** | Compose UI testleri, navigasyon testleri, DAO kalıcılık testleri, WorkManager ve fake tabanlı `ViewModel` testleri. |
-| 📝 **Her uygulama için çalışma notu** | Her örnekte yalnızca *ne*'yi değil, *neden*'i de anlatan bir `*_study_notes.md` bulunur. |
+| 📝 **Her uygulama için çalışma notu** | Her örnekte yalnızca *ne*'yi değil, *neden*'i de anlatan `*_study_notes_tr.md` ve `*_study_notes_eng.md` çalışma notları bulunur. |
 | 🧪 **Bir sandbox** | *Exercise Lab*, seçilmiş örneklere dokunmadan serbestçe denemeler yapabileceğin bir alandır. |
 
 > [!NOTE]
@@ -478,7 +478,7 @@ continuation
 ## 📱 Etkileşimli Uygulama Kataloğu
 
 > [!TIP]
-> **8 ünitede 30 örnek uygulama ve Exercise Lab sandbox'ı (toplam 31 örnek).** Her örneğin `samples/` altında kendi klasörü, kaynak kodu ve bir `*_study_notes.md` dosyası vardır.
+> **8 ünitede 30 örnek uygulama ve Exercise Lab sandbox'ı (toplam 31 örnek).** Her örneğin `samples/` altında kendi klasörü, kaynak kodu ve `*_study_notes_tr.md` ile `*_study_notes_eng.md` çalışma notu dosyaları vardır.
 
 | 📚 Ünite | 📱 Örnek | 🧩 Odak |
 |:---:|:---:|:---|
@@ -818,12 +818,13 @@ app/src/
 
 ## 📝 Çalışma Notları ve Dokümantasyon
 
-Her örnek klasörü, o uygulamanın neyi öğrettiğini özetleyen kompakt bir **`*_study_notes.md`** dosyası içerir.
+Her örnek klasörü, o uygulamanın neyi öğrettiğini özetleyen Türkçe (`*_study_notes_tr.md`) ve İngilizce (`*_study_notes_eng.md`) **çalışma notları** içerir.
 
 ```text
 samples/<örnek>/
 ├── …                              # ekranlar, ViewModel'ler, veri katmanı
-└── <örnek>_study_notes.md         👈 kavramlar, tuzaklar, önemli çıkarımlar
+├── <örnek>_study_notes_tr.md      👈 Türkçe çalışma notu (kavramlar, tuzaklar, çıkarımlar)
+└── <örnek>_study_notes_eng.md     👈 İngilizce çalışma notu (concepts, pitfalls, takeaways)
 ```
 
 **Tipik bir çalışma notunun kapsamı:**
@@ -1065,7 +1066,7 @@ Katkılar, issue'lar ve fikirler memnuniyetle karşılanır.
 5. 🔃 Bir Pull Request aç
 
 > [!NOTE]
-> Yeni bir örnek eklerken `samples/` altında klasörünü oluştur, `home/PracticeAppCatalog.kt` içine kaydet, ilgili `*_study_notes.md` dosyasını ekle ve uygulamayı [Uygulama Kataloğu](#-etkileşimli-uygulama-kataloğu)'na ve `docs/screenshots/` altına bir ekran görüntüsü olarak ekle.
+> Yeni bir örnek eklerken `samples/` altında klasörünü oluştur, `home/PracticeAppCatalog.kt` içine kaydet, ilgili `*_study_notes_tr.md` ve `*_study_notes_eng.md` çalışma notu dosyalarını ekle ve uygulamayı [Uygulama Kataloğu](#-etkileşimli-uygulama-kataloğu)'na ve `docs/screenshots/` altına bir ekran görüntüsü olarak ekle.
 
 ---
 
