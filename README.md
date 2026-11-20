@@ -168,7 +168,7 @@ Hem bir **öğrenme laboratuvarı** hem de bir şeyin *nasıl doğru yapılacağ
     <td align="center" width="25%"><img src="docs/screenshots/sports2.png" width="170" alt="Sports" /><br/><sub><b>⚽ Sports</b></sub></td>
   </tr>
   <tr>
-  <td align="center" width="25%"><img src="docs/screenshots/sports.png" width="170" alt="Sports" /><br/><sub><b>⚽ Sports Tablet</b></sub></td>
+  <td align="center" width="50%"><img src="docs/screenshots/sports.png" width="170" alt="Sports" /><br/><sub><b>⚽ Sports Tablet</b></sub></td>
     </tr>
 </table>
 
