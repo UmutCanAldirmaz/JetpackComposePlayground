@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="counter_exercise_title">Lifecycle Counter</string>
+    <string name="counter_exercise_desc">Bu egzersizde; ViewModel, StateFlow ve collectAsStateWithLifecycle kullanarak arka plana atıldığında duran coroutine sayacını inceledik.</string>
+</resources>

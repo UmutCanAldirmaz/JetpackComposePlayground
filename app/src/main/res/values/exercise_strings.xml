@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exercise_title">Exercise Sandbox</string>
+    <string name="exercise_desc">Bu sayfada yeni Compose denemelerinizi, özel bileşenlerinizi ve interaktif UI testlerinizi özgürce deneyebilirsiniz.</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tip_calculator_title">Tip Calculator</string>
+    <string name="tip_calc_desc">Bu uygulamada; OutlinedTextField ile kullanıcıdan sayısal girdi almayı, KeyboardOptions ile klavye yönetimini ve NumberFormat ile para birimi formatlamayı öğrendik.</string>
+    <string name="bill_amount_label">Fatura Tutarı (₺)</string>
+    <string name="tip_percentage_label">Bahşiş Oranı (%)</string>
+    <string name="calculated_tip_label">Hesaplanan Bahşiş:</string>
+    <string name="calculated_tip_person">Kişi Sayısı</string>
+    <string name="round_up_tip">Bahşişi Yuvarla</string>
+</resources>

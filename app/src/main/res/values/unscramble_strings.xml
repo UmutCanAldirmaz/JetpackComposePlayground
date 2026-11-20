@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="unscramble_title">Unscramble</string>
+    <string name="unscramble_desc">Karışık verilen harflerden doğru kelimeyi bulma oyunu (ViewModel &amp; StateFlow).</string>
+    <string name="instructions">Tüm harfleri kullanarak kelimeyi çözün.</string>
+    <string name="skip">Atla</string>
+    <string name="unscramble_submit">Gönder</string>
+    <string name="score">Puan: %d</string>
+    <string name="word_count">%d/10</string>
+    <string name="enter_your_word">Kelimenizi girin</string>
+    <string name="congratulations">Tebrikler!</string>
+    <string name="you_scored">Puanınız: %d</string>
+    <string name="exit">Çıkış</string>
+    <string name="play_again">Tekrar Oyna</string>
+    <string name="wrong_guess">Yanlış Tahmin!</string>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="advanced_lazy_lists_practice_title">Advanced Lazy Lists</string>
+    <string name="advanced_lazy_lists_practice_desc">Bu uygulamada; LazyRow ile yatay filtre çubuğu (spacedBy, contentPadding) ve tek bir LazyColumn içinde header, items ve footer (Rapor Sonu) birleştirmeyi öğrendik.</string>
+</resources>

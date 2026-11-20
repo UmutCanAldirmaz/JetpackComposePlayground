@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="superheroes_title">SuperHeroes</string>
+    <string name="superheroes_desc">Bu uygulamada; süper kahraman kartları, kahraman özellikleri ve kahraman görselleriyle Material Design 3 liste tasarımları oluşturduk.</string>
+    <string name="hero_name_1">Android Süper Kahramanı 1</string>
+    <string name="hero_desc_1">Kod optimizasyonunda ve hızlı geliştirmede üstün yetenekler.</string>
+    <string name="hero_name_2">Android Süper Kahramanı 2</string>
+    <string name="hero_desc_2">Hafıza sızıntılarını anında tespit edip yok eder.</string>
+    <string name="hero_name_3">Android Süper Kahramanı 3</string>
+    <string name="hero_desc_3">Jetpack Compose ile piksel kusursuz UI tasarımları üretir.</string>
+    <string name="hero_name_4">Android Süper Kahramanı 4</string>
+    <string name="hero_desc_4">Asenkron işlemleri Coroutines ile kusursuz yönetir.</string>
+    <string name="hero_name_5">Android Süper Kahramanı 5</string>
+    <string name="hero_desc_5">Mimari desenleri titizlikle uygular.</string>
+    <string name="hero_name_6">Android Süper Kahramanı 6</string>
+    <string name="hero_desc_6">Kapsamlı test senaryolarıyla sıfır hata garantisi sunar.</string>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="lazy_list_state_practice_title">Lazy List State Control</string>
+    <string name="lazy_list_state_practice_desc">Bu uygulamada; LazyListState ile belirli bir indekse anında (scrollToItem) veya animasyonlu (animateScrollToItem) kaydırma ve visibleItemsInfo ile görünür öğe sayısını izlemeyi öğrendik.</string>
+</resources>

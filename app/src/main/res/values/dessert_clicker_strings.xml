@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dessert_clicker_title">Dessert Clicker</string>
+    <string name="dessert_clicker_desc">Bu uygulamada; Android yaşam döngüsünü (Android Lifecycle) keşfetmeyi ve Logcat konsolu üzerinden yaşam döngüsü loglarını izlemeyi öğrendik.</string>
+    <string name="desserts_sold">Satılan Tatlı:</string>
+    <string name="total_revenue">Toplam Gelir:</string>
+    <string name="share">Paylaş</string>
+    <string name="share_text">%d adet tatlı satılarak toplam ₺%d gelir elde edildi!</string>
+    <string name="dessert_sold">Desserts Sold</string>
+    <string name="sharing_not_available">Sharing not available</string>
+</resources>
