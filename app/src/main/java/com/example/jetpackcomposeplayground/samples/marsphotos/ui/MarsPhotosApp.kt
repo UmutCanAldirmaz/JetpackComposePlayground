@@ -90,9 +90,9 @@ fun MarsTopAppBar(
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-            titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-            navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+            containerColor = androidx.compose.ui.graphics.Color(0xFF4A148C),
+            titleContentColor = androidx.compose.ui.graphics.Color.White,
+            navigationIconContentColor = androidx.compose.ui.graphics.Color.White
         ),
         modifier = modifier
     )

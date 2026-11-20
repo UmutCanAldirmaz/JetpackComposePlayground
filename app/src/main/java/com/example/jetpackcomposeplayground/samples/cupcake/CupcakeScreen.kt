@@ -62,7 +62,9 @@ fun CupcakeAppBar(
     TopAppBar(
         title = { Text(stringResource(currentScreen.title)) },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer
+            containerColor = androidx.compose.ui.graphics.Color(0xFFAD1457),
+            titleContentColor = androidx.compose.ui.graphics.Color.White,
+            navigationIconContentColor = androidx.compose.ui.graphics.Color.White
         ),
         modifier = modifier,
         navigationIcon = {

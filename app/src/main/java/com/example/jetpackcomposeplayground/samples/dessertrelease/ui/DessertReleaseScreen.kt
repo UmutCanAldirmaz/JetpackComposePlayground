@@ -113,12 +113,15 @@ private fun DessertReleaseScreen(
                         Icon(
                             painter = painterResource(uiState.toggleIcon),
                             contentDescription = stringResource(uiState.toggleContentDescription),
-                            tint = MaterialTheme.colorScheme.onBackground
+                            tint = androidx.compose.ui.graphics.Color.White
                         )
                     }
                 },
                 colors = TopAppBarDefaults.largeTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.inversePrimary
+                    containerColor = androidx.compose.ui.graphics.Color(0xFF2E7D32),
+                    titleContentColor = androidx.compose.ui.graphics.Color.White,
+                    navigationIconContentColor = androidx.compose.ui.graphics.Color.White,
+                    actionIconContentColor = androidx.compose.ui.graphics.Color.White
                 )
             )
         }

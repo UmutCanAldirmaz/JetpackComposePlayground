@@ -83,17 +83,22 @@ fun JuiceTrackerScreen(
                         }
                     },
                     colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.surfaceContainer
+                        containerColor = androidx.compose.ui.graphics.Color(0xFFD84315),
+                        titleContentColor = androidx.compose.ui.graphics.Color.White,
+                        navigationIconContentColor = androidx.compose.ui.graphics.Color.White
                     )
                 )
                 PrimaryTabRow(
                     selectedTabIndex = selectedTabIndex,
-                    containerColor = MaterialTheme.colorScheme.surfaceContainer
+                    containerColor = androidx.compose.ui.graphics.Color(0xFFBF360C),
+                    contentColor = androidx.compose.ui.graphics.Color.White
                 ) {
                     tabs.forEachIndexed { index, title ->
                         Tab(
                             selected = selectedTabIndex == index,
                             onClick = { selectedTabIndex = index },
+                            selectedContentColor = androidx.compose.ui.graphics.Color.White,
+                            unselectedContentColor = androidx.compose.ui.graphics.Color(0xFFFFCCBC),
                             text = {
                                 Text(
                                     text = title,

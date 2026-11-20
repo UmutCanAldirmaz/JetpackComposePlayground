@@ -55,7 +55,9 @@ fun LunchTrayAppBar(
     TopAppBar(
         title = { Text(stringResource(currentScreenTitle)) },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer
+            containerColor = androidx.compose.ui.graphics.Color(0xFFD84315),
+            titleContentColor = androidx.compose.ui.graphics.Color.White,
+            navigationIconContentColor = androidx.compose.ui.graphics.Color.White
         ),
         modifier = modifier,
         navigationIcon = {

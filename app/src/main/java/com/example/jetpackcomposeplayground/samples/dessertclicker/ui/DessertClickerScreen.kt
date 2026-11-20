@@ -68,13 +68,15 @@ fun DessertClickerScreen(
                         Icon(
                             imageVector = Icons.Default.Share,
                             contentDescription = stringResource(R.string.share),
-                            tint = MaterialTheme.colorScheme.onPrimaryContainer
+                            tint = androidx.compose.ui.graphics.Color(0xFFFFF8E1)
                         )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                    containerColor = androidx.compose.ui.graphics.Color(0xFFBF360C),
+                    titleContentColor = androidx.compose.ui.graphics.Color(0xFFFFF8E1),
+                    navigationIconContentColor = androidx.compose.ui.graphics.Color(0xFFFFF8E1),
+                    actionIconContentColor = androidx.compose.ui.graphics.Color(0xFFFFF8E1)
                 )
             )
         }

@@ -159,7 +159,9 @@ fun SportsAppBar(
             { Box {} }
         },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primary
+            containerColor = androidx.compose.ui.graphics.Color(0xFF0D47A1),
+            titleContentColor = androidx.compose.ui.graphics.Color.White,
+            navigationIconContentColor = androidx.compose.ui.graphics.Color.White
         ),
         modifier = modifier,
     )
