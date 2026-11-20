@@ -30,6 +30,8 @@
 
 <img src="docs/screenshots/home.png" width="260" alt="JetpackComposePlayground ana ekranı" />
 
+<img src="docs/screenshots/home2.png" width="260" alt="ana ekranı gece modu" />
+
 <br/><br/>
 
 **[Genel Bakış](#-proje-genel-bakış) · [Ekran Görüntüleri](#-ekran-görüntüleri) · [Mimari](#-mimari-ve-temel-özellikler) · [Uygulama Kataloğu](#-etkileşimli-uygulama-kataloğu) · [Interop Vitrini](#-view-ve-compose-birlikte-çalışabilirlik-vitrini) · [Kurulum](#-başlarken-ve-kurulum) · [Testler](#-test-stratejisi)**
